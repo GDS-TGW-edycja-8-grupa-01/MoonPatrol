@@ -1,0 +1,4 @@
+-r:./Plugins/CsvHelper
+-r:./Plugins/Microsoft.Bcl.AsyncInterfaces
+-r:./Plugins/System.Threading.Tasks.Extensions
+-r:./Plugins/System.Runtime.CompilerServices.Unsafe
