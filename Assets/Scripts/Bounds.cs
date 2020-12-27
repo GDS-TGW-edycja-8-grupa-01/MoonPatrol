@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bounds : MonoBehaviour
 {
     private Vector3 bounds;
+    private float width;
 
     private void Start()
     {
@@ -14,15 +15,19 @@ public class Bounds : MonoBehaviour
 
         Debug.LogFormat("Bounds are {0}", bounds);
 
+        width = GetComponent<SpriteRenderer>().bounds.size.x;
+        
+        Debug.LogFormat("Object width is {0}...", width);
+
     }
     private void LateUpdate()
     {
         Debug.LogFormat("My x position is {0}", transform.position.x);
 
-        if (transform.position.x < bounds.x)
-        {
-            Debug.Log("Destroyed...");
-            //Destroy(this);
-        }
+        Vector3 position = transform.position;
+
+        position.x = Mathf.Clamp(position.x, -bounds.x + width / 2.0f, 0.0f - width / 2.0f);
+
+        transform.position = position;
     }
 }
