@@ -848,10 +848,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 1802965142}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   accelerationRate: 1
   decelerationRate: 1
   jumpForce: 6
   forwardSpeed: 6
+  groundCheckDistance: 0.64
 --- !u!114 &1023006364
 MonoBehaviour:
   m_ObjectHideFlags: 0
