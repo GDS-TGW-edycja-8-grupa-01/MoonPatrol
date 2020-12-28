@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Reflection;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Vector2 movement;
     
     public GameObject spawn;
-
+    
     [SerializeField]
     public LayerMask groundLayerMask;
     [Range(1, 5.0f)]
@@ -54,34 +54,32 @@ public class Player : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.velocity += Vector2.up * jumpForce;
         }
-
-        IsGrounded();
     }
 
     private bool IsGrounded()
     {
         Vector3 start = sr.bounds.center;
         Vector3 direction = Vector3.down * groundCheckDistance;
-        Color rayColor;
         bool returnValue = false;
 
         RaycastHit2D hit = Physics2D.Raycast(start, Vector3.down, groundCheckDistance, groundLayerMask);
 
         returnValue = hit.collider != null;
 
-        if (returnValue)
-        {
-            rayColor = Color.green;
-        }
-        else
-        {
-            rayColor = Color.red;
-        }
+        //Color rayColor;
+        //if (returnValue)
+        //{
+        //    rayColor = Color.green;
+        //}
+        //else
+        //{
+        //    rayColor = Color.red;
+        //}
 
-        Debug.DrawRay(start, direction, rayColor);
+        //Debug.DrawRay(start, direction, rayColor);
 
-        Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider);
-                
+        //Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider);
+
         return returnValue;
     }
 }

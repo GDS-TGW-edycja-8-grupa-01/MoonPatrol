@@ -440,6 +440,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d526a6f20bb9a489237d19c301bd1a, type: 3}
+--- !u!1 &479341334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479341335}
+  m_Layer: 0
+  m_Name: FrontGum
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479341335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479341334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.265, y: 0.374, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1023006358}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +722,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 860461648}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &984505762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984505763}
+  m_Layer: 0
+  m_Name: RoofGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984505763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984505762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.798, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1023006358}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023006357
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +769,7 @@ GameObject:
   - component: {fileID: 1023006364}
   - component: {fileID: 1023006365}
   - component: {fileID: 1023006366}
+  - component: {fileID: 1023006367}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -729,6 +790,8 @@ Transform:
   m_Children:
   - {fileID: 1654011662}
   - {fileID: 1700969899}
+  - {fileID: 984505763}
+  - {fileID: 479341335}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -868,7 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bace17a65e59914fa1c28acb13895cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallMultiplier: 1.05
+  fallMultiplier: 1.03
 --- !u!114 &1023006365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,6 +959,24 @@ MonoBehaviour:
   frontWheel: {fileID: 1654011661}
   rearWheel: {fileID: 1700969898}
   rotationSpeed: 720
+--- !u!114 &1023006367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023006357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724dcf61303590f46a013bdb54b9596d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roofGun: {fileID: 984505762}
+  frontGun: {fileID: 479341334}
+  air2AirMissile: {fileID: 8537259099064425494, guid: 1f1b24e3622814d48bd4fcbd5b670c9a,
+    type: 3}
+  air2SurfaceMissile: {fileID: 3668526814344130017, guid: dcadb1d2964274f46911411a49db31d1,
+    type: 3}
 --- !u!1 &1063856575
 GameObject:
   m_ObjectHideFlags: 0
