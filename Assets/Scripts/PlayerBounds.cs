@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bounds : MonoBehaviour
+public class PlayerBounds : MonoBehaviour
 {
     private Vector3 bounds;
     private float width;
@@ -20,6 +20,7 @@ public class Bounds : MonoBehaviour
         Debug.LogFormat("Object width is {0}...", width);
 
     }
+
     private void LateUpdate()
     {
         Debug.LogFormat("My x position is {0}", transform.position.x);

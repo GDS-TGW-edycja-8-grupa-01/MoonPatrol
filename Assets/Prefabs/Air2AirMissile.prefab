@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1444864248643734252}
   - component: {fileID: 3674491409393231532}
   - component: {fileID: 68179699244898956}
+  - component: {fileID: -3754180784558252028}
   m_Layer: 0
   m_Name: Air2AirMissile
   m_TagString: Untagged
@@ -135,3 +136,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &-3754180784558252028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8537259099064425494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a3caf517868b8418de206ee892832b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
