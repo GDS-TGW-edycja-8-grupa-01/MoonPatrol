@@ -19,12 +19,16 @@ public class ObjectSpawner : MonoBehaviour
     private List<Feed> feed;
 
     public GameObject sectorMarker;
+    private Sprite[] spriteSheet;
+
+    private string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P" };
+    private int currentSector = 0;
 
     void Start()
     {
         var conf = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture);
 
-        conf.Delimiter = ";";
+        conf.Delimiter = ",";
         conf.MemberTypes = CsvHelper.Configuration.MemberTypes.Fields;
 
         using (var reader = new StreamReader(".\\Misc\\Feed.csv"))
@@ -32,6 +36,10 @@ public class ObjectSpawner : MonoBehaviour
         {
             feed = csv.GetRecords<Feed>().ToList();
         }
+
+        spriteSheet = Resources.LoadAll<Sprite>("Sprites/letters");
+
+        return;
     }
 
     void FixedUpdate()
@@ -48,7 +56,21 @@ public class ObjectSpawner : MonoBehaviour
         }
 
         feed.Remove(current);
-        Instantiate(sectorMarker);
-        sectorMarker.SendMessage("AssignLetter", current.extendedProperties);
+
+        if (current.prefabName == "SectorMarker" && currentSector <= letters.Length)
+        {
+            InstantiateSectorMarker();
+
+            currentSector++;
+        }
+        
+    }
+
+    private void InstantiateSectorMarker()
+    {
+        GameObject go = Instantiate(sectorMarker) as GameObject;
+        SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
+        
+        sr.sprite = spriteSheet.ToList<Sprite>().First(s => s.name == letters[currentSector]);
     }
 }

@@ -6,25 +6,29 @@ public class SectorMarker : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private Sprite[] spriteSheet;
+    private Vector3 bounds;
 
     private void Start()
     {
-        transform.position = new Vector2(-9.00f, 0.00f);
+        bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+        transform.position = new Vector2(bounds.x, -4.55f);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.position * 1.00f;
+        rb.velocity = Vector2.left * 4.00f;
 
         sr = GetComponent<SpriteRenderer>();
-        spriteSheet = Resources.LoadAll<Sprite>("keys");
-    }
-
-    void AssignLetter(char markerSign)
-    {
-        sr.sprite = spriteSheet[0];
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(this);
+        Destroy(this.gameObject, 1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Player")
+        {
+            return;
+        }
     }
 }
