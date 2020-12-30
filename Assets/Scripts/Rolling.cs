@@ -7,7 +7,7 @@ public class Rolling : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Vector3 bounds;
-    [Range(-1.0f, 3.0f)]
+    [Range(-10.0f, 10.0f)]
     public float y;
     [Range(0.0f, 10.0f)]
     public float xOffset;

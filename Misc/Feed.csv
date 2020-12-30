@@ -1,7 +1,7 @@
 ﻿time,prefabName,extendedProperties
-4,SectorMarker,A
-6,SectorMarker,B
-7,Rock,
+2,SectorMarker,A
+4,mine,
+6,mine,
 8,Rock,
 9,SectorMarker,C
 11,Rock,

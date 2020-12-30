@@ -20,6 +20,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public GameObject rock;
     public GameObject sectorMarker;
+    public GameObject mine;
     private Sprite[] spriteSheet;
 
     private string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P" };
@@ -46,6 +47,7 @@ public class ObjectSpawner : MonoBehaviour
     void FixedUpdate()
     {
         Feed current;
+        string prefabName;
 
         try
         {
@@ -57,30 +59,41 @@ public class ObjectSpawner : MonoBehaviour
         }
 
         feed.Remove(current);
+        prefabName = current.prefabName.ToLower();
 
-        if (current.prefabName == "SectorMarker" && currentSector <= letters.Length)
+        if (prefabName == "sectormarker" && currentSector <= letters.Length)
         {
             InstantiateSectorMarker();
             currentSector++;
         }
-
-        if (current.prefabName == "Rock")
+        
+        if (prefabName == "rock")
         {
             InstantiateRock();
         }
-        
+
+        if (prefabName == "mine")
+        {
+            InstantiateMine();
+        }
+
     }
 
     private void InstantiateSectorMarker()
     {
         GameObject go = Instantiate(sectorMarker) as GameObject;
         SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
-        
+
         sr.sprite = spriteSheet.ToList<Sprite>().First(s => s.name == letters[currentSector]);
     }
 
     private void InstantiateRock()
     {
         GameObject go = Instantiate(rock) as GameObject;
+    }
+
+    private void InstantiateMine()
+    {
+        GameObject go = Instantiate(mine) as GameObject;
     }
 }
