@@ -18,6 +18,7 @@ public class ObjectSpawner : MonoBehaviour
     private float lastCreated;
     private List<Feed> feed;
 
+    public GameObject rock;
     public GameObject sectorMarker;
     private Sprite[] spriteSheet;
 
@@ -60,8 +61,12 @@ public class ObjectSpawner : MonoBehaviour
         if (current.prefabName == "SectorMarker" && currentSector <= letters.Length)
         {
             InstantiateSectorMarker();
-
             currentSector++;
+        }
+
+        if (current.prefabName == "Rock")
+        {
+            InstantiateRock();
         }
         
     }
@@ -72,5 +77,10 @@ public class ObjectSpawner : MonoBehaviour
         SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
         
         sr.sprite = spriteSheet.ToList<Sprite>().First(s => s.name == letters[currentSector]);
+    }
+
+    private void InstantiateRock()
+    {
+        GameObject go = Instantiate(rock) as GameObject;
     }
 }
