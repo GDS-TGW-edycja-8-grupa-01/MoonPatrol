@@ -22,8 +22,10 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject sectorMarker;
     public GameObject mine;
     private Sprite[] spriteSheet;
-
-    private string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P" };
+    
+    private string[] letters = { "mp_gui_marker_a", "mp_gui_marker_b", "mp_gui_marker_c", "mp_gui_marker_d", "mp_gui_marker_e"
+            , "mp_gui_marker_f", "mp_gui_marker_g", "mp_gui_marker_h", "mp_gui_marker_i", "mp_gui_marker_j", "mp_gui_marker_k"
+            , "mp_gui_marker_l", "mp_gui_marker_m", "mp_gui_marker_n", "mp_gui_marker_o", "mp_gui_marker_p" };
     private int currentSector = 0;
 
     void Start()
@@ -39,7 +41,7 @@ public class ObjectSpawner : MonoBehaviour
             feed = csv.GetRecords<Feed>().ToList();
         }
 
-        spriteSheet = Resources.LoadAll<Sprite>("Sprites/letters");
+        spriteSheet = Resources.LoadAll<Sprite>("Sprites/GUI/mp_gui_markers_all");
 
         return;
     }
@@ -83,7 +85,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         GameObject go = Instantiate(sectorMarker) as GameObject;
         SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
-
+        
         sr.sprite = spriteSheet.ToList<Sprite>().First(s => s.name == letters[currentSector]);
     }
 
