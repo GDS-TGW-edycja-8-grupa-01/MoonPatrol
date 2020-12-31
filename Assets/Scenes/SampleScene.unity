@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: -2.69
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -235,16 +235,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.70304656
+      objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_Name
-      value: CloseMountains
+      value: Craters
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367067, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8d31eb30cb17ecf4dae28d5cc5b91323, type: 2}
+      objectReference: {fileID: 2100000, guid: f335bd4d28734c24b861db5efc53aff6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d526a6f20bb9a489237d19c301bd1a, type: 3}
 --- !u!4 &194256306 stripped
@@ -271,6 +286,11 @@ PrefabInstance:
       propertyPath: scrollSpeed
       value: 2.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -279,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -326,16 +346,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.422
+      objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_Name
-      value: DistantMountains
+      value: Hills
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367067, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eb213c4a77850f045bbb05f4dc38ae6a, type: 2}
+      objectReference: {fileID: 2100000, guid: 432e02d75beb2eb45acc163018fd486c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d526a6f20bb9a489237d19c301bd1a, type: 3}
 --- !u!1001 &420335869
@@ -405,11 +440,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_Name
-      value: Sky
+      value: SkyClear
       objectReference: {fileID: 0}
+    - target: {fileID: 7199147766777367067, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 712051d05008f554abe4722f3185f520, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d526a6f20bb9a489237d19c301bd1a, type: 3}
 --- !u!1 &479341334
@@ -495,7 +550,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.26
+  orthographic size: 4.41
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -520,7 +575,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.27, z: -3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
