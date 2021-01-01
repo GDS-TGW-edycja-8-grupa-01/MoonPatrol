@@ -15,14 +15,20 @@ public class ObjectSpawner : MonoBehaviour
         public string extendedProperties;
     }
 
+
     private float lastCreated;
     private List<Feed> feed;
 
     public GameObject rock;
     public GameObject sectorMarker;
     public GameObject mine;
+    public GameObject enemyTier1;
+    public GameObject enemyTier2;
     private Sprite[] spriteSheet;
-    
+
+    [Range(0.5f, 10.0f)]
+    public float enemySpawnDelay;
+
     private string[] letters = { "mp_gui_marker_a", "mp_gui_marker_b", "mp_gui_marker_c", "mp_gui_marker_d", "mp_gui_marker_e"
             , "mp_gui_marker_f", "mp_gui_marker_g", "mp_gui_marker_h", "mp_gui_marker_i", "mp_gui_marker_j", "mp_gui_marker_k"
             , "mp_gui_marker_l", "mp_gui_marker_m", "mp_gui_marker_n", "mp_gui_marker_o", "mp_gui_marker_p" };
@@ -79,6 +85,11 @@ public class ObjectSpawner : MonoBehaviour
             InstantiateMine();
         }
 
+        if (prefabName == "enemywave")
+        {
+            InstantiateEnemyWave(current.extendedProperties);
+        }
+
     }
 
     private void InstantiateSectorMarker()
@@ -97,5 +108,19 @@ public class ObjectSpawner : MonoBehaviour
     private void InstantiateMine()
     {
         GameObject go = Instantiate(mine) as GameObject;
+    }
+
+    private void InstantiateEnemyWave(string tier)
+    {
+        GameObject go = Instantiate(enemyTier1) as GameObject;
+        StartCoroutine(StartCoroutine());
+        
+    }
+
+    private IEnumerator StartCoroutine()
+    {
+        yield return new WaitForSeconds(5);
+
+        GameObject go = Instantiate(enemyTier1) as GameObject;
     }
 }

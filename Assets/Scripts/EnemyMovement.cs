@@ -1,40 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using PathCreation;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float range;
-    public float magnitude;
+    private PathCreator pc;
+
     public float speed;
+    private float distanceTravelled;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private Vector2 origin;
 
     void Start()
     {
+       
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
-        origin = transform.position;
+        PreparePath();
 
         return;
     }
 
     void Update()
     {
-        Vector3 direction;
+        distanceTravelled += speed * Time.deltaTime;
+        transform.position = pc.path.GetPointAtDistance(distanceTravelled);
+    }
 
-        if (transform.position.x >= origin.x + range)
-        {
-            direction = Vector3.left;
-        }
-        else
-        {
-            direction = Vector3.right;
-        }
+    private void PreparePath()
+    {
+        var r = new System.Random();
 
-        transform.position += direction * Time.deltaTime * speed;
+        GameObject paths = GameObject.Find("EnemyPaths");
+
+        int pathCount = paths.transform.childCount;
+        string pathName = r.Next(1, pathCount + 1).ToString("00");
+
+        GameObject path = GameObject.Find("EnemyPath" + pathName);
+        PathCreator selectedPathCreator = path.GetComponent<PathCreator>();
+
+        this.pc = selectedPathCreator;
+
+        return;
     }
 }
