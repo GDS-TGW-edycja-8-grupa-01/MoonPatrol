@@ -17,6 +17,8 @@ public class MissileMovement : MonoBehaviour
     [Range(1f, 10f)]
     public float range = 6f;
     private float originX;
+    //[Range(-1.0f, 1.0f)]
+    //public float animationScaleFactor = 1.0f;
 
     void Start()
     {
@@ -28,8 +30,10 @@ public class MissileMovement : MonoBehaviour
         if (animatorExists) a.enabled = false;
 
         originX = transform.position.x;
+
+        explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
-    
+
     void Update()
     {
         Vector2 salvo = firingDirection == FiringDirection.Horizontal ? Vector2.right : Vector2.up;
