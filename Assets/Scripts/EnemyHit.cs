@@ -27,7 +27,8 @@ public class EnemyHit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (animatorExists)
+        //Pewnie da się zrobić to lepiej, ale tak najszybciej uniemożliwiłem dwóm różnym przeciwnikom zestrzelenie się nawzajem.
+        if (animatorExists && !collision.collider.CompareTag("Enemy Missile"))
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
 

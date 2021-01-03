@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 4033774717084888677}
   - component: {fileID: 8351633869974573055}
   - component: {fileID: 7522986411019306475}
+  - component: {fileID: -2149498504405601494}
   m_Layer: 0
   m_Name: EnemyTier1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +158,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
+--- !u!114 &-2149498504405601494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018847373566881668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda3e8e82678e0042b1b2f39cfe27f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missile: {fileID: 8537259099064425494, guid: 05a464470475e49448ba5cd5c4787b72, type: 3}
+  ammo: 10
+  shootDelay: 2
+  shootOffset: 1
 --- !u!1 &6427080973701953764
 GameObject:
   m_ObjectHideFlags: 0
