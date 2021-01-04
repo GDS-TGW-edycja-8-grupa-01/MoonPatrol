@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSpinningWheels : MonoBehaviour
 {
-    public GameObject frontWheel, rearWheel;
+    public GameObject frontWheel, rearWheel, middleWheel;
     [Range(360.0f, 1080.0f)]
     public float rotationSpeed = 360.0f;
 
@@ -13,5 +13,6 @@ public class PlayerSpinningWheels : MonoBehaviour
         Vector3 rotation = new Vector3(0, 0, -rotationSpeed * Time.deltaTime);
         frontWheel.transform.Rotate(rotation);
         rearWheel.transform.Rotate(rotation);
+        middleWheel.transform.Rotate(rotation);
     }
 }
