@@ -11,6 +11,8 @@ public class Rolling : MonoBehaviour
     public float y;
     [Range(0.0f, 10.0f)]
     public float xOffset;
+    [Range(0.1f, 10.0f)]
+    public float speed;
 
     private void Start()
     {
@@ -20,7 +22,7 @@ public class Rolling : MonoBehaviour
 
         transform.position = new Vector2(bounds.x + sr.size.x + xOffset, y);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.left * 4.00f;
+        rb.velocity = Vector2.left * speed;
 
         return;
     }

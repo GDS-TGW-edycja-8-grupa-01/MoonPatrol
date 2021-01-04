@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    [Range(1, 5)]
+    [Range(0, 5)]
     public float scrollSpeed = 2.5f;
     private Material mat;
     private float offset = 0f;

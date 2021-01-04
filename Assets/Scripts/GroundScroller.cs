@@ -23,7 +23,7 @@ void Start()
 
     void Update()
     {
-        if (transform.position.x < -width)
+        if (transform.position.x < -width && 1 == 0)
         {
             Reposition();
             Debug.LogFormat("Reposition ground tile {0} now; width is {1}.", this.name, width);
