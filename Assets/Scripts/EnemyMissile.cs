@@ -6,6 +6,9 @@ public class EnemyMissile : MonoBehaviour
 {
     [Range(1, 100f)]
     public float speed = 1f;
+    //publiczna zmienna która przechwytuje wektor kierunku ruchu spodka, który stworzył pocisk
+    [HideInInspector]
+    public Vector2 direction = Vector2.down;
     
     private GameObject explosion;
     private Rigidbody2D rb;
@@ -21,15 +24,24 @@ public class EnemyMissile : MonoBehaviour
         explosion = transform.GetChild(0).gameObject;
         animatorExists = explosion.TryGetComponent<Animator>(out a);
         if (animatorExists) a.enabled = false;
-        explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        //explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+        rb.useFullKinematicContacts = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = Vector2.down;
+        //rb.AddForce(Vector2.left, ForceMode2D.Force);
+        //Vector2 direction = Vector2.down;
+        //rb. = direction * speed;
+
+        rb.transform.Translate((new Vector2(direction.x, 0f) + Vector2.down) * speed * Time.deltaTime);
+    }
+
+    void FixedUpdate()
+    {
         
-        rb.velocity = direction * speed;
     }
 
     void OnCollisionEnter2D(Collision2D other)
