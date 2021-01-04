@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 
     public float speed;
     private float distanceTravelled;
-
+    private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
@@ -25,8 +25,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        //zbieram info o pozycji by móc wyrzucić informację o wektorze ruchu za pomocą GetDirection()
+        Vector3 lastPosition = transform.position;
         distanceTravelled += speed * Time.deltaTime;
         transform.position = pc.path.GetPointAtDistance(distanceTravelled);
+        direction = (transform.position - lastPosition);
     }
 
     private void PreparePath()
@@ -44,5 +47,12 @@ public class EnemyMovement : MonoBehaviour
         this.pc = selectedPathCreator;
 
         return;
+    }
+    
+    public Vector2 GetDirection()
+    {
+        //zbyt małe wektory normalizowane są do [0,0]
+        direction *= 100;
+        return direction.normalized;
     }
 }
