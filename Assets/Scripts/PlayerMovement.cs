@@ -49,10 +49,13 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity += Vector2.left * decelerationRate;
         }
 
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")) && IsGrounded())
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))
         {
-            rb.constraints = RigidbodyConstraints2D.None;
-            rb.velocity += Vector2.up * jumpForce;
+            if (IsGrounded())
+            {
+                rb.constraints = RigidbodyConstraints2D.None;
+                rb.velocity += Vector2.up * jumpForce;
+            }
         }
     }
 
@@ -66,19 +69,19 @@ public class PlayerMovement : MonoBehaviour
 
         returnValue = hit.collider != null;
 
-        //Color rayColor;
-        //if (returnValue)
-        //{
-        //    rayColor = Color.green;
-        //}
-        //else
-        //{
-        //    rayColor = Color.red;
-        //}
+        Color rayColor;
+        if (returnValue)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
 
-        //Debug.DrawRay(start, direction, rayColor);
+        Debug.DrawRay(start, direction, rayColor);
 
-        //Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider);
+        Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider);
 
         return returnValue;
     }
