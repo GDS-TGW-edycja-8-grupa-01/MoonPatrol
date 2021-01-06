@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - Enemy Missile
+  - Rock
   layers:
   - Default
   - TransparentFX

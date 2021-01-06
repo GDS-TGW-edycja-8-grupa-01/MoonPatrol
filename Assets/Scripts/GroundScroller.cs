@@ -11,14 +11,14 @@ public class GroundScroller : MonoBehaviour
     
     private float width = 16.0f;
 
-    [Range(1f, 5f)]
-    public float speed = 3.0f;
+    [Range(0f, 5f)]
+    public float scrollSpeed = 3.0f;
     
 void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         
-        rb.velocity = new Vector2(-speed, 0);
+        rb.velocity = new Vector2(-scrollSpeed, 0);
     }
 
     void Update()
@@ -34,5 +34,11 @@ void Start()
     {
         Vector2 newPosition = new Vector2(width * 2.0f, 0);
         transform.position = (Vector2) transform.position + newPosition;
+    }
+
+    public void ChangeScrollSpeed(float speed)
+    {
+        this.scrollSpeed = speed;
+        rb.velocity = new Vector2(-scrollSpeed, 0);
     }
 }

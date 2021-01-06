@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 68179699244898956}
   - component: {fileID: -3754180784558252028}
   m_Layer: 0
-  m_Name: Air2AirMissile
+  m_Name: Surface2AirMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
