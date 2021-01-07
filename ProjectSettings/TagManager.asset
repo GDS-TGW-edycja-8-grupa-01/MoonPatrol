@@ -10,6 +10,7 @@ TagManager:
   - Rock
   - Game Manager
   - Front Wheel
+  - Player Missile
   layers:
   - Default
   - TransparentFX
