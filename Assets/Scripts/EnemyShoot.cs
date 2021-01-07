@@ -16,10 +16,12 @@ public class EnemyShoot : MonoBehaviour
     private bool canShoot = true;
     private EnemyMovement em;
     private bool died = false;
+    Transform gun;
 
     void Start()
     {
         em = GetComponent<EnemyMovement>();
+        gun = transform.Find("Gun").gameObject.transform;
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class EnemyShoot : MonoBehaviour
         {
             missile.direction = em.GetDirection();
             ammo--;
-            EnemyMissile missileContainer = Instantiate(missile, transform.position, Quaternion.identity);
+            EnemyMissile missileContainer = Instantiate(missile, gun.position, Quaternion.identity);
             missileContainer.direction = em.GetDirection();
             //Pewnie da się to zrobić mądrzej, ale...
             Physics2D.IgnoreCollision(missileContainer.GetComponent<Collider2D>(), GetComponent<Collider2D>());
