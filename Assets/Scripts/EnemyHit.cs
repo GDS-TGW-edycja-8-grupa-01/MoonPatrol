@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Reflection;
+using System.Collections.Generic;
 
 public class EnemyHit : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class EnemyHit : MonoBehaviour
 
     private Animator a;
     private bool animatorExists = false;
+
+    [SerializeField]
+    private GameObject engineExhaustLeft;
+    [SerializeField]
+    private GameObject engineExhaustRight;
 
     void Start()
     {
@@ -32,6 +38,8 @@ public class EnemyHit : MonoBehaviour
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
 
+            DestroyEngineExhausts();
+
             a.enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
@@ -39,5 +47,11 @@ public class EnemyHit : MonoBehaviour
             Destroy(this.gameObject, delay);
             Destroy(collision.gameObject);
         }
+    }
+
+    private void DestroyEngineExhausts()
+    {
+        Destroy(engineExhaustLeft);
+        Destroy(engineExhaustRight);
     }
 }
