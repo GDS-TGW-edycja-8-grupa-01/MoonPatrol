@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: -3754180784558252028}
   m_Layer: 0
   m_Name: Surface2AirMissile
-  m_TagString: Untagged
+  m_TagString: Player Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

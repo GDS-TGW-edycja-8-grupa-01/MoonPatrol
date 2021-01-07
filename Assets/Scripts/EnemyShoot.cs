@@ -15,6 +15,7 @@ public class EnemyShoot : MonoBehaviour
     public float shootOffset = 1.0f;
     private bool canShoot = true;
     private EnemyMovement em;
+    private bool died = false;
 
     void Start()
     {
@@ -41,6 +42,11 @@ public class EnemyShoot : MonoBehaviour
     {
         yield return new WaitForSeconds(shootDelay);
 
-        canShoot = true;
+        canShoot = !died;
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        died = true;
     }
 }
