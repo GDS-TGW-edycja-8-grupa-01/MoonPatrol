@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 3447217193602433115}
   m_Layer: 10
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3039999248480812650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.454129, y: -3.4532924, z: -13.055347}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1438675182163771843}
@@ -216,11 +216,11 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5, y: 0.53}
+  m_Offset: {x: -1.5, y: 0.53}
   m_EdgeRadius: 0
   m_Points:
   - {x: 0, y: 0}
-  - {x: 16, y: 0}
+  - {x: 17, y: 0}
 --- !u!50 &2187224628900662928
 Rigidbody2D:
   serializedVersion: 4
