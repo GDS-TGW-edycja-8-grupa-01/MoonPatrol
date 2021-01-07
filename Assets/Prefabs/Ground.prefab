@@ -173,8 +173,9 @@ GameObject:
   - component: {fileID: 5079072833015671339}
   - component: {fileID: 6763682767377271121}
   - component: {fileID: 2187224628900662928}
-  m_Layer: 0
-  m_Name: LevelC
+  - component: {fileID: 3447217193602433115}
+  m_Layer: 10
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,6 +242,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3447217193602433115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039999248480812650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f548a8f63ccb83419ac5ccf5c517309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 3
 --- !u!1 &3546512550998298364
 GameObject:
   m_ObjectHideFlags: 0
