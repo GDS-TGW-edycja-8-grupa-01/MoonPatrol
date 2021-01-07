@@ -28,6 +28,11 @@ public class Rock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+
         if (animatorExists)
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;

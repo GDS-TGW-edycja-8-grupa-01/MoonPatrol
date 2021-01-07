@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private GameObject backgroundScroller;
 
     public GameObject ground;
+    public GameObject obstacles;
     private GameObject groundScroller;
 
     private void Start()
@@ -19,7 +20,8 @@ public class GameManager : MonoBehaviour
     public void Die()
     {
         ChangeBackgroundScrollSpeed(0.0f);
-        ChangeGroundScrollSpeed(0.0f);
+        ChangeRollingScrollSpeed(ground, 0.0f);
+        ChangeRollingScrollSpeed(obstacles, 0.0f);
     }
 
     private void ChangeBackgroundScrollSpeed(float speed)
@@ -33,9 +35,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void ChangeGroundScrollSpeed(float speed)
+    private void ChangeRollingScrollSpeed(GameObject rolling,  float speed)
     {
-        foreach (GameObject go in ground.transform.GetAllChildren())
+        foreach (GameObject go in rolling.transform.GetAllChildren())
         {
             GroundScroller gs = go.GetComponent<GroundScroller>();
 
