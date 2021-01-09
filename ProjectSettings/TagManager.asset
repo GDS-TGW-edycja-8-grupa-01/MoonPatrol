@@ -9,8 +9,8 @@ TagManager:
   - Enemy Missile
   - Rock
   - Game Manager
-  - Front Wheel
   - Player Missile
+  - Wheel
   layers:
   - Default
   - TransparentFX

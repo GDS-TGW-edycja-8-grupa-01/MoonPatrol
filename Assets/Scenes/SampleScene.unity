@@ -1201,8 +1201,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &1023006361
-PolygonCollider2D:
+--- !u!68 &1023006361
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1215,38 +1215,26 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.17, y: 0.96}
-    newSize: {x: 2.88, y: 1.83}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_EdgeRadius: 0
   m_Points:
-    m_Paths:
-    - - {x: 0.7739477, y: -0.030421257}
-      - {x: 0.5301608, y: 0.1280579}
-      - {x: 0.39403513, y: 0.2987052}
-      - {x: 0.30371448, y: 0.3835434}
-      - {x: 0.20919643, y: 0.4232199}
-      - {x: 0.10144632, y: 0.44386718}
-      - {x: -0.009118557, y: 0.40431833}
-      - {x: -0.10048195, y: 0.3209538}
-      - {x: -0.15242802, y: 0.214838}
-      - {x: -0.2511425, y: 0.13838142}
-      - {x: -0.33479738, y: 0.14209366}
-      - {x: -0.565, y: 0.2535434}
-      - {x: -0.78919643, y: 0.23289612}
-      - {x: -0.82724905, y: 0.18016744}
-      - {x: -0.8396032, y: -0.1360999}
-      - {x: -0.9702344, y: -0.24132252}
-      - {x: -0.9893329, y: -0.24995789}
-      - {x: -0.99625385, y: -0.30262503}
-      - {x: -0.98463976, y: -0.37897646}
-      - {x: 0.8253216, y: -0.3941907}
-      - {x: 0.8630885, y: -0.29741037}
+  - {x: -0.9760227, y: -0.38604593}
+  - {x: -0.9784026, y: -0.38036442}
+  - {x: -1.0220127, y: -0.3392489}
+  - {x: -0.9999132, y: -0.25612998}
+  - {x: -0.8395572, y: -0.13565707}
+  - {x: -0.8253608, y: 0.18604517}
+  - {x: -0.7636719, y: 0.25885987}
+  - {x: -0.5466447, y: 0.23794746}
+  - {x: -0.3353367, y: 0.12965679}
+  - {x: -0.20484638, y: 0.17028522}
+  - {x: -0.09083605, y: 0.36374736}
+  - {x: 0.1461811, y: 0.46779692}
+  - {x: 0.34667635, y: 0.3884877}
+  - {x: 0.51638937, y: 0.1491661}
+  - {x: 0.74685955, y: -0.015285492}
+  - {x: 0.8373151, y: -0.15856409}
+  - {x: 1.0797849, y: -0.13287282}
+  - {x: 1.0804591, y: -0.35879564}
 --- !u!114 &1023006363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1808,7 +1796,7 @@ GameObject:
   - component: {fileID: 1654011664}
   m_Layer: 0
   m_Name: FrontWheel
-  m_TagString: Front Wheel
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1906,7 +1894,7 @@ GameObject:
   - component: {fileID: 1700969901}
   m_Layer: 0
   m_Name: RearWheel
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

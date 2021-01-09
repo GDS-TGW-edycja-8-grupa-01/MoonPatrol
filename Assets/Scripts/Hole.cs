@@ -19,7 +19,7 @@ public class Hole : MonoBehaviour
 
         player = collision.gameObject.transform.parent.gameObject;
 
-        collidedWithPlayer = collision.gameObject.CompareTag("Front Wheel");
+        collidedWithPlayer = collision.gameObject.CompareTag("Wheel");
 
         playerHitExists = player.TryGetComponent<PlayerHit>(out playerHit);
 
