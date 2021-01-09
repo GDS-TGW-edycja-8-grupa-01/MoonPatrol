@@ -37,6 +37,11 @@ public class PlayerHit : MonoBehaviour
             return;
         }
 
+        Die();
+    }
+
+    public void Die()
+    {
         if (animatorExists)
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
@@ -50,5 +55,4 @@ public class PlayerHit : MonoBehaviour
             Destroy(this.gameObject, delay);
         }
     }
-
 }
