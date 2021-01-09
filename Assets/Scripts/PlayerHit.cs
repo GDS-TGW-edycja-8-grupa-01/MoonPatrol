@@ -52,7 +52,11 @@ public class PlayerHit : MonoBehaviour
 
             gameManager.Die();
 
+            transform.Find("FrontWheel").gameObject.SetActive(false);
+            transform.Find("MiddleWheel").gameObject.SetActive(false);
+            transform.Find("RearWheel").gameObject.SetActive(false);
             Destroy(this.gameObject, delay);
+
         }
     }
 }
