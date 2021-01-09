@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Rock : MonoBehaviour
 {
@@ -28,7 +29,9 @@ public class Rock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        string[] collidable = { "Player", "Wheel", "Player Missile" };
+
+        if (!collidable.Contains(collision.gameObject.tag))
         {
             return;
         }
