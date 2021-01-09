@@ -430,6 +430,21 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 1802965142}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 1978294213}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: ground
+      value: 
+      objectReference: {fileID: 1063856575}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: obstacles
+      value: 
+      objectReference: {fileID: 772712512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47799ab71d612cf4a91a26192a7ce461, type: 3}
 --- !u!1001 &394215327

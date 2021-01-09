@@ -6,8 +6,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
-    private bool spawned = false;
-    private bool isJumping = false;
     private Vector2 movement;
     
     public GameObject spawn;
@@ -24,6 +22,13 @@ public class PlayerMovement : MonoBehaviour
     public float forwardSpeed = 3.0f;
     [Range(0.1f, 1.0f)]
     public float groundCheckDistance = 0.0f;
+
+    [SerializeField]
+    public GameObject background;
+    [SerializeField]
+    public GameObject ground;
+    [SerializeField]
+    public GameObject obstacles;
 
     void Start()
     {
@@ -84,5 +89,15 @@ public class PlayerMovement : MonoBehaviour
         Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider);
 
         return returnValue;
+    }
+
+    private void ChangeBackgroudScrollSpeed(GameObject go)
+    {
+
+    }
+
+    private void ChangeRollingScrollSpeed(GameObject go)
+    {
+
     }
 }
