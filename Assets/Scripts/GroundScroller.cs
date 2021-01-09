@@ -5,33 +5,37 @@ public class GroundScroller : MonoBehaviour
 {
     // Components
     private Rigidbody2D rb;
-    
-    private float width = 23.0f;
+    private EdgeCollider2D ec;
+
+    private float width;
+    private bool colliderExists = false;
 
     [Range(0f, 5f)]
     public float scrollSpeed = 3.0f;
-    
+
 void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         
         rb.velocity = new Vector2(-scrollSpeed, 0);
+
+        width = GetWidth();
     }
 
     void Update()
     {
         Debug.LogFormat("{0} Ground x position is {1}", MethodBase.GetCurrentMethod(), transform.position.x);
 
-        if (transform.position.x < -width)
+        if (transform.position.x + width / 2.0f - 1.0f < -width)
         {
             Reposition();
-            Debug.LogFormat("Reposition ground tile {0} now; width is {1}.", this.name, width);
+            Debug.LogFormat("Reposition ground tile {0} now; width is {1}; x is {2}.", this.name, width, transform.position.x);
         }
     }
 
     private void Reposition()
     {
-        Vector2 newPosition = new Vector2(16.0f * 2.0f, 0);
+        Vector2 newPosition = new Vector2(width * 2.0f, 0);
         transform.position = (Vector2) transform.position + newPosition;
     }
 
@@ -39,5 +43,17 @@ void Start()
     {
         this.scrollSpeed = speed;
         rb.velocity = new Vector2(-scrollSpeed, 0);
+    }
+
+    private float GetWidth()
+    {
+        colliderExists = TryGetComponent<EdgeCollider2D>(out ec);
+
+        if (colliderExists)
+        {
+            return ec.bounds.size.x;
+        }
+
+        return 0.0f;
     }
 }

@@ -216,11 +216,11 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.5, y: 0.53}
+  m_Offset: {x: -1, y: 0.53}
   m_EdgeRadius: 0
   m_Points:
   - {x: 0, y: 0}
-  - {x: 17, y: 0}
+  - {x: 16, y: 0}
 --- !u!50 &2187224628900662928
 Rigidbody2D:
   serializedVersion: 4
