@@ -46,9 +46,11 @@ public class EnemyMissile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("EnemyMissile collided with: " + other.collider.tag);
-
-        missileExplosion();
+        if (!other.collider.CompareTag("Enemy"))
+        {
+            Debug.Log("EnemyMissile collided with: " + other.collider.tag);
+            missileExplosion();
+        }
     }
 
     void missileExplosion() 
