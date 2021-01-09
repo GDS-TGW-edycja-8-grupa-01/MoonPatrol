@@ -278,6 +278,10 @@ MonoBehaviour:
   jumpForce: 6
   forwardSpeed: 7
   groundCheckDistance: 0.64
+  groundScrollAccelerationRate: 1
+  background: {fileID: 0}
+  ground: {fileID: 0}
+  obstacles: {fileID: 0}
 --- !u!114 &7042022185941995339
 MonoBehaviour:
   m_ObjectHideFlags: 0

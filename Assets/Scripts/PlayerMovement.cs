@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
 
     private Vector2 movement;
-    
+
     public GameObject spawn;
-    
+
     [SerializeField]
     public LayerMask groundLayerMask;
     [Range(1, 5.0f)]
@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public float forwardSpeed = 3.0f;
     [Range(0.1f, 1.0f)]
     public float groundCheckDistance = 0.0f;
+    [Range(1, 10f)]
+    public int groundScrollAccelerationRate;
 
     [SerializeField]
     public GameObject background;
@@ -46,12 +48,18 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.right * accelerationRate;
+
+            ChangeBackgroudScrollSpeed(background, groundScrollAccelerationRate);
+            ChangeRollingScrollSpeed(background, groundScrollAccelerationRate);
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.left * decelerationRate;
+
+            ChangeBackgroudScrollSpeed(background, -groundScrollAccelerationRate);
+            ChangeRollingScrollSpeed(background, -groundScrollAccelerationRate);
         }
 
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))
@@ -91,13 +99,25 @@ public class PlayerMovement : MonoBehaviour
         return returnValue;
     }
 
-    private void ChangeBackgroudScrollSpeed(GameObject go)
+    private void ChangeBackgroudScrollSpeed(GameObject go, float rate)
     {
+        for (int i = 0; i < go.transform.childCount; i++)
+        {
+            float scrollSpeed = go.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed;
+            float newSpeed = scrollSpeed * (1 + rate / 1000);
 
+            go.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed = newSpeed;
+        }
     }
 
-    private void ChangeRollingScrollSpeed(GameObject go)
+    private void ChangeRollingScrollSpeed(GameObject go, float rate)
     {
+        for (int i = 0; i < go.transform.childCount; i++)
+        {
+            float scrollSpeed = go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed;
+            float newSpeed = scrollSpeed * (1 + rate / 1000);
 
+            go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed = newSpeed;
+        }
     }
 }
