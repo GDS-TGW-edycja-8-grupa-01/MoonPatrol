@@ -31,6 +31,7 @@ void Start()
             Reposition();
             Debug.LogFormat("Reposition ground tile {0} now; width is {1}; x is {2}.", this.name, width, transform.position.x);
         }
+        rb.velocity = new Vector2(-scrollSpeed, 0);
     }
 
     private void Reposition()

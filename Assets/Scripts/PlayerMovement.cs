@@ -50,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity += Vector2.right * accelerationRate;
 
             ChangeBackgroudScrollSpeed(background, groundScrollAccelerationRate);
-            ChangeRollingScrollSpeed(background, groundScrollAccelerationRate);
+            ChangeRollingScrollSpeed(ground, groundScrollAccelerationRate);
+            ChangeRollingScrollSpeed(obstacles, groundScrollAccelerationRate);
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0)
@@ -59,7 +60,8 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity += Vector2.left * decelerationRate;
 
             ChangeBackgroudScrollSpeed(background, -groundScrollAccelerationRate);
-            ChangeRollingScrollSpeed(background, -groundScrollAccelerationRate);
+            ChangeRollingScrollSpeed(ground, -groundScrollAccelerationRate);
+            ChangeRollingScrollSpeed(obstacles, -groundScrollAccelerationRate);
         }
 
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))
