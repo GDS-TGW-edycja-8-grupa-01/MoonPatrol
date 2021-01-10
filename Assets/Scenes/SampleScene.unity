@@ -268,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: scrollSpeed
-      value: 2.6
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -462,7 +462,7 @@ PrefabInstance:
     - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: scrollSpeed
-      value: 2.25
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -743,7 +743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &772712513
 Transform:
   m_ObjectHideFlags: 0
@@ -1203,6 +1203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelA
       objectReference: {fileID: 0}
+    - target: {fileID: 3358442095878654932, guid: d2453976fb0fa1d4e87da63f88287742,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3792878432541680006, guid: d2453976fb0fa1d4e87da63f88287742,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1346,6 +1351,16 @@ PrefabInstance:
     - target: {fileID: 5541861123604884934, guid: d2453976fb0fa1d4e87da63f88287742,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[2].m_Data.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016579299517497272, guid: d2453976fb0fa1d4e87da63f88287742,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177142711882069865, guid: d2453976fb0fa1d4e87da63f88287742,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
