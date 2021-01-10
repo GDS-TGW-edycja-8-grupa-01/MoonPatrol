@@ -16,18 +16,20 @@ public class EnemyShoot : MonoBehaviour
     private bool canShoot = true;
     private EnemyMovement em;
     private bool died = false;
+    private bool ready = false;
     Transform gun;
 
     void Start()
     {
         em = GetComponent<EnemyMovement>();
         gun = transform.Find("Gun").gameObject.transform;
+        StartCoroutine(ShootOffset());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canShoot && ammo > 0)
+        if (canShoot && ammo > 0 && ready)
         {
             missile.direction = em.GetDirection();
             ammo--;
@@ -39,7 +41,13 @@ public class EnemyShoot : MonoBehaviour
             StartCoroutine(ShootDelay());
         }
     }
+    IEnumerator ShootOffset()
+    {
+        yield return new WaitForSeconds(shootOffset);
 
+        ready = true;
+        StopCoroutine(ShootOffset());
+    }
     IEnumerator ShootDelay()
     {
         yield return new WaitForSeconds(shootDelay);
@@ -49,6 +57,9 @@ public class EnemyShoot : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        died = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            died = true;
+        }
     }
 }
