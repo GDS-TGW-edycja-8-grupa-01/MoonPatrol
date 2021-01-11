@@ -21,6 +21,15 @@ namespace ExtensionMethods
             return gm;
         }
 
+        public static Vector3 GetScreenBounds(this MonoBehaviour mb)
+        {
+            Debug.LogFormat("Screen dimensions are ({0}, {1})", Screen.width, Screen.height);
+
+            Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+            return bounds;
+        }
+
         public static List<GameObject> GetAllChildren(this Transform t) {
             List<GameObject> children = new List<GameObject>();
 

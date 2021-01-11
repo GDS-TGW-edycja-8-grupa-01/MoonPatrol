@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Reflection;
+using ExtensionMethods;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -32,12 +33,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     public GameObject obstacles;
 
+    private Vector3 screenBounds;
+    private float width;
+
     void Start()
     {
         transform.position = spawn.transform.position;
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        screenBounds = this.GetScreenBounds();
+        width = GetComponent<SpriteRenderer>().bounds.size.x;
+
+        Debug.LogFormat("{0} Screen bounds are: {1}", MethodBase.GetCurrentMethod(), screenBounds);
+
+        return;
     }
 
     void Update()
@@ -49,9 +60,12 @@ public class PlayerMovement : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.right * accelerationRate;
 
-            ChangeBackgroudScrollSpeed(background, groundScrollAccelerationRate);
-            ChangeRollingScrollSpeed(ground, groundScrollAccelerationRate);
-            ChangeRollingScrollSpeed(obstacles, groundScrollAccelerationRate);
+            if (ShouldChangeBackroundScrollSpeed())
+            {
+                ChangeBackgroudScrollSpeed(background, groundScrollAccelerationRate);
+                ChangeRollingScrollSpeed(ground, groundScrollAccelerationRate);
+                ChangeRollingScrollSpeed(obstacles, groundScrollAccelerationRate);
+            }
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0)
@@ -59,9 +73,12 @@ public class PlayerMovement : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.left * decelerationRate;
 
-            ChangeBackgroudScrollSpeed(background, -groundScrollAccelerationRate);
-            ChangeRollingScrollSpeed(ground, -groundScrollAccelerationRate);
-            ChangeRollingScrollSpeed(obstacles, -groundScrollAccelerationRate);
+            if (ShouldChangeBackroundScrollSpeed())
+            {
+                ChangeBackgroudScrollSpeed(background, -groundScrollAccelerationRate);
+                ChangeRollingScrollSpeed(ground, -groundScrollAccelerationRate);
+                ChangeRollingScrollSpeed(obstacles, -groundScrollAccelerationRate);
+            }
         }
 
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))
@@ -121,5 +138,19 @@ public class PlayerMovement : MonoBehaviour
 
             go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed = newSpeed;
         }
+    }
+
+    private bool ShouldChangeBackroundScrollSpeed()
+    {
+        float x = transform.position.x;
+        
+        Debug.LogFormat("{0}; postion.x is {1}; player width is {2}; screen width is {3}.", MethodBase.GetCurrentMethod(), x, width, screenBounds.x);
+
+        if ((x - width / 2.0f <= -screenBounds.x) || (x + width / 2.0f >= 0.0f))
+        {
+            return false;
+        }
+
+        return true;
     }
 }
