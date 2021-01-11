@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5541861123604884934}
   - component: {fileID: 5756709412502931685}
   - component: {fileID: -5063760308914808688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LevelB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,18 +108,18 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 2
+      m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741827
   - first: {x: 3, y: 2, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 2
+      m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741827
   m_AnimatedTiles: {}
@@ -129,11 +129,11 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 150fbe3c76c6f5547abc551d1f05a5da, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 0
+  - m_RefCount: 2
     m_Data: {fileID: 0}
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: af50a069944902744a1a815fe07bc6c8, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 7
@@ -155,12 +155,12 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 0
-    m_Data: {r: 0, g: 0, b: 0, a: 0}
+  - m_RefCount: 2
+    m_Data: {r: 0.8338357, g: 0.5343724, b: 0.62652075, a: 1}
   - m_RefCount: 5
     m_Data: {r: 1, g: 1, b: 1, a: 1}
-  - m_RefCount: 2
-    m_Data: {r: 0.71768534, g: 0.46444222, b: 0.53506696, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 0, g: 0, b: 0, a: 0}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1029218918933065748}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4547188982624621735}
   - component: {fileID: 860140152612190904}
   - component: {fileID: 2215645344481012133}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyWaveActivator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6256153726299300622}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Holes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 27846521820358075}
   - component: {fileID: 36430215162148496}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SectorMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,6 +743,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoleCollider (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3944089853594680051, guid: fa60503082640274b961488e199f9f28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5532259695323616824, guid: fa60503082640274b961488e199f9f28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -912,6 +917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HoleCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944089853594680051, guid: fa60503082640274b961488e199f9f28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5532259695323616824, guid: fa60503082640274b961488e199f9f28,
         type: 3}
