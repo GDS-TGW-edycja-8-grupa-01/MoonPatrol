@@ -7,7 +7,7 @@ public class PlayerBounds : MonoBehaviour
     private Vector3 bounds;
     private float width;
 
-    private void Start()
+    private void Awake()
     {
         Debug.LogFormat("Screen dimensions are ({0}, {1})", Screen.width, Screen.height);
 
@@ -30,5 +30,10 @@ public class PlayerBounds : MonoBehaviour
         position.x = Mathf.Clamp(position.x, -bounds.x + width / 2.0f, 0.0f - width / 2.0f);
 
         transform.position = position;
+    }
+
+    public Vector2 GetBounds()
+    {
+        return new Vector2(-bounds.x + width / 2.0f, 0.0f - width / 2.0f);
     }
 }
