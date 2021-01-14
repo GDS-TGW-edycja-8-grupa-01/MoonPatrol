@@ -18,7 +18,8 @@ public class ObjectRotator : MonoBehaviour
     void Update()
     {
         //rotationMod = Mathf.Sin(Mathf.Sin(Time.time * modSpeed)*Mathf.PI);
-        rotationMod = 1;
+        rotationMod = Mathf.Sin(Time.time * modSpeed);
+        //rotationMod = 1;
         this.transform.Rotate(0, 0, anglePerSec * Time.deltaTime * rotationMod, Space.Self);
     }
 }
