@@ -11,26 +11,26 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject spawn;
 
-    [SerializeField]
+    //[SerializeField]
     public LayerMask groundLayerMask;
-    [Range(1, 5.0f)]
+    [Range(1.0f, 5.0f)]
     public float accelerationRate = 1.0f;
-    [Range(1, 5.0f)]
+    [Range(1.0f, 5.0f)]
     public float decelerationRate = 1.0f;
-    [Range(0, 1000.0f)]
+    [Range(0.0f, 1000.0f)]
     public float jumpForce = 20.0f;
-    [Range(0, 10.0f)]
+    [Range(0.0f, 10.0f)]
     public float forwardSpeed = 3.0f;
     [Range(0.1f, 1.0f)]
     public float groundCheckDistance = 0.0f;
-    [Range(1, 10f)]
-    public int groundScrollAccelerationRate;
+    [Range(1.0f, 10.0f)]
+    public float groundScrollAccelerationRate;
 
-    [SerializeField]
+    //[SerializeField]
     public GameObject background;
-    [SerializeField]
+    //[SerializeField]
     public GameObject ground;
-    [SerializeField]
+    //[SerializeField]
     public GameObject obstacles;
 
     private Vector3 screenBounds;
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-
+        Debug.Log("FPS : " + (1 / Time.deltaTime).ToString());
         if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -117,13 +117,13 @@ public class PlayerMovement : MonoBehaviour
 
         return returnValue;
     }
-
+    //GetComponent i GetChild w pętli Update - fpsy spadają
     private void ChangeBackgroudScrollSpeed(GameObject go, float rate)
     {
         for (int i = 0; i < go.transform.childCount; i++)
         {
             float scrollSpeed = go.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed;
-            float newSpeed = scrollSpeed * (1 + rate / 1000);
+            float newSpeed = scrollSpeed * (1 + rate / 10 * Time.deltaTime);
 
             go.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed = newSpeed;
         }
@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         for (int i = 0; i < go.transform.childCount; i++)
         {
             float scrollSpeed = go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed;
-            float newSpeed = scrollSpeed * (1 + rate / 1000);
+            float newSpeed = scrollSpeed * (1 + rate / 10 * Time.deltaTime);
 
             go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed = newSpeed;
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyMissile : MonoBehaviour
 {
     
@@ -17,6 +18,7 @@ public class EnemyMissile : MonoBehaviour
     private Rigidbody2D rb;
     private Animator a;
     private bool animatorExists = false;
+    private bool exploded = false;
     private Vector2 movementVector;
     private Vector3 startingPosition;
     private Vector3 targetPosition;
@@ -36,7 +38,7 @@ public class EnemyMissile : MonoBehaviour
         explosion = transform.GetChild(0).gameObject;
         animatorExists = explosion.TryGetComponent<Animator>(out a);
         if (animatorExists) a.enabled = false;
-        explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        //explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         rb.useFullKinematicContacts = true;
         startingPosition = transform.position;
         player = GameObject.Find("Player");
@@ -55,7 +57,14 @@ public class EnemyMissile : MonoBehaviour
         if (counter == 0)
         {
             //Krzywa pocisku
-            targetPosition = player.transform.position + new Vector3(Random.Range(-accuracy, accuracy), 0, 0);
+            if (!player)
+            {
+                targetPosition = new Vector3(transform.position.x, 0.0f, 0.0f);
+            }
+            else
+            {
+                targetPosition = player.transform.position + new Vector3(Random.Range(-accuracy, accuracy), 0.0f, 0.0f);
+            }
             timeOfFall = Mathf.Sqrt(Mathf.Abs(targetPosition.y - startingPosition.y) / gravity);
             float speed = Mathf.Abs(targetPosition.x - startingPosition.x) / timeOfFall;
             if (direction.x > 0)
@@ -86,10 +95,10 @@ public class EnemyMissile : MonoBehaviour
         else
         {
             //movementVector = new Vector2(movementVector.x, movementVector.y);
-
             movementVector.y -= 2 * gravity * Time.deltaTime;
             rb.transform.Translate(movementVector * Time.deltaTime);
         }
+         
         counter += Time.deltaTime;
     }
 
@@ -98,11 +107,11 @@ public class EnemyMissile : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.collider.CompareTag("Enemy"))
+        if (!other.CompareTag("Enemy"))
         {
-            Debug.Log("EnemyMissile collided with: " + other.collider.tag);
+            Debug.Log("EnemyMissile collided with: " + other.tag);
             missileExplosion();
         }
     }
@@ -113,11 +122,15 @@ public class EnemyMissile : MonoBehaviour
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
             a.enabled = true;
+            exploded = true;
             GetComponent<SpriteRenderer>().enabled = false;
             tr.emitting = false;
             a.Play("Base Layer.Explosion");
-            rb.velocity = Vector2.zero;
-            Destroy(this.gameObject, delay);   
+            //rb.velocity = Vector2.zero;
+            
+            transform.DetachChildren();
+            Destroy(this.gameObject, delay);
+            Destroy(explosion.gameObject, delay);
         }
        
     }

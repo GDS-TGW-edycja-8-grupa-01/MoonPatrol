@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!68 &6220862482980798640
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118061076565008996}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.5528163, y: -0.30365807}
+  - {x: 0.5592736, y: -0.22048664}
+  - {x: 0.54012585, y: -0.013033122}
+  - {x: 0.46961606, y: 0.21061307}
+  - {x: 0.35143685, y: 0.38180456}
+  - {x: 0.19788694, y: 0.53624976}
+  - {x: -0.0096998215, y: 0.6463357}
+  - {x: -0.19463634, y: 0.53590024}
+  - {x: -0.32239032, y: 0.41326818}
+  - {x: -0.45787597, y: 0.2287987}
+  - {x: -0.5423281, y: -0.022154048}
+  - {x: -0.5462518, y: -0.30446172}
+  - {x: -0.34320235, y: -0.42657447}
+  - {x: -0.032709837, y: -0.4924419}
+  - {x: 0.28999352, y: -0.45518303}
+  - {x: 0.5526042, y: -0.30457646}
 --- !u!95 &5399661612006924595
 Animator:
   serializedVersion: 3
@@ -33,38 +65,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anglePerSec: 500
   modSpeed: 2.32
---- !u!68 &6220862482980798640
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9118061076565008996}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.5528163, y: -0.30365807}
-  - {x: 0.5592736, y: -0.22048664}
-  - {x: 0.54012585, y: -0.013033122}
-  - {x: 0.46961606, y: 0.21061307}
-  - {x: 0.35143685, y: 0.38180456}
-  - {x: 0.19788694, y: 0.53624976}
-  - {x: -0.0096998215, y: 0.6463357}
-  - {x: -0.19463634, y: 0.53590024}
-  - {x: -0.32239032, y: 0.41326818}
-  - {x: -0.45787597, y: 0.2287987}
-  - {x: -0.5423281, y: -0.022154048}
-  - {x: -0.5462518, y: -0.30446172}
-  - {x: -0.34320235, y: -0.42657447}
-  - {x: -0.032709837, y: -0.4924419}
-  - {x: 0.28999352, y: -0.45518303}
-  - {x: 0.5526042, y: -0.30457646}
 --- !u!1001 &3246780808165723616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,9 +177,10 @@ PrefabInstance:
     - target: {fileID: 8351633869974573055, guid: 9f121caa31916d54688064c8fed245a7,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8351633869974573055, guid: 9f121caa31916d54688064c8fed245a7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f121caa31916d54688064c8fed245a7, type: 3}
 --- !u!1 &9118061076565008996 stripped
 GameObject:

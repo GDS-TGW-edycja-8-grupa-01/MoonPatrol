@@ -30,7 +30,7 @@ public class ObstaclesRoller : MonoBehaviour
         {
             Vector3 position = i == 0 ? initialPosition : new Vector3(previousLevelLength, -4.18f, -2.0f);
 
-            Instantiate(levels[i]);
+            Instantiate(levels[i], transform, true);
 
             levels[i].transform.position = position;
         }

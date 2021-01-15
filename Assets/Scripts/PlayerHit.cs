@@ -4,6 +4,7 @@ using ExtensionMethods;
 
 public class PlayerHit : MonoBehaviour
 {
+    public AudioSource audioSource;
     private GameObject explosion;
     private GameManager gameManager;
     private Animator a;
@@ -45,7 +46,7 @@ public class PlayerHit : MonoBehaviour
         if (animatorExists)
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
-
+            audioSource.Stop();
             a.enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
