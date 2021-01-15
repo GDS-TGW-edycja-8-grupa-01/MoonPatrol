@@ -5,6 +5,7 @@ using ExtensionMethods;
 public class PlayerHit : MonoBehaviour
 {
     public AudioSource audioSource;
+    public bool godMode = false;
     private GameObject explosion;
     private GameManager gameManager;
     private Animator a;
@@ -33,7 +34,7 @@ public class PlayerHit : MonoBehaviour
     {
         string[] deadlyThreat = { "Rock", "Enemy Missile" };
 
-        if (!deadlyThreat.Contains(collision.gameObject.tag))
+        if ((!deadlyThreat.Contains(collision.gameObject.tag)) || godMode)
         {
             return;
         }
@@ -43,7 +44,7 @@ public class PlayerHit : MonoBehaviour
 
     public void Die()
     {
-        if (animatorExists)
+        if (animatorExists && (!godMode))
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
             audioSource.Stop();

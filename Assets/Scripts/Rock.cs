@@ -47,7 +47,7 @@ public class Rock : MonoBehaviour
             GetComponent<PolygonCollider2D>().enabled = false;
             
             Destroy(this.gameObject, delay);
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
         }
     }
 }
