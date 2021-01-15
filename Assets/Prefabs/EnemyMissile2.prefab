@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8287122198319960814}
   - component: {fileID: 6646661116533153004}
   - component: {fileID: 68179699244898956}
-  - component: {fileID: 2108565443947810133}
+  - component: {fileID: -5183832186343701471}
   - component: {fileID: 468473638514870740}
   - component: {fileID: 2092873436642774051}
   - component: {fileID: 8374947877891820224}
@@ -208,9 +208,9 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2108565443947810133
+--- !u!114 &-5183832186343701471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,12 +219,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8537259099064425494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b4b21629e6217f4ea590a33a10dd34e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8db82fb81b4045540b593ce1024250ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 1.32
-  accuracy: 2.19
-  direction: {x: -0.89063144, y: -0.45472574}
+  gravity: 1.98
+  accuracy: 2.08
+  direction: {x: -0.8334397, y: -0.5526104}
+  objToSpwn: {fileID: 4717030321543346080, guid: b26c612fffb26554cad59fcf2d8e9710,
+    type: 3}
 --- !u!95 &468473638514870740
 Animator:
   serializedVersion: 3
@@ -259,7 +261,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.58096576
 --- !u!96 &8374947877891820224
 TrailRenderer:
   serializedVersion: 2
