@@ -14,12 +14,17 @@ public class GameManager : MonoBehaviour
     public GameObject obstacles;
     private GameObject groundScroller;
 
+    public GameObject player;
+
     public string currentSector = "a";
     public int completedSectorsCount = 0;
     public string[] completedSectors;
 
     [Range(0.0f, 10.0f)]
     public float restartLevelDelay = 2.0f;
+
+    [Range(1, 999)]
+    public int remaingingLivesCount = 1;
 
     private void Start()
     {
@@ -31,8 +36,36 @@ public class GameManager : MonoBehaviour
         ChangeBackgroundScrollSpeed(0.0f);
         ChangeRollingScrollSpeed(ground, 0.0f);
         ChangeRollingScrollSpeed(obstacles, 0.0f);
-
+       
         StartCoroutine(RestartLastSector());
+    }
+
+    public void Respawn()
+    {
+        if (remaingingLivesCount == 0)
+        {
+            GameOver();
+        }
+
+        Vector3 respawn = GetRespawn();
+
+        Instantiate(player, respawn, Quaternion.identity);
+
+
+    }
+
+    private Vector3 GetRespawn()
+    {
+        GameObject respawn;
+
+        respawn = GameObject.Find("Spawn");
+
+        return respawn.transform.position;
+    }
+
+    private void GameOver()
+    {
+
     }
 
     private void ChangeBackgroundScrollSpeed(float speed)
@@ -46,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void ChangeRollingScrollSpeed(GameObject rolling,  float speed)
+    private void ChangeRollingScrollSpeed(GameObject rolling, float speed)
     {
         foreach (GameObject go in rolling.transform.GetAllChildren())
         {
@@ -79,7 +112,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject go in or.transform.GetAllChildren())
         {
             float postionX;
-            
+
             if (i == 0)
             {
                 postionX = 0.0f;// or.startingX;
@@ -87,9 +120,9 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                postionX = or.levelXPositions[i - 1]+ or.offsetX;
+                postionX = or.levelXPositions[i - 1] + or.offsetX;
             }
-            
+
 
             go.transform.position = new Vector3(postionX, -4.18f, -2.0f);
 
@@ -97,7 +130,9 @@ public class GameManager : MonoBehaviour
             continue;
         }
 
-       
+        Respawn();
+
+
 
     }
 }

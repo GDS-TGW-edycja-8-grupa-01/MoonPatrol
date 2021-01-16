@@ -1308,10 +1308,12 @@ MonoBehaviour:
   background: {fileID: 1978294213}
   ground: {fileID: 1063856575}
   obstacles: {fileID: 2074517111}
+  player: {fileID: 7042022185941995330, guid: 47799ab71d612cf4a91a26192a7ce461, type: 3}
   currentSector: 
   completedSectorsCount: 0
   completedSectors: []
   restartLevelDelay: 2
+  remaingingLivesCount: 1
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
