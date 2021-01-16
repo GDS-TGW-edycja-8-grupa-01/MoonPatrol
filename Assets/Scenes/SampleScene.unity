@@ -1311,6 +1311,7 @@ MonoBehaviour:
   currentSector: 
   completedSectorsCount: 0
   completedSectors: []
+  restartLevelDelay: 2
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,7 @@ MonoBehaviour:
   - {fileID: 1763107183315215154, guid: ecb7c0dd2819eba4db9a68add6d7649e, type: 3}
   - {fileID: 1763107183315215154, guid: 7c4e72d8ce261e14cbc5de845338b4f1, type: 3}
   offsetX: 5
+  startingX: 10
   levelXPositions: []
 --- !u!4 &2074517113
 Transform:
@@ -1355,7 +1357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074517111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.016563, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

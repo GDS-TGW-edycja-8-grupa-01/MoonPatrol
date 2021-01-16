@@ -74,13 +74,30 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(restartLevelDelay);
 
         ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
+        int i = 0;
 
-        foreach(GameObject go in or.transform.GetAllChildren())
+        foreach (GameObject go in or.transform.GetAllChildren())
         {
-            float postionX = or.levelXPositions[completedSectorsCount - 1] + or.offsetX + or.startingX;
+            float postionX;
+            
+            if (i == 0)
+            {
+                postionX = 0.0f;// or.startingX;
 
-            or.transform.position += new Vector3(postionX, 0.0f, 0.0f);
+            }
+            else
+            {
+                postionX = or.levelXPositions[i - 1]+ or.offsetX;
+            }
+            
+
+            go.transform.position = new Vector3(postionX, -4.18f, -2.0f);
+
+            i++;
+            continue;
         }
-        
+
+       
+
     }
 }
