@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5063760308914808688}
   - component: {fileID: 3798490194544636380}
   m_Layer: 11
-  m_Name: LevelA
+  m_Name: LevelC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,6 +655,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3792878432541680006}
     m_Modifications:
+    - target: {fileID: 1657519264019254533, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4393315760034599914, guid: 2a2bbb1b092169d438cf47cdee3efef9,
+        type: 3}
     - target: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
         type: 3}
       propertyPath: m_RootOrder

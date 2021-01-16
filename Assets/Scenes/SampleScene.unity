@@ -460,6 +460,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1467737046}
+    - target: {fileID: 7042022185941995383, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: godMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47799ab71d612cf4a91a26192a7ce461, type: 3}
 --- !u!1001 &394215327
@@ -1334,7 +1339,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 1763107183315215154, guid: d2453976fb0fa1d4e87da63f88287742, type: 3}
-  - {fileID: 1763107183315215154, guid: d2453976fb0fa1d4e87da63f88287742, type: 3}
+  - {fileID: 1763107183315215154, guid: 5e4f2a322810a92478f59bc04cda9dac, type: 3}
+  - {fileID: 1763107183315215154, guid: ecb7c0dd2819eba4db9a68add6d7649e, type: 3}
+  - {fileID: 1763107183315215154, guid: 7c4e72d8ce261e14cbc5de845338b4f1, type: 3}
+  offsetX: 5
 --- !u!4 &2074517113
 Transform:
   m_ObjectHideFlags: 0
@@ -1343,7 +1351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074517111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.016563, y: 0.073842496, z: -7.82}
+  m_LocalPosition: {x: 9.016563, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
