@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3207691473106610668}
-  - component: {fileID: 4437250352815355715}
   - component: {fileID: 1657519264019254533}
   - component: {fileID: 1779773268633185544}
   - component: {fileID: 9172482606025118140}
+  - component: {fileID: 4967437029620444688}
   m_Layer: 11
   m_Name: SectorMarker
   m_TagString: Untagged
@@ -34,21 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4437250352815355715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3207691473106610671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee877588752df814dbf6e764e6fb0155, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  y: -3.62
-  xOffset: 0
-  speed: 3
 --- !u!212 &1657519264019254533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -138,3 +123,15 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.05, y: 0}
   - {x: -0.05, y: 4.091968}
+--- !u!114 &4967437029620444688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207691473106610671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e098d7705f8cc4fafd7b00c374c083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

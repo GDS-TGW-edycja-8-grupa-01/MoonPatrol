@@ -356,6 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3fc13dfca2e1f41bcbe3b8c462e382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  godMode: 0
 --- !u!68 &7042022185941995342
 EdgeCollider2D:
   m_ObjectHideFlags: 0

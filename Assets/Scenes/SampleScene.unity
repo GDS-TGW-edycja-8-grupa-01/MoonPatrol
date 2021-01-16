@@ -463,7 +463,7 @@ PrefabInstance:
     - target: {fileID: 7042022185941995383, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: godMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47799ab71d612cf4a91a26192a7ce461, type: 3}
@@ -1308,6 +1308,9 @@ MonoBehaviour:
   background: {fileID: 1978294213}
   ground: {fileID: 1063856575}
   obstacles: {fileID: 2074517111}
+  currentSector: 
+  completedSectorsCount: 0
+  completedSectors: []
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1346,7 @@ MonoBehaviour:
   - {fileID: 1763107183315215154, guid: ecb7c0dd2819eba4db9a68add6d7649e, type: 3}
   - {fileID: 1763107183315215154, guid: 7c4e72d8ce261e14cbc5de845338b4f1, type: 3}
   offsetX: 5
+  levelXPositions: []
 --- !u!4 &2074517113
 Transform:
   m_ObjectHideFlags: 0
@@ -1442,7 +1446,7 @@ PrefabInstance:
     - target: {fileID: 8474019629965574012, guid: 99bc9bec589d29141894a3baad36ec2a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99bc9bec589d29141894a3baad36ec2a, type: 3}
@@ -1457,6 +1461,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MusicPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656743251340826137, guid: 84319e8407dd8804cbf58d831b7bf899,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6656743251340826138, guid: 84319e8407dd8804cbf58d831b7bf899,
         type: 3}
