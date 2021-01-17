@@ -18,6 +18,9 @@ public class ObstaclesRoller : MonoBehaviour
 
     public float[] levelXPositions = { };
 
+    [Range(0, 40)]
+    public int initialXPosition = 30;
+
     void Start()
     {
         bounds = this.GetScreenBounds();
@@ -33,7 +36,6 @@ public class ObstaclesRoller : MonoBehaviour
         float y = -4.18f;
         float z = -2.0f;
 
-        float initialXPosition = 30.0f;
         float previousLevelLength = 0.0f;
         Vector3 position;
         
@@ -42,11 +44,11 @@ public class ObstaclesRoller : MonoBehaviour
             if (i == 0)
             {
                 position = new Vector3(initialXPosition, y, z);
-                previousLevelLength = position.x;
+                previousLevelLength = position.x + initialXPosition;
             }
             else
             {
-                previousLevelLength += (float) levelLength;
+                previousLevelLength += levelLength;
                 position = new Vector3(previousLevelLength, y, z);
             }
 

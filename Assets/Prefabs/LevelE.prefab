@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5756709412502931685}
   - component: {fileID: -5063760308914808688}
   m_Layer: 11
-  m_Name: LevelB
+  m_Name: LevelE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,7 +481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6034496410228978165, guid: 2a2bbb1b092169d438cf47cdee3efef9,
+      objectReference: {fileID: -213766297975035791, guid: 2a2bbb1b092169d438cf47cdee3efef9,
         type: 3}
     - target: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
         type: 3}
