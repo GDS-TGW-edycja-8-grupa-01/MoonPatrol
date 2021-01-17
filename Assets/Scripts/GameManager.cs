@@ -115,12 +115,12 @@ public class GameManager : MonoBehaviour
 
             if (i == 0)
             {
-                postionX = 0.0f;// or.startingX;
+                postionX = 0.0f;
 
             }
             else
             {
-                postionX = or.levelXPositions[i - 1] + or.offsetX;
+                postionX = or.levelXPositions[i - 1];
             }
 
 

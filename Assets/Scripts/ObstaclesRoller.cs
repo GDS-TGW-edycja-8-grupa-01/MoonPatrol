@@ -13,11 +13,11 @@ public class ObstaclesRoller : MonoBehaviour
     private Vector3 bounds;
     private Renderer r;
 
-    [Range(0.0f, 20.0f)]
-    public float offsetX = 1.0f;
+    //[Range(0.0f, 20.0f)]
+    //public float offsetX = 1.0f;
 
-    [Range(0.0f, 20.0f)]
-    public float startingX = 10.0f;
+    //[Range(0.0f, 20.0f)]
+    //public float startingX = 10.0f;
 
     public float[] levelXPositions = { };
 
@@ -36,7 +36,7 @@ public class ObstaclesRoller : MonoBehaviour
         float y = -4.18f;
         float z = -2.0f;
 
-        Vector3 initialPosition = new Vector3(startingX, y, z);
+        Vector3 initialPosition = new Vector3(0.0f, y, z);
         float previousLevelLength = GetLevelWidth(levels[0]);
         Vector3 position;
         
@@ -48,7 +48,7 @@ public class ObstaclesRoller : MonoBehaviour
             }
             else
             {
-                position = new Vector3(startingX + previousLevelLength + offsetX, y, z);
+                position = new Vector3(previousLevelLength, y, z);
                 previousLevelLength += GetLevelWidth(levels[i]);
             }
 
