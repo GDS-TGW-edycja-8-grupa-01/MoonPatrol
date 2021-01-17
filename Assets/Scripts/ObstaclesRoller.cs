@@ -44,7 +44,7 @@ public class ObstaclesRoller : MonoBehaviour
             if (i == 0)
             {
                 position = new Vector3(initialXPosition, y, z);
-                previousLevelLength = position.x + initialXPosition;
+                previousLevelLength = position.x;// + initialXPosition;
             }
             else
             {
