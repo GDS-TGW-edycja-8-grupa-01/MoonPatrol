@@ -52,7 +52,7 @@ public class PlayerHit : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
 
-            gameManager.Die();
+            gameManager.Die(transform.position);
 
             transform.Find("FrontWheel").gameObject.SetActive(false);
             transform.Find("MiddleWheel").gameObject.SetActive(false);

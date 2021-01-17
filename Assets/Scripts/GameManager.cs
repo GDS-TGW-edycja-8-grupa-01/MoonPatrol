@@ -26,17 +26,21 @@ public class GameManager : MonoBehaviour
     [Range(1, 999)]
     public int remaingingLivesCount = 1;
 
+    private Vector3 placeOfDeath;
+
     private void Start()
     {
         return;
     }
 
-    public void Die()
+    public void Die(Vector2 placeOfDeath)
     {
         ChangeBackgroundScrollSpeed(0.0f);
         ChangeRollingScrollSpeed(ground, 0.0f);
         ChangeRollingScrollSpeed(obstacles, 0.0f);
-       
+
+        this.placeOfDeath = placeOfDeath;
+
         StartCoroutine(RestartLastSector());
     }
 
@@ -107,28 +111,31 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(restartLevelDelay);
 
         ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
-        int i = 0;
+        Vector2 revertTo = placeOfDeath - new Vector3(or.levelXPositions[completedSectorsCount], 0.0f, 0.0f);
 
-        foreach (GameObject go in or.transform.GetAllChildren())
-        {
-            float postionX;
+        List<GameObject> levels = or.transform.GetAllChildren();
 
-            if (i == 0)
-            {
-                postionX = 0.0f;
+        obstacles.transform.position = revertTo;
+        //foreach (GameObject go in )
+        //{
+        //    float postionX;
 
-            }
-            else
-            {
-                postionX = or.levelXPositions[i - 1];
-            }
+        //    if (i == 0)
+        //    {
+        //        postionX = 0.0f;
+
+        //    }
+        //    else
+        //    {
+        //        postionX = or.levelXPositions[i - 1];
+        //    }
 
 
-            go.transform.position = new Vector3(postionX, -4.18f, -2.0f);
+        //    go.transform.position = new Vector3(postionX, -4.18f, -2.0f);
 
-            i++;
-            continue;
-        }
+        //    i++;
+        //    continue;
+        //}
 
         Respawn();
 
