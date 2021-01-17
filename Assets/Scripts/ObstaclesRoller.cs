@@ -36,25 +36,30 @@ public class ObstaclesRoller : MonoBehaviour
         float y = -4.18f;
         float z = -2.0f;
 
-        Vector3 initialPosition = new Vector3(0.0f, y, z);
-        float previousLevelLength = GetLevelWidth(levels[0]);
+        float initialXPosition = GetLevelWidth(levels[0]) / 2.0f;
+        float previousLevelLength = GetLevelWidth(levels[0]) - bounds.x * 2.0f;
+        float levelWidth;
         Vector3 position;
         
         for (int i = 0; i < levels.Length; i++)
         {
             if (i == 0)
             {
-                position = initialPosition;
+                position = new Vector3(initialXPosition, y, z);
+                previousLevelLength = position.x;
             }
             else
             {
+                levelWidth = GetLevelWidth(levels[i]);
+                previousLevelLength += levelWidth;
                 position = new Vector3(previousLevelLength, y, z);
-                previousLevelLength += GetLevelWidth(levels[i]);
+                
             }
 
-            Instantiate(levels[i], transform, true);
+            GameObject go = Instantiate(levels[i], position, Quaternion.identity) as GameObject;
+            go.transform.parent = transform;
 
-            levels[i].transform.position = position;
+            //go.transform.position = position;
             levelXPositions[i] = position.x;
         }
 
@@ -63,10 +68,6 @@ public class ObstaclesRoller : MonoBehaviour
 
     private float GetLevelWidth(GameObject go)
     {
-        BoxCollider2D bc = go.GetComponent<BoxCollider2D>();
-        Vector2 size = bc.size;
-        float width = size.x;
-
-        return width;
+        return 80.0f;
     }
 }
