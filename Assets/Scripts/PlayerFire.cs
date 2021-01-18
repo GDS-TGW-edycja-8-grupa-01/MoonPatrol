@@ -12,6 +12,7 @@ public class PlayerFire : MonoBehaviour
 
     public GameObject air2AirMissile;
     public GameObject air2SurfaceMissile;
+    public PlayerSound playerAudioScript;
 
     private bool canShoot = true;
 
@@ -25,9 +26,11 @@ public class PlayerFire : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
         {
             Instantiate(air2AirMissile, roofGun.transform);
-            
+            playerAudioScript.WeaponShootUp();
+
             if (canShoot) {
                 Instantiate(air2SurfaceMissile, frontGun.transform);
+                playerAudioScript.WeaponShootDown();
                 canShoot = false;
                 StartCoroutine(ShootDelay());
             }

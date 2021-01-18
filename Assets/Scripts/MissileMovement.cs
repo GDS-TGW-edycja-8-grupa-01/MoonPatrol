@@ -19,6 +19,7 @@ public class MissileMovement : MonoBehaviour
     private float originX;
     //[Range(-1.0f, 1.0f)]
     //public float animationScaleFactor = 1.0f;
+    private AudioRoundRobin audioScript;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class MissileMovement : MonoBehaviour
         originX = transform.position.x;
 
         explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+        audioScript = GetComponent<AudioRoundRobin>();
     }
 
     void Update()
@@ -45,13 +48,14 @@ public class MissileMovement : MonoBehaviour
             if (animatorExists)
             {
                 float delay = a.GetCurrentAnimatorClipInfo(0).Length;
-
+                
                 a.enabled = true;
                 GetComponent<SpriteRenderer>().enabled = false;
                 a.Play("Base Layer.Explosion");
                 rb.velocity = Vector2.zero;
-
+                audioScript.RoundRobinPlay(0.65f);
                 Destroy(this.gameObject, delay);
+                animatorExists = false;
             }
         }
     }
@@ -65,5 +69,6 @@ public class MissileMovement : MonoBehaviour
     private void OnDestroy()
     {
         Debug.LogFormat("{0} Destroyed...", MethodBase.GetCurrentMethod());
+        
     }
 }

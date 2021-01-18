@@ -4,12 +4,13 @@ using ExtensionMethods;
 
 public class PlayerHit : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public PlayerSound playerAudioScript;
     public bool godMode = false;
     private GameObject explosion;
     private GameManager gameManager;
     private Animator a;
     private bool animatorExists = false;
+    
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class PlayerHit : MonoBehaviour
         explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
         gameManager = this.gameObject.GetGameManager();
+
     }
 
     // Update is called once per frame
@@ -47,7 +49,7 @@ public class PlayerHit : MonoBehaviour
         if (animatorExists && (!godMode))
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
-            audioSource.Stop();
+            playerAudioScript.EngineSoundStop();
             a.enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");

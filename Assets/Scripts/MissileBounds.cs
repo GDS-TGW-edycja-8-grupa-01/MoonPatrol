@@ -3,8 +3,10 @@ using System.Reflection;
 
 public class MissileBounds : MonoBehaviour
 {
+
     private Vector3 bounds;
     private float width;
+
 
     private void Start()
     {
@@ -17,6 +19,8 @@ public class MissileBounds : MonoBehaviour
         width = GetComponent<SpriteRenderer>().bounds.size.x;
 
         Debug.LogFormat("{0} Object width is {1}...", MethodBase.GetCurrentMethod(), width);
+
+
     }
 
     private void LateUpdate()
@@ -33,3 +37,4 @@ public class MissileBounds : MonoBehaviour
         }
     }
 }
+
