@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     public string currentSector = "a";
-    public int completedSectorsCount = 0;
-    public string[] completedSectors;
+    public int startedSectorsCount = 0;
+    public string[] startedSectors;
 
     [Range(0.0f, 10.0f)]
     public float restartLevelDelay = 2.0f;
@@ -94,14 +94,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void CompleteSector(string sectorName)
+    public void BeginSector(string sectorName)
     {
-        if (!completedSectors.Contains(sectorName))
+        if (!startedSectors.Contains(sectorName))
         {
-            completedSectorsCount += 1;
+            startedSectorsCount += 1;
             currentSector = sectorName;
-            Array.Resize(ref completedSectors, completedSectorsCount);
-            completedSectors[completedSectorsCount - 1] = sectorName;
+            Array.Resize(ref startedSectors, startedSectorsCount);
+            startedSectors[startedSectorsCount - 1] = sectorName;
         }
 
     }
@@ -111,35 +111,48 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(restartLevelDelay);
 
         ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
-        Vector2 revertTo = placeOfDeath - new Vector3(or.levelXPositions[completedSectorsCount], 0.0f, 0.0f);
+        float y = -4.18f;
+        float z = -2.0f;
+        float restartXPosition = 8.0f;
 
-        List<GameObject> levels = or.transform.GetAllChildren();
+        List<GameObject> levelsToComplete = GetLevelsToRollback(or);
+        float previousLevelLength = restartXPosition;
+        
+        foreach (GameObject level in levelsToComplete)
+        {
+            level.transform.position = new Vector3(previousLevelLength, y, z);
 
-        obstacles.transform.position = revertTo;
-        //foreach (GameObject go in )
-        //{
-        //    float postionX;
-
-        //    if (i == 0)
-        //    {
-        //        postionX = 0.0f;
-
-        //    }
-        //    else
-        //    {
-        //        postionX = or.levelXPositions[i - 1];
-        //    }
-
-
-        //    go.transform.position = new Vector3(postionX, -4.18f, -2.0f);
-
-        //    i++;
-        //    continue;
-        //}
+            previousLevelLength += or.levelLength;
+        }
 
         Respawn();
-
-
-
     }
+
+    private List<GameObject> GetLevelsToRollback(ObstaclesRoller or)
+    {
+        List<GameObject> lastFew;
+                
+        List<GameObject> levels = or.transform.GetAllChildren();
+
+        if (startedSectorsCount == 1)
+        {
+            return levels;
+        }
+
+        if (startedSectorsCount == levels.Count)
+        {
+            lastFew = new List<GameObject>();
+
+            lastFew.Add(levels.Last());
+
+            return lastFew;
+        }
+
+        levels.Reverse();
+        lastFew = levels.Take(startedSectorsCount).ToList();
+        lastFew.Reverse();
+
+        return lastFew;
+    }
+
 }
