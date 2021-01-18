@@ -110,30 +110,44 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(restartLevelDelay);
 
-        List<GameObject> levelsToComplete = GetLevelsToRollback();
+        ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
         float y = -4.18f;
         float z = -2.0f;
-        float previousLevelLength = 0.0f;
-        float levelLength = 40.0f;
+        float restartXPosition = 8.0f;
 
+        List<GameObject> levelsToComplete = GetLevelsToRollback(or);
+        float previousLevelLength = restartXPosition;
+        
         foreach (GameObject level in levelsToComplete)
         {
-            level.transform.position = new Vector3(30.0f + previousLevelLength, y, z);
+            level.transform.position = new Vector3(previousLevelLength, y, z);
 
-            previousLevelLength += levelLength;
-            
+            previousLevelLength += or.levelLength;
         }
 
         Respawn();
     }
 
-    private List<GameObject> GetLevelsToRollback()
+    private List<GameObject> GetLevelsToRollback(ObstaclesRoller or)
     {
         List<GameObject> lastFew;
-
-        ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
-        
+                
         List<GameObject> levels = or.transform.GetAllChildren();
+
+        if (startedSectorsCount == 1)
+        {
+            return levels;
+        }
+
+        if (startedSectorsCount == levels.Count)
+        {
+            lastFew = new List<GameObject>();
+
+            lastFew.Add(levels.Last());
+
+            return lastFew;
+        }
+
         levels.Reverse();
         lastFew = levels.Take(startedSectorsCount).ToList();
         lastFew.Reverse();
