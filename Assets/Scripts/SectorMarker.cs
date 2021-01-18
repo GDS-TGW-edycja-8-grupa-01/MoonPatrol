@@ -22,6 +22,6 @@ public class SectorMarker : MonoBehaviour
         int length = sr.sprite.name.Length;
         string sectorName = sr.sprite.name.Substring(length - 1, 1);
 
-        gameManager.CompleteSector(sectorName);
+        gameManager.BeginSector(sectorName);
     }
 }
