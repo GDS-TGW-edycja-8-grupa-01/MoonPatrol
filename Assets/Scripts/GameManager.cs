@@ -102,7 +102,12 @@ public class GameManager : MonoBehaviour
             currentSector = sectorName;
             Array.Resize(ref startedSectors, startedSectorsCount);
             startedSectors[startedSectorsCount - 1] = sectorName;
+
+            return;
         }
+
+        return;
+
 
     }
 
@@ -131,7 +136,9 @@ public class GameManager : MonoBehaviour
     private List<GameObject> GetLevelsToRollback(ObstaclesRoller or)
     {
         List<GameObject> lastFew;
-                
+        int allSectorsCount = or.levels.Length;
+        int sectorsToRollback = 0;
+
         List<GameObject> levels = or.transform.GetAllChildren();
 
         if (startedSectorsCount == 1)
@@ -149,7 +156,9 @@ public class GameManager : MonoBehaviour
         }
 
         levels.Reverse();
-        lastFew = levels.Take(startedSectorsCount).ToList();
+
+        sectorsToRollback = allSectorsCount - startedSectorsCount + 1;
+        lastFew = levels.Take(sectorsToRollback).ToList();
         lastFew.Reverse();
 
         return lastFew;
