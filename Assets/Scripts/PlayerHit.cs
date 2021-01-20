@@ -4,6 +4,7 @@ using ExtensionMethods;
 
 public class PlayerHit : MonoBehaviour
 {
+    public GameObject playerRagdoll;
     public PlayerSound playerAudioScript;
     public bool godMode = false;
     private GameObject explosion;
@@ -60,6 +61,26 @@ public class PlayerHit : MonoBehaviour
             transform.Find("MiddleWheel").gameObject.SetActive(false);
             transform.Find("RearWheel").gameObject.SetActive(false);
             Destroy(this.gameObject, delay);
+
+        }
+    }
+
+    public void DieHole(GameObject hole)
+    {
+        if (!godMode)
+        {
+
+            
+            playerAudioScript.EngineSoundStop();
+            GetComponent<SpriteRenderer>().enabled = false;
+            gameManager.Die(transform.position);
+            hole.transform.GetChild(0).gameObject.SetActive(true);
+            GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
+            Destroy(ragdoll, gameManager.restartLevelDelay);
+            Destroy(this.gameObject, 3.0f);
+            transform.Find("FrontWheel").gameObject.SetActive(false);
+            transform.Find("MiddleWheel").gameObject.SetActive(false);
+            transform.Find("RearWheel").gameObject.SetActive(false);
 
         }
     }
