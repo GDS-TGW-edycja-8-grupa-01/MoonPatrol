@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckDistance = 0.0f;
     [Range(1.0f, 10.0f)]
     public float groundScrollAccelerationRate;
+    [Range(0.0f, 10.0f)]
+    public float inertia = 0;
 
     //[SerializeField]
     public GameObject background;
@@ -35,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 screenBounds;
     private float width;
-
+    private float lastAcceleration = 0.0f;
+    private Vector2 velocity = Vector2.zero;
     void Start()
     {
         transform.position = spawn.transform.position;
@@ -53,9 +56,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
+        Debug.Log("LAST ACC : " + lastAcceleration.ToString());
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         Debug.Log("FPS : " + (1 / Time.deltaTime).ToString());
-        if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")) && IsGrounded())
+        {
+            if (true)
+            {
+                rb.constraints = RigidbodyConstraints2D.None;
+                rb.velocity += Vector2.up * jumpForce;
+            }
+        }
+        else if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && IsGrounded())
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.right * accelerationRate;
@@ -66,10 +79,12 @@ public class PlayerMovement : MonoBehaviour
                 ChangeRollingScrollSpeed(ground, groundScrollAccelerationRate);
                 ChangeRollingScrollSpeed(obstacles, groundScrollAccelerationRate);
             }
+            lastAcceleration = accelerationRate;
+            
         }
-
-        if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0)
+        else if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && IsGrounded())
         {
+
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.left * decelerationRate;
 
@@ -79,15 +94,43 @@ public class PlayerMovement : MonoBehaviour
                 ChangeRollingScrollSpeed(ground, -groundScrollAccelerationRate);
                 ChangeRollingScrollSpeed(obstacles, -groundScrollAccelerationRate);
             }
+            lastAcceleration = -decelerationRate;
+            
+        }
+        else
+        {
+            //if ((Input.GetKeyUp(KeyCode.A) || (Input.GetKeyUp(KeyCode.D))))
+            if(IsGrounded())
+            {
+                lastAcceleration = 0;
+                //rb.velocity = Vector2.zero;
+            }
         }
 
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))
+        if (!IsGrounded())
         {
-            if (IsGrounded())
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb.velocity += Vector2.right * lastAcceleration;
+            if (ShouldChangeBackroundScrollSpeed() && (lastAcceleration != 0))
             {
-                rb.constraints = RigidbodyConstraints2D.None;
-                rb.velocity += Vector2.up * jumpForce;
+                float factor = Mathf.Abs(lastAcceleration) / lastAcceleration;
+                ChangeBackgroudScrollSpeed(background, groundScrollAccelerationRate * factor);
+                ChangeRollingScrollSpeed(ground, groundScrollAccelerationRate * factor);
+                ChangeRollingScrollSpeed(obstacles, groundScrollAccelerationRate * factor);
             }
+            
+        }
+
+    }
+
+    private void ChangeVelocity()
+    {
+        if (inertia != 0)
+        {
+            float oldY = velocity.y;
+            rb.velocity += velocity * Time.deltaTime / inertia;
+            rb.velocity.Set(rb.velocity.x, oldY);
+            //rb.velocity = new Vector2(Mathf.Min(rb.velocity.x, velocity.x), Mathf.Min(rb.velocity.y, velocity.y));
         }
     }
 
@@ -100,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(start, Vector3.down, groundCheckDistance, groundLayerMask);
 
         returnValue = hit.collider != null;
-
+        /*
         Color rayColor;
         if (returnValue)
         {
@@ -113,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.DrawRay(start, direction, rayColor);
 
-        Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider);
+        Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider); */
 
         return returnValue;
     }

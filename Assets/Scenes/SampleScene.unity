@@ -479,7 +479,32 @@ PrefabInstance:
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: groundScrollAccelerationRate
-      value: 3
+      value: 1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: jumpForce
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: accelerationRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: decelerationRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: groundCheckDistance
+      value: 0.645
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: inertia
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 7042022185941995383, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
@@ -809,7 +834,7 @@ PrefabInstance:
     - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: scrollSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3546512550998298364, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
@@ -968,7 +993,7 @@ PrefabInstance:
     - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: scrollSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3546512550998298364, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
@@ -1228,7 +1253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802965142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.08, y: -0.84, z: 0}
+  m_LocalPosition: {x: -5.72, y: -2.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1640540970}

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        return;
+        
     }
 
     public void Die(Vector2 placeOfDeath)
@@ -43,6 +43,14 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(RestartLastSector());
     }
+    //work in progress
+    /*private IEnumerator StopScrollSpeeds(float time)
+    {
+        for(float i = time; i > 0; i - Time.deltaTime)
+        {
+
+        }
+    }*/
 
     public void Respawn()
     {
@@ -89,7 +97,8 @@ public class GameManager : MonoBehaviour
         {
             GroundScroller gs = go.GetComponent<GroundScroller>();
 
-            gs.ChangeScrollSpeed(0.0f);
+            //gs.ChangeScrollSpeed(0.0f);
+            gs.scrollSpeed = speed;
         }
 
     }
