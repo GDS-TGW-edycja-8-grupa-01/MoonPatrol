@@ -8,6 +8,7 @@ public class PlayerSound : MonoBehaviour
     public AudioClip engineSound;
     public AudioClip weaponShootUpSound;
     public AudioClip weaponShootDownSound;
+    public AudioClip landSound;
     //public AudioSource audioSource;
     [Range(0.1f, 3.0f)]
     public float lowEnginePitch = 0.9f;
@@ -21,6 +22,7 @@ public class PlayerSound : MonoBehaviour
     private AudioSource engineAudio;
     private AudioSource weaponUpAudio;
     private AudioSource weaponDownAudio;
+    private AudioSource landAudio;
     // Start is called before the first frame update
 
     private void Awake()
@@ -28,6 +30,8 @@ public class PlayerSound : MonoBehaviour
         engineAudio = NewAudio(engineSound, true, true, 0.7f);
         weaponUpAudio = NewAudio(weaponShootUpSound, false, false, 0.15f);
         weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);
+        weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);
+        landAudio = NewAudio(landSound, false, false, 0.35f);
     }
 
     void Start()
@@ -70,6 +74,12 @@ public class PlayerSound : MonoBehaviour
     public void EngineSoundStop()
     {
         engineAudio.Stop();
+    }
+
+    public void Land()
+    {
+        landAudio.pitch = 1.0f + Random.Range(-0.1f, 0.1f);
+        landAudio.Play();
     }
 
 }

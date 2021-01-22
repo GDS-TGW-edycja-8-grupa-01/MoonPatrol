@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7042022185851175842}
   m_Layer: 0
   m_Name: MiddleWheel
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 7042022185941995383}
   - component: {fileID: 7042022185941995342}
   - component: {fileID: -6572938817753475350}
+  - component: {fileID: 368295200006360788}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -274,15 +275,18 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  accelerationRate: 2
-  decelerationRate: 2
-  jumpForce: 6
+  accelerationRate: 1.4
+  decelerationRate: 1.3
+  jumpForce: 4.5
   forwardSpeed: 7
-  groundCheckDistance: 0.64
-  groundScrollAccelerationRate: 1
+  groundCheckDistance: 0.645
+  groundScrollAccelerationRate: 2.32
+  inertia: 3.36
+  scrollSpeed: 5
   background: {fileID: 0}
   ground: {fileID: 0}
   obstacles: {fileID: 0}
+  playerAudioScript: {fileID: 368295200006360788}
 --- !u!114 &7042022185941995339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32f31819e32d6546bf95db99d2e0037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 1
 --- !u!114 &7042022185941995337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,13 +411,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63238bc43218074a9e2c7420ae0f143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  output: {fileID: 0}
+  output: {fileID: 5898561988950904053, guid: c51648e7287f94343b1d46fd7e56ff1b, type: 2}
   engineSound: {fileID: 8300000, guid: 8c66a1cf998574a478704c8e58da1547, type: 3}
-  weaponShootUpSound: {fileID: 8300000, guid: 1c08ce10384c03f419d65b0e64cdb653, type: 3}
+  weaponShootUpSound: {fileID: 8300000, guid: 4c65d0cadf0e3b94aa53b6bbc7295129, type: 3}
   weaponShootDownSound: {fileID: 8300000, guid: 7641d46daf675f148bf0925f210287ed,
     type: 3}
+  landSound: {fileID: 8300000, guid: f6b985d113ad6cc49bef597916236b09, type: 3}
   lowEnginePitch: 0.9
   hiEnginePitch: 1.5
+--- !u!114 &368295200006360788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042022185941995330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374827e2708a28341b7b7b8c2bcce9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: ff198fc6992c17e4f9af0574021501ca, type: 3}
+  - {fileID: 8300000, guid: 9514d1c5ca1b7d440beff2a490116472, type: 3}
+  - {fileID: 8300000, guid: ecd6b8c27667aa64296af316438c56c2, type: 3}
+  externalSoundPlayer: {fileID: 9170520827438299207, guid: 610c00ec2ac6ac646a4b1e1f2b065b25,
+    type: 3}
 --- !u!1 &7042022186760162507
 GameObject:
   m_ObjectHideFlags: 0

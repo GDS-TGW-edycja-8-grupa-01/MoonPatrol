@@ -370,27 +370,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6572938817753475350, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: engineSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 8c66a1cf998574a478704c8e58da1547, type: 3}
-    - target: {fileID: -6572938817753475350, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: output
-      value: 
-      objectReference: {fileID: 5898561988950904053, guid: c51648e7287f94343b1d46fd7e56ff1b,
-        type: 2}
-    - target: {fileID: -6572938817753475350, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: weaponShootUpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1c08ce10384c03f419d65b0e64cdb653, type: 3}
-    - target: {fileID: -6572938817753475350, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: weaponShootDownSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 7641d46daf675f148bf0925f210287ed, type: 3}
     - target: {fileID: 7042022185941995329, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -451,16 +430,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995336, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: playerAudioScript
-      value: 
-      objectReference: {fileID: 1729420902}
-    - target: {fileID: 7042022185941995338, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: offset
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: spawn
@@ -481,56 +450,6 @@ PrefabInstance:
       propertyPath: obstacles
       value: 
       objectReference: {fileID: 2074517111}
-    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: groundScrollAccelerationRate
-      value: 2.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: jumpForce
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: accelerationRate
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: decelerationRate
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.645
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: inertia
-      value: 3.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: scrollSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995383, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995383, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: godMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042022185941995383, guid: 47799ab71d612cf4a91a26192a7ce461,
-        type: 3}
-      propertyPath: playerAudioScript
-      value: 
-      objectReference: {fileID: 1729420902}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47799ab71d612cf4a91a26192a7ce461, type: 3}
 --- !u!1001 &394215327
@@ -1145,18 +1064,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 394215327}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1729420902 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -6572938817753475350, guid: 47799ab71d612cf4a91a26192a7ce461,
-    type: 3}
-  m_PrefabInstance: {fileID: 366307956}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63238bc43218074a9e2c7420ae0f143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1752598254
 GameObject:
   m_ObjectHideFlags: 0

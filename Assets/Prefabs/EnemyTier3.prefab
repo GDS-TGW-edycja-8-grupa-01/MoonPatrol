@@ -249,6 +249,8 @@ GameObject:
   - component: {fileID: 6720759045593095592}
   - component: {fileID: 4755638930589465643}
   - component: {fileID: 797172085098664937}
+  - component: {fileID: -7778645924509758672}
+  - component: {fileID: -1226220331337895708}
   m_Layer: 0
   m_Name: EnemyTier3
   m_TagString: Enemy
@@ -455,6 +457,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anglePerSec: 500
   modSpeed: 2.32
+--- !u!114 &-7778645924509758672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8474019629965574012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374827e2708a28341b7b7b8c2bcce9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 6bde90808ffb2ea449debe2d831c48a7, type: 3}
+  - {fileID: 8300000, guid: ebd12918dcbea30408990dd33641fae0, type: 3}
+  externalSoundPlayer: {fileID: 9170520827438299207, guid: 610c00ec2ac6ac646a4b1e1f2b065b25,
+    type: 3}
+--- !u!114 &-1226220331337895708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8474019629965574012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c26e735f283d841b4790eeb4960f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySoundScript: {fileID: -7778645924509758672}
 --- !u!1 &9164660517377861660
 GameObject:
   m_ObjectHideFlags: 0

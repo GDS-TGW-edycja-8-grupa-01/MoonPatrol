@@ -37,11 +37,17 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField]
     public GameObject obstacles;
 
+    public AudioRoundRobin playerAudioScript;
+
+    private PlayerSound playerAudioScript2;
     private Vector3 screenBounds;
     private float width;
     private float lastAcceleration = 0.0f;
     private Vector2 velocity = Vector2.zero;
     private float[] backgroundScrollSpeed;
+    private bool wasFlying = false;
+    private GameObject[] wheels;
+    
 
     void Start()
     {
@@ -49,12 +55,22 @@ public class PlayerMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        playerAudioScript2 = GetComponent<PlayerSound>();
 
         screenBounds = this.GetScreenBounds();
         width = GetComponent<SpriteRenderer>().bounds.size.x;
 
         Debug.LogFormat("{0} Screen bounds are: {1}", MethodBase.GetCurrentMethod(), screenBounds);
         backgroundScrollSpeed = new float[background.transform.childCount];
+
+        wheels = new GameObject[3];
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if(transform.GetChild(i).CompareTag("Wheel"))
+            {
+                wheels[i] = transform.GetChild(i).gameObject;
+            }
+        }
         
         for(int i = 0; i < background.transform.childCount; i++) 
         {
@@ -79,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.constraints = RigidbodyConstraints2D.None;
                 rb.velocity += Vector2.up * jumpForce;
+                playerAudioScript.RoundRobinPlay(0.35f);
             }
         }
         else if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && IsGrounded())
@@ -104,7 +121,11 @@ public class PlayerMovement : MonoBehaviour
             if(IsGrounded())
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                
+                if(wasFlying)
+                {
+                    playerAudioScript2.Land();
+                    wasFlying = false;
+                }
                 //Gdy nie ma w danej klatce inputu od gracza 
                 //i gdy pojazd znajduje się na prawo od spawna - po mału zwalnia, gdy na lewo - przyśpiesza. Ściąga nas do punktu nominalnego na ekranie.
                 
@@ -129,13 +150,16 @@ public class PlayerMovement : MonoBehaviour
                 //Gdy przyśpieszamy samoistnie, musi podążać za nami prędkość świata
                     
                 }
+
             }
         }
         //Przez cały czas zbieramy informację o przyśpieszeniu, tylko po to by móc skorzystać z niego w tej funkcji, która podtrzymuje przyśpieszenie podczas lotu po skoku
         if (!IsGrounded())
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            rb.velocity += Vector2.right * lastAcceleration;   
+            rb.velocity += Vector2.right * lastAcceleration;
+            wasFlying = true;
+            //AnimateWheels();
         }
 
         if (ShouldChangeBackroundScrollSpeed())
@@ -208,5 +232,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void AnimateWheels()
+    {
+        foreach(GameObject wheel in wheels)
+        {
+            wheel.transform.localPosition += new Vector3(0, rb.velocity.y * Time.deltaTime / 10.0f, 0);
+            
+        }
     }
 }

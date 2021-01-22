@@ -8,6 +8,8 @@ public class EnemyWaveActivator : MonoBehaviour
     
     [Range(0.5f, 5.0f)]
     public float delay;
+    [Range(1,5)]
+    public int enemiesToSpawn;
 
     void Start()
     {
@@ -30,15 +32,17 @@ public class EnemyWaveActivator : MonoBehaviour
 
     private void InstantiateEnemyWave()
     {
-        GameObject go = Instantiate(enemy) as GameObject;
+        //GameObject go = Instantiate(enemy) as GameObject;
         StartCoroutine(SpawnAnotherEnemy());
-
     }
 
     private IEnumerator SpawnAnotherEnemy()
     {
-        yield return new WaitForSeconds(delay);
-
-        GameObject go = Instantiate(enemy) as GameObject;
+        while (enemiesToSpawn > 0)
+        {
+            yield return new WaitForSeconds(delay);
+            GameObject go = Instantiate(enemy) as GameObject;
+            enemiesToSpawn--;
+        }
     }
 }

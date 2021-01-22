@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 7522986411019306475}
   - component: {fileID: -2149498504405601494}
   - component: {fileID: 2750654817491481692}
+  - component: {fileID: 7746991570361371594}
+  - component: {fileID: -1022783788174036912}
   m_Layer: 0
   m_Name: EnemyTier2
   m_TagString: Enemy
@@ -195,6 +197,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7746991570361371594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018847373566881668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374827e2708a28341b7b7b8c2bcce9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 5cab4f7099fef764dab0179cefb236b8, type: 3}
+  - {fileID: 8300000, guid: 1cc0ba16d31b30c46b0af181e955ade8, type: 3}
+  - {fileID: 8300000, guid: fb508a35d137d234caad66b3eb23b1c0, type: 3}
+  - {fileID: 8300000, guid: 56423bdf61bd8ac499bb72def0bd9a2c, type: 3}
+  - {fileID: 8300000, guid: 31a4e0c6a4623da4e91299c1dd487302, type: 3}
+  - {fileID: 8300000, guid: 19f5ac6a62d6347499da7083cbbb28fa, type: 3}
+  externalSoundPlayer: {fileID: 9170520827438299207, guid: 610c00ec2ac6ac646a4b1e1f2b065b25,
+    type: 3}
+--- !u!114 &-1022783788174036912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018847373566881668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c26e735f283d841b4790eeb4960f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySoundScript: {fileID: 7746991570361371594}
 --- !u!1 &6427080973701953764
 GameObject:
   m_ObjectHideFlags: 0
