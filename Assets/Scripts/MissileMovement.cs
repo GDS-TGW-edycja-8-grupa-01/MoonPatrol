@@ -45,20 +45,35 @@ public class MissileMovement : MonoBehaviour
 
         if (firingDirection == FiringDirection.Horizontal && transform.position.x >= originX + range)
         {
-            if (animatorExists)
-            {
-                float delay = a.GetCurrentAnimatorClipInfo(0).Length;
-                
-                a.enabled = true;
-                GetComponent<SpriteRenderer>().enabled = false;
-                a.Play("Base Layer.Explosion");
-                rb.velocity = Vector2.zero;
-                audioScript.RoundRobinPlay(0.65f);
-                Destroy(this.gameObject, delay);
-                animatorExists = false;
-            }
+            explode();
         }
     }
+
+    private void explode()
+    {
+        if (animatorExists)
+        {
+            float delay = a.GetCurrentAnimatorClipInfo(0).Length;
+            explosion.transform.SetParent(transform.parent);
+            a.enabled = true;
+            GetComponent<SpriteRenderer>().enabled = false;
+            a.Play("Base Layer.Explosion");
+            rb.velocity = Vector2.zero;
+            audioScript.RoundRobinPlay(0.65f);
+            Destroy(this.gameObject);
+            Destroy(explosion, delay);
+            animatorExists = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Rock"))
+        {
+            explode();
+        }
+    }
+
 
     public enum FiringDirection
     {

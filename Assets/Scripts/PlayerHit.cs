@@ -74,13 +74,17 @@ public class PlayerHit : MonoBehaviour
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
             a.enabled = true;
             explosion.transform.SetParent(transform.parent);
-
-            GameObject nextHole = hole.transform.parent.GetChild(hole.transform.GetSiblingIndex() + 1).gameObject;
+            GameObject nextHole = new GameObject();
+            if (hole.transform.GetSiblingIndex() <= hole.transform.childCount - 1)
+            {
+                nextHole = hole.transform.parent.GetChild(hole.transform.GetSiblingIndex() + 1).gameObject;
+                nextHole.transform.GetChild(0).gameObject.SetActive(true);
+            }
             playerAudioScript.EngineSoundStop();
             GetComponent<SpriteRenderer>().enabled = false;
             gameManager.Die(transform.position);
             hole.transform.GetChild(0).gameObject.SetActive(true);
-            nextHole.transform.GetChild(0).gameObject.SetActive(true);
+
             GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
             Destroy(ragdoll, gameManager.restartLevelDelay);
             Destroy(this.gameObject);
