@@ -23,9 +23,9 @@ public class Ragdoll : MonoBehaviour
         {
             rbChildren[i] = gameObject.transform.GetChild(i).GetComponent<Rigidbody2D>();
         }
-
-        rb.velocity = Vector2.right * 30.0f;
-        rb.AddForce(Vector2.right * 50.0f, ForceMode2D.Impulse);
+        //udajemy, że jest to prędkość pojadu, bez tego pojazd zatrzymuje się na dziurze
+        rb.velocity = Vector2.right * 20.0f;
+        
     }
 
     // Update is called once per frame
@@ -46,14 +46,14 @@ public class Ragdoll : MonoBehaviour
     private IEnumerator Explode()
     {
         yield return new WaitForSeconds(explosionDelay);
-        float forceFactor = (Mathf.Abs(transform.position.x) - bounds.x)/bounds.x;
+        float forceFactor = (transform.position.x + bounds.x)/-bounds.x;
+        //eksplozja pojazdu po kontakcie kadłuba z dziurą
         rb.AddForceAtPosition(Vector2.up * 20.0f * forceFactor, new Vector2(transform.position.x - 5.0f, transform.position.y), ForceMode2D.Impulse);
         for (int i = 0; i < 3; i++)
         {
             rbChildren[i].AddForce(new Vector2(i * 1.0f - 1.0f, 1.0f) * 8.0f, ForceMode2D.Impulse);
         }
         exploded = true;
-        //this.gameObject.transform.DetachChildren();
         Debug.Log("EXPLODED !");
         StopCoroutine(Explode());
     }

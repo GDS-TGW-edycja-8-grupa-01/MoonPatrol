@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundScrollAccelerationRate;
     [Range(0.0f, 10.0f)]
     public float inertia = 0;
+    [Range(3.0f, 10.0f)]
+    public float scrollSpeed = 5.0f;
 
     //[SerializeField]
     public GameObject background;
@@ -39,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     private float width;
     private float lastAcceleration = 0.0f;
     private Vector2 velocity = Vector2.zero;
+    private float[] backgroundScrollSpeed;
+
     void Start()
     {
         transform.position = spawn.transform.position;
@@ -50,16 +54,25 @@ public class PlayerMovement : MonoBehaviour
         width = GetComponent<SpriteRenderer>().bounds.size.x;
 
         Debug.LogFormat("{0} Screen bounds are: {1}", MethodBase.GetCurrentMethod(), screenBounds);
-
+        backgroundScrollSpeed = new float[background.transform.childCount];
+        
+        for(int i = 0; i < background.transform.childCount; i++) 
+        {
+            backgroundScrollSpeed[i] = background.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed;
+        }
         return;
     }
 
     void Update()
     {
-        
-        Debug.Log("LAST ACC : " + lastAcceleration.ToString());
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        //Sterowanie
         Debug.Log("FPS : " + (1 / Time.deltaTime).ToString());
+        Debug.Log("LAST ACC : " + lastAcceleration.ToString());
+        //Nie rozumiem jak to działa, ale faktycznie działa
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        
+        //Input spięty w if else if ... else, tak by odwzorować poruszanie się w oryginale
+        //Jednak nie możemy się poruszać lewo-prawo w trakcie skoku, ale jeżeli przed skokiem przyśpieszaliśmy/zwalnialiśmy, to będzie to kontynuowane w locie
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")) && IsGrounded())
         {
             if (true)
@@ -72,13 +85,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.right * accelerationRate;
-
-            if (ShouldChangeBackroundScrollSpeed())
-            {
-                ChangeBackgroudScrollSpeed(background, groundScrollAccelerationRate);
-                ChangeRollingScrollSpeed(ground, groundScrollAccelerationRate);
-                ChangeRollingScrollSpeed(obstacles, groundScrollAccelerationRate);
-            }
+            
             lastAcceleration = accelerationRate;
             
         }
@@ -87,13 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.left * decelerationRate;
-
-            if (ShouldChangeBackroundScrollSpeed())
-            {
-                ChangeBackgroudScrollSpeed(background, -groundScrollAccelerationRate);
-                ChangeRollingScrollSpeed(ground, -groundScrollAccelerationRate);
-                ChangeRollingScrollSpeed(obstacles, -groundScrollAccelerationRate);
-            }
+            
             lastAcceleration = -decelerationRate;
             
         }
@@ -102,37 +103,50 @@ public class PlayerMovement : MonoBehaviour
             //if ((Input.GetKeyUp(KeyCode.A) || (Input.GetKeyUp(KeyCode.D))))
             if(IsGrounded())
             {
-                lastAcceleration = 0;
-                //rb.velocity = Vector2.zero;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                
+                //Gdy nie ma w danej klatce inputu od gracza 
+                //i gdy pojazd znajduje się na prawo od spawna - po mału zwalnia, gdy na lewo - przyśpiesza. Ściąga nas do punktu nominalnego na ekranie.
+                
+                if (transform.position.x - spawn.transform.position.x > 0)
+                {
+                    rb.velocity += Vector2.left * inertia / 10.0f;
+                    lastAcceleration = -inertia / 10.0f;
+                //Gdy zwalniamy samoistnie, musi podążać za nami prędkość świata
+                    
+                }
+                //To bardzo ciekawe, ale okazuje się, że porównywanie floatów to problem, nawet jeżeli mamy do tego dedykowane funkcje w Unity xD
+                else if(Mathf.Approximately(Mathf.Round(transform.position.x * 100), Mathf.Round(spawn.transform.position.x * 100)))
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                    lastAcceleration = 0;
+                    
+                }
+                else
+                {
+                    rb.velocity += Vector2.right * inertia / 10.0f;
+                    lastAcceleration = inertia / 10.0f;
+                //Gdy przyśpieszamy samoistnie, musi podążać za nami prędkość świata
+                    
+                }
             }
         }
-
+        //Przez cały czas zbieramy informację o przyśpieszeniu, tylko po to by móc skorzystać z niego w tej funkcji, która podtrzymuje przyśpieszenie podczas lotu po skoku
         if (!IsGrounded())
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            rb.velocity += Vector2.right * lastAcceleration;
-            if (ShouldChangeBackroundScrollSpeed() && (lastAcceleration != 0))
-            {
-                float factor = Mathf.Abs(lastAcceleration) / lastAcceleration;
-                ChangeBackgroudScrollSpeed(background, groundScrollAccelerationRate * factor);
-                ChangeRollingScrollSpeed(ground, groundScrollAccelerationRate * factor);
-                ChangeRollingScrollSpeed(obstacles, groundScrollAccelerationRate * factor);
-            }
-            
+            rb.velocity += Vector2.right * lastAcceleration;   
         }
 
-    }
-
-    private void ChangeVelocity()
-    {
-        if (inertia != 0)
+        if (ShouldChangeBackroundScrollSpeed())
         {
-            float oldY = velocity.y;
-            rb.velocity += velocity * Time.deltaTime / inertia;
-            rb.velocity.Set(rb.velocity.x, oldY);
-            //rb.velocity = new Vector2(Mathf.Min(rb.velocity.x, velocity.x), Mathf.Min(rb.velocity.y, velocity.y));
+            ChangeBackgroudScrollSpeed(background);
+            ChangeRollingScrollSpeed(ground);
+            ChangeRollingScrollSpeed(obstacles);
         }
     }
+
+
 
     private bool IsGrounded()
     {
@@ -161,23 +175,22 @@ public class PlayerMovement : MonoBehaviour
         return returnValue;
     }
     //GetComponent i GetChild w pętli Update - fpsy spadają
-    private void ChangeBackgroudScrollSpeed(GameObject go, float rate)
+    private void ChangeBackgroudScrollSpeed(GameObject go)
     {
-        for (int i = 0; i < go.transform.childCount; i++)
+        for (int i = 1; i < go.transform.childCount; i++)
         {
-            float scrollSpeed = go.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed;
-            float newSpeed = scrollSpeed * (1 + rate / 10 * Time.deltaTime);
+            float newSpeed = backgroundScrollSpeed[i] + (transform.position.x - spawn.transform.position.x) / (-spawn.transform.position.x - width / 2.0f) * groundScrollAccelerationRate;
 
             go.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed = newSpeed;
         }
+
     }
 
-    private void ChangeRollingScrollSpeed(GameObject go, float rate)
+    private void ChangeRollingScrollSpeed(GameObject go)
     {
         for (int i = 0; i < go.transform.childCount; i++)
         {
-            float scrollSpeed = go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed;
-            float newSpeed = scrollSpeed * (1 + rate / 10 * Time.deltaTime);
+            float newSpeed = scrollSpeed + ((transform.position.x - spawn.transform.position.x) / (-spawn.transform.position.x - width / 2.0f)) * groundScrollAccelerationRate;
 
             go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed = newSpeed;
         }

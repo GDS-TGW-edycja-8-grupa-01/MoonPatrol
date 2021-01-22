@@ -52,6 +52,8 @@ public class PlayerHit : MonoBehaviour
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
             playerAudioScript.EngineSoundStop();
             a.enabled = true;
+            explosion.transform.SetParent(transform.parent);
+
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
 
@@ -60,24 +62,29 @@ public class PlayerHit : MonoBehaviour
             transform.Find("FrontWheel").gameObject.SetActive(false);
             transform.Find("MiddleWheel").gameObject.SetActive(false);
             transform.Find("RearWheel").gameObject.SetActive(false);
-            Destroy(this.gameObject, delay);
-
+            Destroy(this.gameObject);
+            Destroy(explosion, delay);
         }
     }
 
     public void DieHole(GameObject hole)
     {
-        if (!godMode)
+        if (animatorExists && (!godMode))
         {
+            float delay = a.GetCurrentAnimatorClipInfo(0).Length;
+            a.enabled = true;
+            explosion.transform.SetParent(transform.parent);
 
-            
+            GameObject nextHole = hole.transform.parent.GetChild(hole.transform.GetSiblingIndex() + 1).gameObject;
             playerAudioScript.EngineSoundStop();
             GetComponent<SpriteRenderer>().enabled = false;
             gameManager.Die(transform.position);
             hole.transform.GetChild(0).gameObject.SetActive(true);
+            nextHole.transform.GetChild(0).gameObject.SetActive(true);
             GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
             Destroy(ragdoll, gameManager.restartLevelDelay);
-            Destroy(this.gameObject, 3.0f);
+            Destroy(this.gameObject);
+            Destroy(explosion, delay);
             transform.Find("FrontWheel").gameObject.SetActive(false);
             transform.Find("MiddleWheel").gameObject.SetActive(false);
             transform.Find("RearWheel").gameObject.SetActive(false);

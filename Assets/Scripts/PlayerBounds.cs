@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerBounds : MonoBehaviour
 {
+    [Range(0.0f, 3.0f)]
+    public float offset = 0.0f;
+
     private Vector3 bounds;
     private float width;
 
@@ -27,7 +30,7 @@ public class PlayerBounds : MonoBehaviour
 
         Vector3 position = transform.position;
 
-        position.x = Mathf.Clamp(position.x, -bounds.x + width / 2.0f, 0.0f - width / 2.0f);
+        position.x = Mathf.Clamp(position.x, -bounds.x + width / 2.0f + offset, 0.0f - width / 2.0f - offset);
 
         transform.position = position;
     }

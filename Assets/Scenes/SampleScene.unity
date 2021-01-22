@@ -456,6 +456,11 @@ PrefabInstance:
       propertyPath: playerAudioScript
       value: 
       objectReference: {fileID: 1729420902}
+    - target: {fileID: 7042022185941995338, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: offset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: spawn
@@ -479,7 +484,7 @@ PrefabInstance:
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: groundScrollAccelerationRate
-      value: 1.47
+      value: 2.32
       objectReference: {fileID: 0}
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
@@ -489,12 +494,12 @@ PrefabInstance:
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: accelerationRate
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: decelerationRate
-      value: 1.5
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
@@ -504,7 +509,12 @@ PrefabInstance:
     - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
       propertyPath: inertia
-      value: 1.18
+      value: 3.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042022185941995340, guid: 47799ab71d612cf4a91a26192a7ce461,
+        type: 3}
+      propertyPath: scrollSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7042022185941995383, guid: 47799ab71d612cf4a91a26192a7ce461,
         type: 3}
@@ -816,6 +826,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1063856576}
     m_Modifications:
+    - target: {fileID: 2187224628900662928, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187224628900662928, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2325459073795065418, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: m_Layer
@@ -975,6 +995,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1063856576}
     m_Modifications:
+    - target: {fileID: 2187224628900662928, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187224628900662928, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2325459073795065418, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: m_Layer
@@ -1253,7 +1283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802965142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.72, y: -2.67, z: 0}
+  m_LocalPosition: {x: -5.72, y: -2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1640540970}
