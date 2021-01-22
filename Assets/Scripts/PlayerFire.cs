@@ -29,7 +29,8 @@ public class PlayerFire : MonoBehaviour
             playerAudioScript.WeaponShootUp();
 
             if (canShoot) {
-                Instantiate(air2SurfaceMissile, frontGun.transform);
+                GameObject missile = Instantiate(air2SurfaceMissile, frontGun.transform);
+                Physics2D.IgnoreCollision(missile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                 playerAudioScript.WeaponShootDown();
                 canShoot = false;
                 StartCoroutine(ShootDelay());
