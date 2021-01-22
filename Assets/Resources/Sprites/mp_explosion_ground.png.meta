@@ -1,7 +1,172 @@
 fileFormatVersion: 2
 guid: 414b80837a2c3cf4eb44d53b0e718eeb
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3200262776995916896
+    second: mp_explosion_ground_0
+  - first:
+      213: -6009826520908760550
+    second: mp_explosion_ground_1
+  - first:
+      213: -7718457911975645450
+    second: mp_explosion_ground_2
+  - first:
+      213: -5555806320134406994
+    second: mp_explosion_ground_3
+  - first:
+      213: -8239783119116260983
+    second: mp_explosion_ground_4
+  - first:
+      213: 7243410193430173704
+    second: mp_explosion_ground_5
+  - first:
+      213: -4942483754163515399
+    second: mp_explosion_ground_6
+  - first:
+      213: -989186481685329458
+    second: mp_explosion_ground_7
+  - first:
+      213: 2953130006721968091
+    second: mp_explosion_ground_8
+  - first:
+      213: -5393869633312392329
+    second: mp_explosion_ground_9
+  - first:
+      213: 167396133403579502
+    second: mp_explosion_ground_10
+  - first:
+      213: 7008232690636237503
+    second: mp_explosion_ground_11
+  - first:
+      213: 7084943876297166098
+    second: mp_explosion_ground_12
+  - first:
+      213: -4183784266323653714
+    second: mp_explosion_ground_13
+  - first:
+      213: 7736910969158221466
+    second: mp_explosion_ground_14
+  - first:
+      213: -4640956981026682834
+    second: mp_explosion_ground_15
+  - first:
+      213: -5437897857508478111
+    second: mp_explosion_ground_16
+  - first:
+      213: 1675787110389191735
+    second: mp_explosion_ground_17
+  - first:
+      213: 2845656555231495832
+    second: mp_explosion_ground_18
+  - first:
+      213: -7686321263435957343
+    second: mp_explosion_ground_19
+  - first:
+      213: 6653816915588022669
+    second: mp_explosion_ground_20
+  - first:
+      213: -6986799553091760716
+    second: mp_explosion_ground_21
+  - first:
+      213: 5036003263684917296
+    second: mp_explosion_ground_22
+  - first:
+      213: -3179565044118467807
+    second: mp_explosion_ground_23
+  - first:
+      213: 7550877858667957604
+    second: mp_explosion_ground_24
+  - first:
+      213: 5199647136385484600
+    second: mp_explosion_ground_25
+  - first:
+      213: -8842150282877356283
+    second: mp_explosion_ground_26
+  - first:
+      213: 4157326011798491608
+    second: mp_explosion_ground_27
+  - first:
+      213: -2802313022381271742
+    second: mp_explosion_ground_28
+  - first:
+      213: -7184191319775480074
+    second: mp_explosion_ground_29
+  - first:
+      213: 333675599715892863
+    second: mp_explosion_ground_30
+  - first:
+      213: -3123307704163169427
+    second: mp_explosion_ground_31
+  - first:
+      213: 2857839488081531382
+    second: mp_explosion_ground_32
+  - first:
+      213: 242414794755496963
+    second: mp_explosion_ground_33
+  - first:
+      213: 1190724221614218953
+    second: mp_explosion_ground_34
+  - first:
+      213: -7260401099694143105
+    second: mp_explosion_ground_35
+  - first:
+      213: -718939527614314589
+    second: mp_explosion_ground_36
+  - first:
+      213: 9178910719524861284
+    second: mp_explosion_ground_37
+  - first:
+      213: 694806525668063194
+    second: mp_explosion_ground_38
+  - first:
+      213: 603580936191913190
+    second: mp_explosion_ground_39
+  - first:
+      213: -1124198270307542320
+    second: mp_explosion_ground_40
+  - first:
+      213: 6814402997208071742
+    second: mp_explosion_ground_41
+  - first:
+      213: -412887391947364232
+    second: mp_explosion_ground_42
+  - first:
+      213: -8577221187277892012
+    second: mp_explosion_ground_43
+  - first:
+      213: 5141744653092574878
+    second: mp_explosion_ground_44
+  - first:
+      213: 2270294123868495680
+    second: mp_explosion_ground_45
+  - first:
+      213: -67500324596170056
+    second: mp_explosion_ground_46
+  - first:
+      213: 8045010184644643611
+    second: mp_explosion_ground_47
+  - first:
+      213: 7924352706139142518
+    second: mp_explosion_ground_48
+  - first:
+      213: -1337695418169708082
+    second: mp_explosion_ground_49
+  - first:
+      213: 5206568022961545685
+    second: mp_explosion_ground_50
+  - first:
+      213: -6418251520861040088
+    second: mp_explosion_ground_51
+  - first:
+      213: -1418162610012518655
+    second: mp_explosion_ground_52
+  - first:
+      213: -4307638976846701704
+    second: mp_explosion_ground_53
+  - first:
+      213: 2822341587199395474
+    second: mp_explosion_ground_54
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +205,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -64,7 +229,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -73,7 +250,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mp_explosion_ground_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3d045c5f16693d0800000000000000
+      internalID: -3200262776995916896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1af283ee9ec89ca0800000000000000
+      internalID: -6009826520908760550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe63e65c6782e490800000000000000
+      internalID: -7718457911975645450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eacb487769fc5e2b0800000000000000
+      internalID: -5555806320134406994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989a0dec8e866ad80800000000000000
+      internalID: -8239783119116260983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80859d59133c58460800000000000000
+      internalID: 7243410193430173704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ffc1f44635c86bb0800000000000000
+      internalID: -4942483754163515399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec90786c224b542f0800000000000000
+      internalID: -989186481685329458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_explosion_ground_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7b5324810abf820800000000000000
+      internalID: 2953130006721968091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

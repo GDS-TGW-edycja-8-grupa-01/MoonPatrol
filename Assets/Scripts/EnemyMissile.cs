@@ -15,9 +15,12 @@ public class EnemyMissile : MonoBehaviour
     public Vector2 direction;
     private GameObject player;
     private GameObject explosion;
+    private GameObject groundExplosion;
     private Rigidbody2D rb;
     private Animator a;
+    private Animator b;
     private bool animatorExists = false;
+    private bool anotherAnimatorExists = false;
     private bool exploded = false;
     private Vector2 movementVector;
     private Vector3 startingPosition;
@@ -36,8 +39,14 @@ public class EnemyMissile : MonoBehaviour
 
         //animacja?
         explosion = transform.GetChild(0).gameObject;
+        groundExplosion = transform.GetChild(1).gameObject;
         animatorExists = explosion.TryGetComponent<Animator>(out a);
-        if (animatorExists) a.enabled = false;
+        anotherAnimatorExists = groundExplosion.TryGetComponent<Animator>(out b);
+        if (animatorExists && anotherAnimatorExists)
+        {
+            a.enabled = false;
+            b.enabled = false;
+        }
         //explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         rb.useFullKinematicContacts = true;
         startingPosition = transform.position;
@@ -112,25 +121,33 @@ public class EnemyMissile : MonoBehaviour
         if ((!other.CompareTag("Enemy")) && (!other.CompareTag("Enemy Missile")))
         {
             Debug.Log("EnemyMissile collided with: " + other.tag);
-            missileExplosion();
+            if (other.CompareTag("Ground"))
+            {
+                missileExplosion(b);
+            }
+            else
+            {
+                missileExplosion(a);
+            }
         }
     }
 
-    void missileExplosion() 
+    void missileExplosion(Animator a) 
     {
-        if (animatorExists)
+        if (animatorExists && anotherAnimatorExists)
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
             a.enabled = true;
             exploded = true;
             GetComponent<SpriteRenderer>().enabled = false;
             tr.emitting = false;
-            a.Play("Base Layer.Explosion");
+            a.Play("Baselayer");
             //rb.velocity = Vector2.zero;
             
             transform.DetachChildren();
-            Destroy(this.gameObject, delay);
+            Destroy(this.gameObject);
             Destroy(explosion.gameObject, delay);
+            Destroy(groundExplosion.gameObject, delay);
         }
        
     }
