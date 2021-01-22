@@ -59,11 +59,15 @@ public class PlayerHit : MonoBehaviour
 
             gameManager.Die(transform.position);
 
+            GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
+            Destroy(ragdoll, gameManager.restartLevelDelay);
+            Destroy(this.gameObject);
+            Destroy(explosion, delay);
+
             transform.Find("FrontWheel").gameObject.SetActive(false);
             transform.Find("MiddleWheel").gameObject.SetActive(false);
             transform.Find("RearWheel").gameObject.SetActive(false);
-            Destroy(this.gameObject);
-            Destroy(explosion, delay);
+            
         }
     }
 
@@ -84,7 +88,7 @@ public class PlayerHit : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             gameManager.Die(transform.position);
             hole.transform.GetChild(0).gameObject.SetActive(true);
-
+            Physics2D.IgnoreLayerCollision(10, 12);
             GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
             Destroy(ragdoll, gameManager.restartLevelDelay);
             Destroy(this.gameObject);

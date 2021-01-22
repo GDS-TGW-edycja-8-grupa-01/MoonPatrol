@@ -16,7 +16,7 @@ public class Ragdoll : MonoBehaviour
     void Start()
     {
         bounds = MonoBehaviourExtensions.GetScreenBounds(this);
-        Physics2D.IgnoreLayerCollision(10, 12);
+        //Physics2D.IgnoreLayerCollision(10, 12);
         rb = gameObject.GetComponent<Rigidbody2D>();
         rbChildren = new Rigidbody2D[3];
         for(int i = 0; i < 3; i++)

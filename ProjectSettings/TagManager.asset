@@ -13,6 +13,7 @@ TagManager:
   - Wheel
   - Ragdoll
   - GroundForRagdoll
+  - Hole
   layers:
   - Default
   - TransparentFX
