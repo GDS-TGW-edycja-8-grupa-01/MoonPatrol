@@ -48,10 +48,17 @@ public class PlayerMovement : MonoBehaviour
     private bool wasFlying = false;
     private GameObject[] wheels;
     
-
     void Start()
     {
-        transform.position = spawn.transform.position;
+        name = "Player";
+        
+        background = GameObject.Find("Background");
+        ground = GameObject.Find("Ground");
+        obstacles = GameObject.Find("ObstaclesRoller");
+
+        spawn = GameObject.Find("Spawn");
+        Vector2 spawnPostion = spawn.transform.position;
+        transform.position = spawnPostion;
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();

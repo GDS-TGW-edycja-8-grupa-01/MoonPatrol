@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private GameObject groundScroller;
 
     public GameObject player;
+    public GameObject playerRagdoll;
 
     public string currentSector = "a";
     public int startedSectorsCount = 0;
@@ -26,21 +27,28 @@ public class GameManager : MonoBehaviour
     [Range(1, 999)]
     public int remaingingLivesCount = 1;
 
-    private Vector3 placeOfDeath;
-
     private void Start()
     {
-        
+        GameObject playerGo = Instantiate(player);
     }
 
-    public void Die(Vector2 placeOfDeath)
+    public void Die()
     {
         ChangeBackgroundScrollSpeed(0.0f);
         ChangeRollingScrollSpeed(ground, 0.0f);
         ChangeRollingScrollSpeed(obstacles, 0.0f);
 
-        this.placeOfDeath = placeOfDeath;
+        GameObject playerGo = GameObject.Find("Player").gameObject;
 
+        GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
+        Destroy(ragdoll, restartLevelDelay);
+
+        if (playerGo != null)
+        {
+            Destroy(playerGo);
+            //Destroy(playerGo.transform.Find("Explosion").gameObject, restartLevelDelay);
+        }
+        
         StartCoroutine(RestartLastSector());
     }
     //work in progress
@@ -61,9 +69,9 @@ public class GameManager : MonoBehaviour
 
         Vector3 respawn = GetRespawn();
 
-        Instantiate(player, respawn, Quaternion.identity);
-
-
+        GameObject go = Instantiate(player, respawn, Quaternion.identity);
+        go.GetComponent<PlayerHit>().WheelsSetActive(true);
+        go.transform.Find("Explosion").gameObject.GetComponent<Animator>().enabled = false;
     }
 
     private Vector3 GetRespawn()
