@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
         GameObject playerGo = GameObject.Find("Player").gameObject;
 
-        GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
+        GameObject ragdoll = Instantiate(playerRagdoll, playerGo.transform.position, transform.rotation);
         Destroy(ragdoll, restartLevelDelay);
 
         if (playerGo != null)

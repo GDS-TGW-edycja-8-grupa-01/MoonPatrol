@@ -82,12 +82,12 @@ public class PlayerHit : MonoBehaviour
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
             a.enabled = true;
             explosion.transform.SetParent(transform.parent);
-            GameObject nextHole = new GameObject();
-            if (hole.transform.GetSiblingIndex() <= hole.transform.childCount - 1)
-            {
-                nextHole = hole.transform.parent.GetChild(hole.transform.GetSiblingIndex() + 1).gameObject;
-                nextHole.transform.GetChild(0).gameObject.SetActive(true);
-            }
+            //GameObject nextHole = new GameObject();
+            //if (hole.transform.GetSiblingIndex() <= hole.transform.parent.transform.childCount - 1)
+            //{
+            //    nextHole = hole.transform.parent.GetChild(hole.transform.GetSiblingIndex() + 2).gameObject;
+            //    nextHole.transform.GetChild(0).gameObject.SetActive(true);
+            //}
             playerAudioScript.EngineSoundStop();
 
             GetComponent<SpriteRenderer>().enabled = false;
