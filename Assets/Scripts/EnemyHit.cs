@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyHit : MonoBehaviour
 {
+    public AudioRoundRobin deathAudioScript;
     [SerializeField]
     private GameObject explosion;
 
@@ -43,8 +44,10 @@ public class EnemyHit : MonoBehaviour
             a.enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
+            explosion.transform.SetParent(transform.parent);
 
-            Destroy(this.gameObject, delay);
+            deathAudioScript.RoundRobinPlay(0.45f);
+            Destroy(this.gameObject);
             Destroy(collision.gameObject);
         }
     }

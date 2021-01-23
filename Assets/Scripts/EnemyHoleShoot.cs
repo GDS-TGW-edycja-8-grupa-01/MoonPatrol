@@ -10,7 +10,6 @@ public class EnemyHoleShoot : MonoBehaviour
     public int ammo = 1;
     [Range(0.1f,10.0f)]
     public float shootDelay = 1.0f;
-    //Offset niezaimplementowany
     [Range(0.1f, 10.0f)]
     public float shootOffset = 1.0f;
     private bool canShoot = true;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6454336399570189894}
   - component: {fileID: 7801615745511266242}
   - component: {fileID: 4746522886022879869}
+  - component: {fileID: 2081812613249718446}
   m_Layer: 11
   m_Name: Rock
   m_TagString: Rock
@@ -114,7 +115,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4510821692136217245}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -160,6 +161,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66b7cbba6c87d347bf2d41c68a95b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rockAudioScript: {fileID: 2081812613249718446}
+--- !u!114 &2081812613249718446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510821692136217245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374827e2708a28341b7b7b8c2bcce9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 25ec4c5ad0237df44b7f2084a0d8fb7c, type: 3}
+  externalSoundPlayer: {fileID: 9170520827438299207, guid: 610c00ec2ac6ac646a4b1e1f2b065b25,
+    type: 3}
 --- !u!1 &6903890430002906582
 GameObject:
   m_ObjectHideFlags: 0

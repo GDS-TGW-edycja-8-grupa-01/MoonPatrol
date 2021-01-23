@@ -412,12 +412,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   output: {fileID: 5898561988950904053, guid: c51648e7287f94343b1d46fd7e56ff1b, type: 2}
-  engineSound: {fileID: 8300000, guid: 8c66a1cf998574a478704c8e58da1547, type: 3}
+  engineSound: {fileID: 8300000, guid: eb34d733bb356644f85ba80ad97e311c, type: 3}
   weaponShootUpSound: {fileID: 8300000, guid: 4c65d0cadf0e3b94aa53b6bbc7295129, type: 3}
   weaponShootDownSound: {fileID: 8300000, guid: 7641d46daf675f148bf0925f210287ed,
     type: 3}
   landSound: {fileID: 8300000, guid: f6b985d113ad6cc49bef597916236b09, type: 3}
-  playerDeathSound: {fileID: 8300000, guid: 16ff1e1e3dfdd924dbfc22e72e7f8816, type: 3}
   lowEnginePitch: 0.9
   hiEnginePitch: 1.5
 --- !u!114 &368295200006360788
@@ -433,9 +432,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: ff198fc6992c17e4f9af0574021501ca, type: 3}
-  - {fileID: 8300000, guid: 9514d1c5ca1b7d440beff2a490116472, type: 3}
-  - {fileID: 8300000, guid: ecd6b8c27667aa64296af316438c56c2, type: 3}
+  - {fileID: 8300000, guid: 841ba57ef00f9d04aad4368013f5dc5d, type: 3}
+  - {fileID: 8300000, guid: f10e0bd5399c95846b84541fd89efd53, type: 3}
+  - {fileID: 8300000, guid: cf2d80b41ec3cce4a9f09164b360592f, type: 3}
   externalSoundPlayer: {fileID: 9170520827438299207, guid: 610c00ec2ac6ac646a4b1e1f2b065b25,
     type: 3}
 --- !u!1 &7042022186760162507

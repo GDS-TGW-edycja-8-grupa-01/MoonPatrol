@@ -29,7 +29,7 @@ public class PlayerSound : MonoBehaviour
 
     private void Awake()
     {
-        engineAudio = NewAudio(engineSound, true, true, 0.7f);
+        engineAudio = NewAudio(engineSound, true, true, 0.2f);
         weaponUpAudio = NewAudio(weaponShootUpSound, false, false, 0.2f);
         weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);
         weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);

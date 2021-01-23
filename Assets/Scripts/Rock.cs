@@ -5,6 +5,8 @@ using System.Linq;
 
 public class Rock : MonoBehaviour
 {
+    public AudioRoundRobin rockAudioScript;
+
     private Animator a;
     private bool animatorExists = false;
     private GameObject explosion;
@@ -45,7 +47,8 @@ public class Rock : MonoBehaviour
 
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<PolygonCollider2D>().enabled = false;
-            
+
+            rockAudioScript.PlayFromArray(0, 0.5f, 0.3f);
             Destroy(this.gameObject, delay);
             //Destroy(collision.gameObject);
         }

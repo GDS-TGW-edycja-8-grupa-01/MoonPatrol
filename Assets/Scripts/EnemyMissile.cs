@@ -10,9 +10,12 @@ public class EnemyMissile : MonoBehaviour
     public float gravity = 1f;
     [Range(0.01f, 5.0f)]
     public float accuracy = 0.5f;
+    public AudioRoundRobin shootAudioScript;
+    public AudioRoundRobin explodeAudioScript;
     //publiczna zmienna która przechwytuje wektor kierunku ruchu spodka, który stworzył pocisk
     [HideInInspector]
     public Vector2 direction;
+
     private GameObject player;
     private GameObject explosion;
     private GameObject groundExplosion;
@@ -29,6 +32,10 @@ public class EnemyMissile : MonoBehaviour
     private float counter = 0;
     private TrailRenderer tr;
     
+    void Awake()
+    {
+        shootAudioScript.RoundRobinPlay(0.2f);
+    }
 
     
     // Start is called before the first frame update
@@ -55,10 +62,6 @@ public class EnemyMissile : MonoBehaviour
         
     }
 
-    void Awake()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -124,10 +127,12 @@ public class EnemyMissile : MonoBehaviour
             if (other.CompareTag("Ground"))
             {
                 missileExplosion(b);
+                explodeAudioScript.PlayFromArray(1, 0.3f);
             }
             else
             {
                 missileExplosion(a);
+                explodeAudioScript.PlayFromArray(0, 0.4f);
             }
         }
     }
