@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int highScore = 0;
     public int seconds = 0;
+    public bool timerStarted = false;
+    private float startTime;
 
     [Range(50, 60)]
     public int jumpedOverRockPoints = 50;
@@ -172,6 +174,10 @@ public class GameManager : MonoBehaviour
             Array.Resize(ref startedSectors, startedSectorsCount);
             startedSectors[startedSectorsCount - 1] = sectorName;
 
+            if (startedSectorsCount == 1)
+            {
+                timerStarted = true;
+            }
             return;
         }
 
@@ -235,9 +241,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        seconds = (int)(Time.time % 60f);
+        if (!timerStarted)
+        {
+            startTime = Time.time;
+        }
+
+        seconds = timerStarted ? (int)((Time.time - startTime) % 60f) : 0;
 
         UpdateUI();
     }
-
 }
