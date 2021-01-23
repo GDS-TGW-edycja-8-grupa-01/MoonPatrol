@@ -30,7 +30,7 @@ public class PlayerSound : MonoBehaviour
     private void Awake()
     {
         engineAudio = NewAudio(engineSound, true, true, 0.7f);
-        weaponUpAudio = NewAudio(weaponShootUpSound, false, false, 0.15f);
+        weaponUpAudio = NewAudio(weaponShootUpSound, false, false, 0.2f);
         weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);
         weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);
         landAudio = NewAudio(landSound, false, false, 0.35f);
@@ -66,7 +66,8 @@ public class PlayerSound : MonoBehaviour
 
     public void WeaponShootUp()
     {
-        weaponUpAudio.Play();
+        weaponUpAudio.pitch = 1.0f + Random.Range(-0.3f, 0.3f);
+        weaponUpAudio.PlayOneShot(weaponUpAudio.clip, 1.0f);
     }
 
     public void WeaponShootDown()

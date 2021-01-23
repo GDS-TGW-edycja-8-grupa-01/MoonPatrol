@@ -59,7 +59,7 @@ public class MissileMovement : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
             rb.velocity = Vector2.zero;
-            audioScript.RoundRobinPlay(0.5f);
+            audioScript.RoundRobinPlay(0.3f);
             Destroy(this.gameObject);
             Destroy(explosion, delay);
             animatorExists = false;
