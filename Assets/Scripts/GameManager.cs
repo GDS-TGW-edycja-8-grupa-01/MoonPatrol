@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
+    private string[] timerResetingSectors = { "b", "c" };
 
     [Range(50, 60)]
     public int jumpedOverRockPoints = 50;
@@ -178,6 +179,11 @@ public class GameManager : MonoBehaviour
             {
                 timerStarted = true;
             }
+
+            if (timerResetingSectors.Contains(sectorName)) {
+                startTime = Time.time;
+            }
+
             return;
         }
 
