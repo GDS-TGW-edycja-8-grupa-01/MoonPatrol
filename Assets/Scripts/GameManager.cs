@@ -66,9 +66,13 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
-        if (remaingingLivesCount == 0)
+        remaingingLivesCount--;
+
+        if (remaingingLivesCount < 1)
         {
             GameOver();
+
+            return;
         }
 
         Vector3 respawn = GetRespawn();
@@ -89,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-
+        return;
     }
 
     private void ChangeBackgroundScrollSpeed(float speed)
