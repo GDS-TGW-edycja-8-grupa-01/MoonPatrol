@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         name = "Player";
         
         background = GameObject.Find("Background");
-        ground = GameObject.Find("Ground");
+        ground = GameObject.Find("GroundGroup");
         obstacles = GameObject.Find("ObstaclesRoller");
 
         spawn = GameObject.Find("Spawn");
@@ -223,7 +223,15 @@ public class PlayerMovement : MonoBehaviour
         {
             float newSpeed = scrollSpeed + ((transform.position.x - spawn.transform.position.x) / (-spawn.transform.position.x - width / 2.0f)) * groundScrollAccelerationRate;
 
-            go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed = newSpeed;
+            try
+            {
+                go.transform.GetChild(i).GetComponent<GroundScroller>().scrollSpeed = newSpeed;
+            }
+            catch(System.Exception e)
+            {
+                Debug.LogFormat("Cannot set scroll speed for {0}", go.name);
+            }
+            
         }
     }
 

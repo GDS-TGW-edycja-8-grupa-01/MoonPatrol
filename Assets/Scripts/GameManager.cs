@@ -27,9 +27,13 @@ public class GameManager : MonoBehaviour
     [Range(1, 999)]
     public int remaingingLivesCount = 1;
 
+    public bool godMode;
+
     private void Start()
     {
         GameObject playerGo = Instantiate(player);
+
+        playerGo.GetComponent<PlayerHit>().godMode = godMode;
     }
 
     public void Die()

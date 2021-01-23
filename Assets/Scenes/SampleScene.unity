@@ -250,14 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b11a14acbbc02e4c88c6e6ecb3e278b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rock: {fileID: 4510821692136217245, guid: 5917b550d3f3af7408896fb370750ebc, type: 3}
-  sectorMarker: {fileID: 3207691473106610671, guid: 03175cce9fe80ea49b78803d8c908302,
-    type: 3}
-  mine: {fileID: 4510821692136217245, guid: 1f877cb849acacd4b82dbea7f92cd589, type: 3}
-  enemyTier1: {fileID: 6018847373566881668, guid: 9f121caa31916d54688064c8fed245a7,
-    type: 3}
-  enemyTier2: {fileID: 0}
-  enemySpawnDelay: 2.45
 --- !u!1001 &104268191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -784,7 +776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063856576}
   m_Layer: 10
-  m_Name: Ground
+  m_Name: GroundGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1226,6 +1218,7 @@ MonoBehaviour:
   startedSectors: []
   restartLevelDelay: 3
   remaingingLivesCount: 1
+  godMode: 1
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
