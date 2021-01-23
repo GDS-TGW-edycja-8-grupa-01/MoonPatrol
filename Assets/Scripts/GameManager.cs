@@ -4,6 +4,7 @@ using UnityEngine;
 using ExtensionMethods;
 using System.Linq;
 using System;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,11 +30,42 @@ public class GameManager : MonoBehaviour
 
     public bool godMode;
 
+    public Text scoreText;
+    public Text highScoreText;
+    public Text remainingLiveText;
+
+    public int score;
+    public int highScore;
+
+    SafeLangingArea sla;
+
+    [Range(50, 60)]
+    public int jumpedOverRockPoints;
+
     private void Start()
     {
         GameObject playerGo = Instantiate(player);
 
         playerGo.GetComponent<PlayerHit>().godMode = godMode;
+
+        remainingLiveText.text = remaingingLivesCount.ToString();
+
+        sla.OnLandedBehindRock += Sla_OnLandedBehindRock;
+    }
+
+    private void Sla_OnLandedBehindRock(object sender, EventArgs e)
+    {
+        score += jumpedOverRockPoints;
+        highScore = score <= highScore ? score : highScore;
+
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        scoreText.text = score.ToString();
+        highScoreText.text = highScore.ToString();
+        remainingLiveText.text = remaingingLivesCount.ToString();
     }
 
     public void Die()
@@ -67,6 +99,7 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         remaingingLivesCount--;
+        UpdateUI();
 
         if (remaingingLivesCount < 1)
         {

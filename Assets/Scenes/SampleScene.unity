@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 308554663}
   - component: {fileID: 308554662}
   m_Layer: 5
-  m_Name: LivesRemaining
+  m_Name: RemainingLives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1859,6 +1859,9 @@ MonoBehaviour:
   restartLevelDelay: 3
   remaingingLivesCount: 2
   godMode: 0
+  scoreText: {fileID: 556588926}
+  highScoreText: {fileID: 543313744}
+  remainingLiveText: {fileID: 308554662}
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
