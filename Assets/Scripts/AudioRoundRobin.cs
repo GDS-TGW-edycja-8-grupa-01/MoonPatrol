@@ -64,4 +64,26 @@ public class AudioRoundRobin : MonoBehaviour
         //}
         
     }
+
+    public void PlayFromArray(int index, float volume)
+    {
+        GameObject soundPlayer = GameObject.Instantiate(externalSoundPlayer);
+        audioSource = soundPlayer.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(sounds[index], volume);
+    }
+
+    public void PlayFromArray(int index, float volume, float pitchVariation)
+    {
+        GameObject soundPlayer = GameObject.Instantiate(externalSoundPlayer);
+        audioSource = soundPlayer.GetComponent<AudioSource>();
+        audioSource.pitch = 1.0f + Random.Range(-pitchVariation, pitchVariation);
+        audioSource.PlayOneShot(sounds[index], volume);
+        StartCoroutine(RestartPitch());
+    }
+
+    private IEnumerator RestartPitch()
+    {
+        yield return new WaitUntil(() => !audioSource.isPlaying);
+        audioSource.pitch = 1.0f;
+    }
 }

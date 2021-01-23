@@ -46,8 +46,9 @@ GameObject:
   - component: {fileID: 7522986411019306475}
   - component: {fileID: -2149498504405601494}
   - component: {fileID: 2750654817491481692}
-  - component: {fileID: 7746991570361371594}
   - component: {fileID: -1022783788174036912}
+  - component: {fileID: 7746991570361371594}
+  - component: {fileID: 6359358813684934643}
   m_Layer: 0
   m_Name: EnemyTier2
   m_TagString: Enemy
@@ -193,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76ecdfe5ddc09b4f880d5e219579ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAudioScript: {fileID: 6359358813684934643}
   explosion: {fileID: 0}
   engineExhaustLeft: {fileID: 0}
   engineExhaustRight: {fileID: 0}
@@ -209,9 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 2108565443947810133, guid: 05a464470475e49448ba5cd5c4787b72, type: 3}
-  ammo: 10
-  shootDelay: 2
-  shootOffset: 1
+  ammo: 2
+  shootDelay: 2.91
+  shootOffset: 3.67
 --- !u!95 &2750654817491481692
 Animator:
   serializedVersion: 3
@@ -231,6 +233,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1022783788174036912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018847373566881668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c26e735f283d841b4790eeb4960f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySoundScript: {fileID: 7746991570361371594}
 --- !u!114 &7746991570361371594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +267,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 19f5ac6a62d6347499da7083cbbb28fa, type: 3}
   externalSoundPlayer: {fileID: 9170520827438299207, guid: 610c00ec2ac6ac646a4b1e1f2b065b25,
     type: 3}
---- !u!114 &-1022783788174036912
+--- !u!114 &6359358813684934643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,10 +276,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6018847373566881668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c26e735f283d841b4790eeb4960f99, type: 3}
+  m_Script: {fileID: 11500000, guid: 374827e2708a28341b7b7b8c2bcce9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySoundScript: {fileID: 7746991570361371594}
+  sounds:
+  - {fileID: 8300000, guid: 8d013f45723acdf4784c5daf3f71b741, type: 3}
+  - {fileID: 8300000, guid: c9c4511143a27454eba715d2461486df, type: 3}
+  externalSoundPlayer: {fileID: 9170520827438299207, guid: 610c00ec2ac6ac646a4b1e1f2b065b25,
+    type: 3}
 --- !u!1 &6427080973701953764
 GameObject:
   m_ObjectHideFlags: 0

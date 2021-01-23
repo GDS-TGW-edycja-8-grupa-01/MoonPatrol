@@ -341,7 +341,7 @@ PrefabInstance:
     - target: {fileID: 3868564505516489979, guid: c41b8bc64cb97e6468c6fd99f77c32ed,
         type: 3}
       propertyPath: enemiesToSpawn
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3868564505516489979, guid: c41b8bc64cb97e6468c6fd99f77c32ed,
         type: 3}
@@ -352,7 +352,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 6018847373566881668, guid: e65d6366e5be3d747b3ea38224fc92c3,
+      objectReference: {fileID: 6018847373566881668, guid: 9f121caa31916d54688064c8fed245a7,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41b8bc64cb97e6468c6fd99f77c32ed, type: 3}

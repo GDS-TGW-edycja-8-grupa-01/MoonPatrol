@@ -12,9 +12,11 @@ public class EnemyHoleMissile : MonoBehaviour
     public float gravity = 1f;
     [Range(0.01f, 5.0f)]
     public float accuracy = 0.5f;
+    public AudioRoundRobin missileSoundScript;
     //publiczna zmienna która przechwytuje wektor kierunku ruchu spodka, który stworzył pocisk
     [HideInInspector]
     public Vector2 direction;
+
     //private GameObject player;
     private GameObject explosion;
     private Rigidbody2D rb;
@@ -55,7 +57,7 @@ public class EnemyHoleMissile : MonoBehaviour
 
     void Awake()
     {
-        
+        missileSoundScript.PlayFromArray(0, 0.2f, 0.2f);
     }
 
     // Update is called once per frame
@@ -113,6 +115,7 @@ public class EnemyHoleMissile : MonoBehaviour
             tr.emitting = false;
             a.Play("Base Layer.Explosion");
             //rb.velocity = Vector2.zero;
+            missileSoundScript.PlayFromArray(1, 0.4f);
             
             transform.DetachChildren();
             Destroy(this.gameObject, delay);
