@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: efd1bcfa9f084394e9e771e87f87d79a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4659240521562240886
+    second: mp_mine_0
+  - first:
+      213: -6262159970286228682
+    second: mp_mine_1
+  - first:
+      213: 5316293335633054229
+    second: mp_mine_2
+  - first:
+      213: -8365190821080804674
+    second: mp_mine_3
+  - first:
+      213: 6597939473225756642
+    second: mp_mine_4
+  - first:
+      213: -4446394743067895520
+    second: mp_mine_5
+  - first:
+      213: -6706817157256287461
+    second: mp_mine_6
+  - first:
+      213: -8115050694098102667
+    second: mp_mine_7
+  - first:
+      213: 2004290801649169182
+    second: mp_mine_8
+  - first:
+      213: -5086663090166977952
+    second: mp_mine_9
+  - first:
+      213: 2147733118792572541
+    second: mp_mine_10
+  - first:
+      213: 6691600368313495900
+    second: mp_mine_11
+  - first:
+      213: 6495661587658308373
+    second: mp_mine_12
+  - first:
+      213: 804575588590779803
+    second: mp_mine_13
+  - first:
+      213: -1381834473131925771
+    second: mp_mine_14
+  - first:
+      213: -3190176821836844970
+    second: mp_mine_15
+  - first:
+      213: 255573082269035960
+    second: mp_mine_16
+  - first:
+      213: -4309673475324810259
+    second: mp_mine_17
+  - first:
+      213: -8717163446966719216
+    second: mp_mine_18
+  - first:
+      213: -6873264892716057479
+    second: mp_mine_19
+  - first:
+      213: 182931256846472070
+    second: mp_mine_20
+  - first:
+      213: -4154610973330848113
+    second: mp_mine_21
+  - first:
+      213: 1772212218720630870
+    second: mp_mine_22
+  - first:
+      213: -7946662060448513622
+    second: mp_mine_23
+  - first:
+      213: 6011186172176915535
+    second: mp_mine_24
+  - first:
+      213: -7055747593063891651
+    second: mp_mine_25
+  - first:
+      213: -3266532663066720306
+    second: mp_mine_26
+  - first:
+      213: 7035389336833950923
+    second: mp_mine_27
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mp_mine_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 26
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a884d2d6e6d075fb0800000000000000
+      internalID: -4659240521562240886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_mine_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 26
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b2b647fa65819a0800000000000000
+      internalID: -6262159970286228682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_mine_2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 26
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a4f203f9447c940800000000000000
+      internalID: 5316293335633054229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_mine_3
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 26
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2de17d44fd8eb80800000000000000
+      internalID: -8365190821080804674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_mine_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef26275ef6909b50800000000000000
+      internalID: 6597939473225756642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_mine_5
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02916480a8b3b42c0800000000000000
+      internalID: -4446394743067895520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_mine_6
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 0
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b6e3864599ce2a0800000000000000
+      internalID: -6706817157256287461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mp_mine_7
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576defb936c816f80800000000000000
+      internalID: -8115050694098102667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
