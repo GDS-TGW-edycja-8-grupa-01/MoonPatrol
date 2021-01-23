@@ -417,6 +417,7 @@ MonoBehaviour:
   weaponShootDownSound: {fileID: 8300000, guid: 7641d46daf675f148bf0925f210287ed,
     type: 3}
   landSound: {fileID: 8300000, guid: f6b985d113ad6cc49bef597916236b09, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: 16ff1e1e3dfdd924dbfc22e72e7f8816, type: 3}
   lowEnginePitch: 0.9
   hiEnginePitch: 1.5
 --- !u!114 &368295200006360788

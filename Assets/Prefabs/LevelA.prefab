@@ -37,8 +37,8 @@ Transform:
   - {fileID: 2351549466200036551}
   - {fileID: 8115832492897459036}
   - {fileID: 262770895463178956}
-  - {fileID: 3903680761783838441}
   - {fileID: 3996829188952510394}
+  - {fileID: 3903680761783838441}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,7 +96,7 @@ PrefabInstance:
     - target: {fileID: 3460792993486233233, guid: b26c612fffb26554cad59fcf2d8e9710,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3460792993486233233, guid: b26c612fffb26554cad59fcf2d8e9710,
         type: 3}
@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 4717030321543346080, guid: b26c612fffb26554cad59fcf2d8e9710,
         type: 3}
       propertyPath: m_TagString
-      value: Rock
+      value: Hole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26c612fffb26554cad59fcf2d8e9710, type: 3}
@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 4717030321543346080, guid: b26c612fffb26554cad59fcf2d8e9710,
         type: 3}
       propertyPath: m_TagString
-      value: Rock
+      value: Hole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26c612fffb26554cad59fcf2d8e9710, type: 3}
@@ -296,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 1444167917860962809, guid: c41b8bc64cb97e6468c6fd99f77c32ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1444167917860962809, guid: c41b8bc64cb97e6468c6fd99f77c32ed,
         type: 3}
@@ -427,7 +427,7 @@ PrefabInstance:
     - target: {fileID: 4717030321543346080, guid: b26c612fffb26554cad59fcf2d8e9710,
         type: 3}
       propertyPath: m_TagString
-      value: Rock
+      value: Hole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26c612fffb26554cad59fcf2d8e9710, type: 3}
@@ -559,7 +559,7 @@ PrefabInstance:
     - target: {fileID: 4717030321543346080, guid: b26c612fffb26554cad59fcf2d8e9710,
         type: 3}
       propertyPath: m_TagString
-      value: Rock
+      value: Hole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26c612fffb26554cad59fcf2d8e9710, type: 3}
@@ -634,7 +634,7 @@ PrefabInstance:
     - target: {fileID: 4717030321543346080, guid: b26c612fffb26554cad59fcf2d8e9710,
         type: 3}
       propertyPath: m_TagString
-      value: Rock
+      value: Hole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26c612fffb26554cad59fcf2d8e9710, type: 3}

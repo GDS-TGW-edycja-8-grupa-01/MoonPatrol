@@ -35,14 +35,18 @@ public class PlayerHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         string[] deadlyThreat = { "Rock", "Enemy Missile" };
 
-        if ((!deadlyThreat.Contains(collision.gameObject.tag)) || godMode)
+        if ((!deadlyThreat.Contains(collision.tag)) || godMode)
         {
             return;
         }
-
-        Die();
+        else
+        {
+            Die();
+            Debug.Log("PLAYER COLLIDED WITH : " + collision.tag);
+        }
     }
 
     public void Die()
@@ -51,6 +55,7 @@ public class PlayerHit : MonoBehaviour
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
             playerAudioScript.EngineSoundStop();
+
             a.enabled = true;
             explosion.transform.SetParent(transform.parent);
 
@@ -85,6 +90,7 @@ public class PlayerHit : MonoBehaviour
                 nextHole.transform.GetChild(0).gameObject.SetActive(true);
             }
             playerAudioScript.EngineSoundStop();
+
             GetComponent<SpriteRenderer>().enabled = false;
             gameManager.Die(transform.position);
             hole.transform.GetChild(0).gameObject.SetActive(true);
