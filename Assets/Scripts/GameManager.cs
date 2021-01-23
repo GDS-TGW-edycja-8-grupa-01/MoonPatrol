@@ -34,13 +34,11 @@ public class GameManager : MonoBehaviour
     public Text highScoreText;
     public Text remainingLiveText;
 
-    public int score;
-    public int highScore;
-
-    SafeLangingArea sla;
+    public int score = 0;
+    public int highScore = 0;
 
     [Range(50, 60)]
-    public int jumpedOverRockPoints;
+    public int jumpedOverRockPoints = 50;
 
     private void Start()
     {
@@ -48,19 +46,19 @@ public class GameManager : MonoBehaviour
 
         playerGo.GetComponent<PlayerHit>().godMode = godMode;
 
-        remainingLiveText.text = remaingingLivesCount.ToString();
+        UpdateUI();
 
-        sla.OnLandedBehindRock += Sla_OnLandedBehindRock;
+        JumpCollider.OnJumpedOverObstacle += JumpCollider_OnJumpedOverObstacle;
     }
 
-    private void Sla_OnLandedBehindRock(object sender, EventArgs e)
+    private void JumpCollider_OnJumpedOverObstacle(object sender, EventArgs e)
     {
         score += jumpedOverRockPoints;
-        highScore = score <= highScore ? score : highScore;
+        highScore = score >= highScore ? score : highScore;
 
         UpdateUI();
     }
-
+        
     private void UpdateUI()
     {
         scoreText.text = score.ToString();
