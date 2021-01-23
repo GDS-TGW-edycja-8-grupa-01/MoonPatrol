@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724dcf61303590f46a013bdb54b9596d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 2
+  shootDelay: 1
   roofGun: {fileID: 7042022185902900341}
   frontGun: {fileID: 7042022185398301377}
   air2AirMissile: {fileID: 8537259099064425494, guid: 1f1b24e3622814d48bd4fcbd5b670c9a,
