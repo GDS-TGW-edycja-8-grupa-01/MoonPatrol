@@ -33,9 +33,11 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text highScoreText;
     public Text remainingLiveText;
+    public Text timeText;
 
     public int score = 0;
     public int highScore = 0;
+    public int seconds = 0;
 
     [Range(50, 60)]
     public int jumpedOverRockPoints = 50;
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
         highScoreText.text = highScore.ToString();
         remainingLiveText.text = remaingingLivesCount.ToString();
+        timeText.text = "TIME " + seconds.ToString("00");
     }
 
     public void Die()
@@ -228,6 +231,13 @@ public class GameManager : MonoBehaviour
         lastFew.Reverse();
 
         return lastFew;
+    }
+
+    private void Update()
+    {
+        seconds = (int)(Time.time % 60f);
+
+        UpdateUI();
     }
 
 }
