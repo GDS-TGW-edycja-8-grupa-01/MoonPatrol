@@ -11,6 +11,8 @@ public class EnemyWaveActivator : MonoBehaviour
     [Range(1,5)]
     public int enemiesToSpawn;
 
+    private bool spawned = false;
+
     void Start()
     {
         
@@ -24,9 +26,10 @@ public class EnemyWaveActivator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wheel")
+        if ((collision.gameObject.tag == "Wheel") && !spawned)
         {
             InstantiateEnemyWave();
+            spawned = true;
         }
     }
 
