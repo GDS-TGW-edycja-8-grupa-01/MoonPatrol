@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     [Range(50, 60)]
     public int jumpedOverRockPoints = 50;
+    public int destroyedRockPoints = 50;
 
     private void Start()
     {
@@ -49,12 +50,21 @@ public class GameManager : MonoBehaviour
         UpdateUI();
 
         JumpCollider.OnJumpedOverObstacle += JumpCollider_OnJumpedOverObstacle;
+        Rock.OnRockDestroyed += Rock_OnRockDestroyed;
+    }
+
+    private void Rock_OnRockDestroyed(object sender, EventArgs e)
+    {
+        score += destroyedRockPoints;
+        highScore = score <= highScore ? score : highScore;
+
+        UpdateUI();
     }
 
     private void JumpCollider_OnJumpedOverObstacle(object sender, EventArgs e)
     {
         score += jumpedOverRockPoints;
-        highScore = score >= highScore ? score : highScore;
+        highScore = score <= highScore ? score : highScore;
 
         UpdateUI();
     }

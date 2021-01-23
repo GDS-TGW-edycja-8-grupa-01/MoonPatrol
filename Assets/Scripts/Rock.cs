@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Rock : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Rock : MonoBehaviour
     private Animator a;
     private bool animatorExists = false;
     private GameObject explosion;
+    
+    public static event EventHandler OnRockDestroyed;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,20 @@ public class Rock : MonoBehaviour
         if (!collidable.Contains(collision.gameObject.tag))
         {
             return;
+        }
+
+        if (collision.gameObject.CompareTag("Player Missile"))
+        {
+            GameObject jc = GameObject.Find("JumpCollider");
+
+            jc.GetComponent<EdgeCollider2D>().enabled = false;
+
+
+            Destroy(collision.gameObject);
+
+            
+            GetComponent<PolygonCollider2D>().enabled = false;
+            OnRockDestroyed?.Invoke(this, EventArgs.Empty);
         }
 
         if (animatorExists)
