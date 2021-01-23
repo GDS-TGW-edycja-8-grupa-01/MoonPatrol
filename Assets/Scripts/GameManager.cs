@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
         GameObject go = Instantiate(player, respawn, Quaternion.identity);
         go.GetComponent<PlayerHit>().WheelsSetActive(true);
         go.transform.Find("Explosion").gameObject.GetComponent<Animator>().enabled = false;
-        go.name = "Player";
     }
 
     private Vector3 GetRespawn()

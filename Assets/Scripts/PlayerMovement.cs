@@ -50,12 +50,14 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-        Vector2 spawnPostion;
-
         name = "Player";
-
-        spawnPostion = GameObject.Find("Spawn").transform.position;
         
+        background = GameObject.Find("Background");
+        ground = GameObject.Find("Ground");
+        obstacles = GameObject.Find("ObstaclesRoller");
+
+        spawn = GameObject.Find("Spawn");
+        Vector2 spawnPostion = spawn.transform.position;
         transform.position = spawnPostion;
 
         rb = GetComponent<Rigidbody2D>();
