@@ -62,18 +62,17 @@ public class PlayerHit : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
 
-            gameManager.Die(transform.position);
+            WheelsSetActive(false);
 
-            GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
-            Destroy(ragdoll, gameManager.restartLevelDelay);
-            Destroy(this.gameObject);
-            Destroy(explosion, delay);
-
-            transform.Find("FrontWheel").gameObject.SetActive(false);
-            transform.Find("MiddleWheel").gameObject.SetActive(false);
-            transform.Find("RearWheel").gameObject.SetActive(false);
-            
+            gameManager.Die();
         }
+    }
+
+    public void WheelsSetActive(bool isActive)
+    {
+        transform.Find("FrontWheel").gameObject.SetActive(isActive);
+        transform.Find("MiddleWheel").gameObject.SetActive(isActive);
+        transform.Find("RearWheel").gameObject.SetActive(isActive);
     }
 
     public void DieHole(GameObject hole)
@@ -92,16 +91,20 @@ public class PlayerHit : MonoBehaviour
             playerAudioScript.EngineSoundStop();
 
             GetComponent<SpriteRenderer>().enabled = false;
-            gameManager.Die(transform.position);
+
+            WheelsSetActive(false);
+            gameManager.Die();
+
             hole.transform.GetChild(0).gameObject.SetActive(true);
             Physics2D.IgnoreLayerCollision(10, 12);
-            GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
-            Destroy(ragdoll, gameManager.restartLevelDelay);
-            Destroy(this.gameObject);
-            Destroy(explosion, delay);
-            transform.Find("FrontWheel").gameObject.SetActive(false);
-            transform.Find("MiddleWheel").gameObject.SetActive(false);
-            transform.Find("RearWheel").gameObject.SetActive(false);
+
+            //GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
+            //Destroy(ragdoll, gameManager.restartLevelDelay);
+            //Destroy(this.gameObject);
+            //Destroy(explosion, delay);
+            //transform.Find("FrontWheel").gameObject.SetActive(false);
+            //transform.Find("MiddleWheel").gameObject.SetActive(false);
+            //transform.Find("RearWheel").gameObject.SetActive(false);
 
         }
     }
