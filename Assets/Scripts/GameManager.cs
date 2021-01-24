@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public Text highScoreText;
     public Text remainingLiveText;
     public Text timeText;
+    public Button playButton;
 
     public int score = 0;
     public int highScore = 0;
@@ -50,14 +51,23 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 0.0f;
+
+        JumpCollider.OnJumpedOverObstacle += JumpCollider_OnJumpedOverObstacle;
+        Rock.OnRockDestroyed += Rock_OnRockDestroyed;
+    }
+
+    public void Play()
+    {
         GameObject playerGo = Instantiate(player);
 
         playerGo.GetComponent<PlayerHit>().godMode = godMode;
 
+        Time.timeScale = 1.0f;
+
         UpdateUI();
 
-        JumpCollider.OnJumpedOverObstacle += JumpCollider_OnJumpedOverObstacle;
-        Rock.OnRockDestroyed += Rock_OnRockDestroyed;
+        playButton.gameObject.SetActive(false);
     }
 
     private void Rock_OnRockDestroyed(object sender, EventArgs e)
