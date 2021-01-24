@@ -33,7 +33,7 @@ public class PlayerSound : MonoBehaviour
         weaponUpAudio = NewAudio(weaponShootUpSound, false, false, 0.2f);
         weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);
         weaponDownAudio = NewAudio(weaponShootDownSound, false, false, 0.3f);
-        landAudio = NewAudio(landSound, false, false, 0.35f);
+        landAudio = NewAudio(landSound, false, false, 0.2f);
 
     }
 
@@ -83,7 +83,7 @@ public class PlayerSound : MonoBehaviour
     public void Land()
     {
         landAudio.pitch = 1.0f + Random.Range(-0.1f, 0.1f);
-        landAudio.Play();
+        landAudio.PlayOneShot(landSound);
     }
 
 

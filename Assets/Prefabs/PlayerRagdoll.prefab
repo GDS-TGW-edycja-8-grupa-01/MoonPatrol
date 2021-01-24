@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6519308209132780142}
   - component: {fileID: 7908564128374804950}
   m_Layer: 12
-  m_Name: MiddleWheel
+  m_Name: MiddleWheelRagdoll
   m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 7042022187109314247}
   - component: {fileID: 7359204408631390896}
   m_Layer: 12
-  m_Name: FrontWheel
+  m_Name: FrontWheelRagdoll
   m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 7042022187139949690}
   - component: {fileID: 8081088278792267865}
   m_Layer: 12
-  m_Name: RearWheel
+  m_Name: RearWheelRagdoll
   m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

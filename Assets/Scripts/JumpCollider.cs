@@ -12,6 +12,7 @@ public class JumpCollider : MonoBehaviour
         if (collision.gameObject.name == "RearWheel")
         {
             OnJumpedOverObstacle?.Invoke(this, EventArgs.Empty);
+            gameObject.SetActive(false);
         }
     }
 }

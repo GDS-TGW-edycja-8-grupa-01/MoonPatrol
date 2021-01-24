@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
     private float startTime;
     private string[] timerResetingSectors = { "b", "c" };
 
-    [Range(50, 60)]
+    
     public int jumpedOverRockPoints = 50;
-    public int destroyedRockPoints = 50;
+    public int destroyedRockPoints = 100;
 
     public static event EventHandler OnRestartSector;
 
@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
 
     private void JumpCollider_OnJumpedOverObstacle(object sender, EventArgs e)
     {
+        JumpCollider jc = (JumpCollider)sender;
+        Debug.Log("JUMPED OVER : " + jc.transform.parent.gameObject.name);
         score += jumpedOverRockPoints;
         highScore = score <= highScore ? score : highScore;
 
