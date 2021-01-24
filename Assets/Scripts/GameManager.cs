@@ -279,6 +279,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(enemyContainer.transform.GetChild(i).gameObject);
         }
+        List<GameObject> holeContainer = obstacles.transform.GetChild(0).GetAllChildren();
+        foreach (GameObject obj in holeContainer)
+        {
+            if (obj.name == "DESTROY ME") Destroy(obj);
+        }
+        
     }
 
     private void Update()

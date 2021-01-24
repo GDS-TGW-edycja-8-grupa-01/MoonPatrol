@@ -51,7 +51,7 @@ public class EnemyHoleMissile : MonoBehaviour
         //player = GameObject.Find("Player");
         bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         obstaclesRoller = GameObject.Find("ObstaclesRoller");
-        objHeightHalved = objToSpwn.GetComponent<SpriteRenderer>().bounds.extents.y;
+        //objHeightHalved = objToSpwn.GetComponent<SpriteRenderer>().bounds.extents.y;
 
     }
 
@@ -97,9 +97,14 @@ public class EnemyHoleMissile : MonoBehaviour
             missileExplosion();
             if (other.CompareTag("Ground"))
             {
+
                 GameObject spawnedObject = Instantiate(objToSpwn, obstaclesRoller.transform.GetChild(0).transform, false);
                 //-3.74f to magiczna liczba, którą wyliczyłem z sumarycznej pozycji y obiektów Hole w przykładowych prefabowych poziomach, jeżeli to się zmieni - trzeba będzie ją zmienić i tutaj
                 spawnedObject.transform.position = new Vector3(transform.position.x, -3.74f, 0.0f);
+                spawnedObject.gameObject.name = "DESTROY ME";
+                Hole hole = spawnedObject.gameObject.GetComponentInChildren<Hole>();
+                hole.dontSubscribe = true;
+                
             }
         }
     }

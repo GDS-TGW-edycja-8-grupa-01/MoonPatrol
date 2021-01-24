@@ -5,10 +5,12 @@ using System;
 
 public class Hole : MonoBehaviour
 {
+    [HideInInspector]
+    public bool dontSubscribe = false;
     private bool playerKilled = false;
     private void Start()
     {
-        GameManager.OnRestartSector += GameManager_OnRestartSector;
+        if (!dontSubscribe) GameManager.OnRestartSector += GameManager_OnRestartSector;
     }
 
     private void GameManager_OnRestartSector(object sender, EventArgs e)
