@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public Button playButton;
     public Button quitButton;
     public Image buttonPanel;
+    public Image logoImage;
 
     public int score = 0;
     public int highScore = 0;
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
         buttonPanel.gameObject.SetActive(false);
+        logoImage.gameObject.SetActive(false);
     }
 
     public void Quit()
