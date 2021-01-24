@@ -1947,6 +1947,7 @@ MonoBehaviour:
   score: 0
   highScore: 0
   seconds: 0
+  timerStarted: 0
   jumpedOverRockPoints: 50
   destroyedRockPoints: 50
 --- !u!1 &2074517111

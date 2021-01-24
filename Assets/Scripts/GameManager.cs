@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 50;
 
+    public static event EventHandler OnRestartSector;
+
     private void Start()
     {
         GameObject playerGo = Instantiate(player);
@@ -188,8 +190,6 @@ public class GameManager : MonoBehaviour
         }
 
         return;
-
-
     }
 
     IEnumerator RestartLastSector()
@@ -210,6 +210,8 @@ public class GameManager : MonoBehaviour
 
             previousLevelLength += or.levelLength;
         }
+
+        OnRestartSector?.Invoke(this, EventArgs.Empty);
 
         Respawn();
     }

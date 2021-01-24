@@ -11,10 +11,10 @@ public class Rock : MonoBehaviour
     private Animator a;
     private bool animatorExists = false;
     private GameObject explosion;
-    
+    private float delay;
+
     public static event EventHandler OnRockDestroyed;
 
-    // Start is called before the first frame update
     void Start()
     {
         explosion = transform.Find("Explosion").gameObject;
@@ -24,14 +24,39 @@ public class Rock : MonoBehaviour
         if (animatorExists) a.enabled = false;
 
         explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+        GameManager.OnRestartSector += GameManager_OnRestartSector;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GameManager_OnRestartSector(object sender, EventArgs e)
     {
-        
+        SetActive(true);
     }
 
+    private void Hide()
+    {
+        if (animatorExists)
+        {
+            delay = a.GetCurrentAnimatorClipInfo(0).Length;
+
+            a.enabled = true;
+            a.Play("Base Layer.Explosion");
+
+            rockAudioScript.PlayFromArray(0, 0.5f, 0.3f);
+
+            SetActive(false);
+        }
+    }
+
+    private void SetActive(bool isActive)
+    {
+        GetComponent<SpriteRenderer>().enabled = isActive;
+        GetComponent<PolygonCollider2D>().enabled = isActive;
+
+        GameObject jc = GameObject.Find("JumpCollider");
+        jc.GetComponent<EdgeCollider2D>().enabled = isActive;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string[] collidable = { "Player", "Wheel", "Player Missile" };
@@ -43,31 +68,11 @@ public class Rock : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player Missile"))
         {
-            GameObject jc = GameObject.Find("JumpCollider");
-
-            jc.GetComponent<EdgeCollider2D>().enabled = false;
-
-
             Destroy(collision.gameObject);
 
-            
-            GetComponent<PolygonCollider2D>().enabled = false;
+            Hide();
+
             OnRockDestroyed?.Invoke(this, EventArgs.Empty);
-        }
-
-        if (animatorExists)
-        {
-            float delay = a.GetCurrentAnimatorClipInfo(0).Length;
-
-            a.enabled = true;
-            a.Play("Base Layer.Explosion");
-
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<PolygonCollider2D>().enabled = false;
-
-            rockAudioScript.PlayFromArray(0, 0.5f, 0.3f);
-            Destroy(this.gameObject, delay);
-            //Destroy(collision.gameObject);
         }
     }
 }

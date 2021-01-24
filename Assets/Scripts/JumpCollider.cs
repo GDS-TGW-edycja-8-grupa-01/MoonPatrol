@@ -6,7 +6,7 @@ using System;
 public class JumpCollider : MonoBehaviour
 {
     public static event EventHandler OnJumpedOverObstacle;
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "RearWheel")
