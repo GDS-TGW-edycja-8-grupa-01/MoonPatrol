@@ -383,8 +383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missile: {fileID: 2108565443947810133, guid: 05a464470475e49448ba5cd5c4787b72, type: 3}
   ammo: 2
-  shootDelay: 2.43
-  shootOffset: 3.6
+  shootDelay: 1.12
+  shootOffset: 2.72
 --- !u!114 &3809783355067121894
 MonoBehaviour:
   m_ObjectHideFlags: 0

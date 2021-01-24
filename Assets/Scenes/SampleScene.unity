@@ -2480,6 +2480,14 @@ MonoBehaviour:
   - {fileID: 1763107183315215154, guid: 7ece4c76cef464d4eaa9d51c6f076b7c, type: 3}
   - {fileID: 1763107183315215154, guid: 82ad63811c677df44bdcbade8782dea5, type: 3}
   - {fileID: 1763107183315215154, guid: 156c9697fb9b21949821183636e2bd58, type: 3}
+  - {fileID: 1763107183315215154, guid: 9418cadf2f9954145a5b1e4157769b28, type: 3}
+  - {fileID: 1763107183315215154, guid: d2930d7ee8a3f2041ae2e7c4b1533f7b, type: 3}
+  - {fileID: 1763107183315215154, guid: 92f7e5b5b606c0049877c7aba51a8780, type: 3}
+  - {fileID: 1763107183315215154, guid: 78e281e888cab48439aa7d0a5d15921a, type: 3}
+  - {fileID: 1763107183315215154, guid: d31b565ecd090304489cb9fb33852b53, type: 3}
+  - {fileID: 1763107183315215154, guid: 41b33f671dbdaf84fa7ca1cc6fdd1360, type: 3}
+  - {fileID: 1763107183315215154, guid: b17d789df9ae7764db28571fe4457c5d, type: 3}
+  - {fileID: 1763107183315215154, guid: f8a44aba308c4e54ab4bc1a00d2a893f, type: 3}
   levelLength: 86
   levelXPositions: []
   initialXPosition: 8
