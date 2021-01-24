@@ -36,7 +36,7 @@ public class PlayerHit : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        string[] deadlyThreat = { "Rock", "Enemy Missile" };
+        string[] deadlyThreat = { "Rock", "Enemy Missile", "Mine" };
 
         if ((!deadlyThreat.Contains(collision.tag)) || godMode)
         {
