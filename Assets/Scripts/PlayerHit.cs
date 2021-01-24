@@ -58,7 +58,7 @@ public class PlayerHit : MonoBehaviour
 
             a.enabled = true;
             explosion.transform.SetParent(transform.parent);
-
+            Destroy(explosion, delay);
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
 
@@ -101,7 +101,7 @@ public class PlayerHit : MonoBehaviour
             //GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
             //Destroy(ragdoll, gameManager.restartLevelDelay);
             //Destroy(this.gameObject);
-            //Destroy(explosion, delay);
+            Destroy(explosion, delay);
             //transform.Find("FrontWheel").gameObject.SetActive(false);
             //transform.Find("MiddleWheel").gameObject.SetActive(false);
             //transform.Find("RearWheel").gameObject.SetActive(false);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class EnemyMissile : MonoBehaviour
@@ -121,9 +122,10 @@ public class EnemyMissile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((!other.CompareTag("Enemy")) && (!other.CompareTag("Enemy Missile")))
+        string[] collidable = { "Player", "Ground", "Player Missile" };
+        if (collidable.Contains(other.gameObject.tag))
         {
-            Debug.Log("EnemyMissile collided with: " + other.tag);
+            Debug.Log("EnemyMissile collided with: " + other.name);
             if (other.CompareTag("Ground"))
             {
                 missileExplosion(b);
