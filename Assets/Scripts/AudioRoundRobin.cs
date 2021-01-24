@@ -78,12 +78,7 @@ public class AudioRoundRobin : MonoBehaviour
         audioSource = soundPlayer.GetComponent<AudioSource>();
         audioSource.pitch = 1.0f + Random.Range(-pitchVariation, pitchVariation);
         audioSource.PlayOneShot(sounds[index], volume);
-        StartCoroutine(RestartPitch());
+        
     }
 
-    private IEnumerator RestartPitch()
-    {
-        yield return new WaitUntil(() => !audioSource.isPlaying);
-        audioSource.pitch = 1.0f;
-    }
 }
