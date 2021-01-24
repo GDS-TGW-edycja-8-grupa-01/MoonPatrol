@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
         highScoreText.text = highScore.ToString();
         remainingLiveText.text = remaingingLivesCount.ToString();
-        timeText.text = "TIME " + seconds.ToString("00");
+        timeText.text = seconds.ToString("00");
     }
 
     public void Die()
