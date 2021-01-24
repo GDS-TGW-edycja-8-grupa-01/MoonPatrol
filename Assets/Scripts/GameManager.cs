@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
     public Text timeText;
     public Button playButton;
     public Button quitButton;
+    public Image buttonPanel;
+    public Image logoImage;
+    public GameObject gameOverGroup;
+    public Text gameOverScoreText;
 
     public int score = 0;
     public int highScore = 0;
@@ -45,7 +49,6 @@ public class GameManager : MonoBehaviour
     private float startTime;
     private string[] timerResetingSectors = { "b", "c" };
 
-    
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
 
@@ -76,6 +79,8 @@ public class GameManager : MonoBehaviour
 
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
+        buttonPanel.gameObject.SetActive(false);
+        logoImage.gameObject.SetActive(false);
     }
 
     public void Quit()
@@ -86,7 +91,7 @@ public class GameManager : MonoBehaviour
     private void Rock_OnRockDestroyed(object sender, EventArgs e)
     {
         score += destroyedRockPoints;
-        highScore = score <= highScore ? score : highScore;
+        highScore = score >= highScore ? score : highScore;
 
         UpdateUI();
     }
@@ -96,7 +101,7 @@ public class GameManager : MonoBehaviour
         JumpCollider jc = (JumpCollider)sender;
         Debug.Log("JUMPED OVER : " + jc.transform.parent.gameObject.name);
         score += jumpedOverRockPoints;
-        highScore = score <= highScore ? score : highScore;
+        highScore = score >= highScore ? score : highScore;
 
         UpdateUI();
     }
@@ -104,9 +109,10 @@ public class GameManager : MonoBehaviour
     private void UpdateUI()
     {
         scoreText.text = score.ToString("000000");
+        gameOverScoreText.text = score.ToString("000000");
         highScoreText.text = highScore.ToString("000000");
         remainingLiveText.text = remaingingLivesCount.ToString();
-        timeText.text = seconds.ToString("00");
+        timeText.text = seconds.ToString("000");
     }
 
     public void Die()
@@ -167,6 +173,12 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        timerStarted = false;
+
+        gameOverGroup.SetActive(true);
+
+        UpdateUI();
+
         return;
     }
 
