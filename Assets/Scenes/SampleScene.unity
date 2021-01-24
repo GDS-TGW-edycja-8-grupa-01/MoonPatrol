@@ -167,12 +167,12 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -2, y: 0, z: 0}
-      - {x: -2.0460916, y: 0.8599589, z: 0}
-      - {x: 8.815297, y: -0.86814964, z: 0}
-      - {x: 8.771906, y: 0.24904251, z: 0}
-      - {x: 8.759876, y: 0.81458926, z: 0}
-      - {x: -1.9137602, y: -0.7404182, z: 0}
+      - {x: -1.1878643, y: -0.5070115, z: 0}
+      - {x: -1.2339559, y: 0.35294735, z: 0}
+      - {x: 8.630687, y: -0.7307745, z: 0}
+      - {x: 8.587296, y: 0.38641763, z: 0}
+      - {x: 8.575266, y: 0.9519645, z: 0}
+      - {x: -1.1016245, y: -1.24743, z: 0}
       isClosed: 1
       space: 1
       controlMode: 2
@@ -292,6 +292,11 @@ PrefabInstance:
         type: 3}
       propertyPath: scrollSpeed
       value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: scrollMod
+      value: 0.544
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -761,6 +766,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: scrollMod
+      value: 0.296
+      objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -858,6 +868,11 @@ PrefabInstance:
     - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: scrollSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: scrollMod
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
@@ -2820,24 +2835,24 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -3.139388, y: 0.18871212, z: 0}
-      - {x: -2.1042328, y: 2.1164675, z: 0}
-      - {x: 1.757282, y: -1.5236185, z: 0}
+      - {x: -2.3234196, y: 0.19340348, z: 0}
+      - {x: -1.139341, y: 1.7447183, z: 0}
+      - {x: 1.9943193, y: -1.4961357, z: 0}
       - {x: 3.9452806, y: -1.5448111, z: 0}
-      - {x: 5.0319324, y: -1.5553364, z: 0}
-      - {x: 6.794462, y: -1.5955012, z: 0}
+      - {x: 5.0316453, y: -1.5719154, z: 0}
+      - {x: 6.947159, y: -1.6993787, z: 0}
       - {x: 7.4798403, y: -0.7521863, z: 0}
-      - {x: 7.7488866, y: -0.4211419, z: 0}
-      - {x: 7.786341, y: 0.3527396, z: 0}
-      - {x: 7.500744, y: 0.66961575, z: 0}
-      - {x: 6.8234034, y: 1.4211395, z: 0}
-      - {x: 5.139303, y: 1.1379361, z: 0}
-      - {x: 4.141702, y: 0.969501, z: 0}
-      - {x: 2.3698196, y: 0.6703362, z: 0}
-      - {x: 0.45488012, y: -1.7805157, z: 0}
+      - {x: 7.646814, y: -0.45528045, z: 0}
+      - {x: 7.3818593, y: 0.109861866, z: 0}
+      - {x: 7.1166334, y: 0.32361078, z: 0}
+      - {x: 6.4331317, y: 0.8744538, z: 0}
+      - {x: 5.079201, y: 0.76212394, z: 0}
+      - {x: 4.208664, y: 0.64913034, z: 0}
+      - {x: 2.4451005, y: 0.42022413, z: 0}
+      - {x: 0.3624767, y: -2.0718527, z: 0}
       - {x: -1.3188359, y: -1.4924197, z: 0}
-      - {x: -2.0526273, y: -1.3732336, z: 0}
-      - {x: -3.4910824, y: -0.4662432, z: 0}
+      - {x: -1.8754421, y: -1.3005958, z: 0}
+      - {x: -2.6806228, y: -0.27458456, z: 0}
       isClosed: 1
       space: 1
       controlMode: 3

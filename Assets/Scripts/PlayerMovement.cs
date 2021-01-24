@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Reflection;
 using ExtensionMethods;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     public float inertia = 0;
     [Range(3.0f, 10.0f)]
     public float scrollSpeed = 5.0f;
+    [Range(0.0f, 2.0f)]
+    public float earlyJumpDistance = 0.5f;
 
     //[SerializeField]
     public GameObject background;
@@ -47,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private float[] backgroundScrollSpeed;
     private bool wasFlying = false;
     private GameObject[] wheels;
+
 
     private GameManager gameManager;
 
@@ -105,13 +110,17 @@ public class PlayerMovement : MonoBehaviour
 
         //Input spięty w if else if ... else, tak by odwzorować poruszanie się w oryginale
         //Jednak nie możemy się poruszać lewo-prawo w trakcie skoku, ale jeżeli przed skokiem przyśpieszaliśmy/zwalnialiśmy, to będzie to kontynuowane w locie
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")) && IsGrounded())
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))
         {
-            if (true)
+            if (IsGrounded())
             {
                 rb.constraints = RigidbodyConstraints2D.None;
                 rb.velocity += Vector2.up * jumpForce;
                 playerAudioScript.RoundRobinPlay(0.35f);
+            }
+            else if (CheckForEarlyJump())
+            {
+                StartCoroutine(EarlyJump());
             }
         }
         else if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && IsGrounded())
@@ -175,7 +184,6 @@ public class PlayerMovement : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity += Vector2.right * lastAcceleration;
             wasFlying = true;
-            //AnimateWheels();
         }
 
         if (ShouldChangeBackroundScrollSpeed())
@@ -186,7 +194,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator EarlyJump()
+    {
+        yield return new WaitUntil(() => IsGrounded());
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.velocity += Vector2.up * jumpForce;
+        playerAudioScript.RoundRobinPlay(0.35f);
 
+    }
 
     private bool IsGrounded()
     {
@@ -214,6 +229,15 @@ public class PlayerMovement : MonoBehaviour
 
         return returnValue;
     }
+    private bool CheckForEarlyJump()
+    {
+        Vector3 start = sr.bounds.center;
+        RaycastHit2D hit = Physics2D.Raycast(start, Vector2.down);
+        bool isFalling = rb.velocity.y < 0;
+        bool returnValue = (hit.distance <= earlyJumpDistance) && !IsGrounded() && isFalling;
+        return returnValue;
+    }
+
     //GetComponent i GetChild w pętli Update - fpsy spadają
     private void ChangeBackgroudScrollSpeed(GameObject go)
     {

@@ -283,6 +283,7 @@ MonoBehaviour:
   groundScrollAccelerationRate: 2.32
   inertia: 3.36
   scrollSpeed: 5
+  earlyJumpDistance: 1.01
   background: {fileID: 0}
   ground: {fileID: 0}
   obstacles: {fileID: 0}
