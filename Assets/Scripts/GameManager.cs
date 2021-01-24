@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public Text timeText;
     public Button playButton;
     public Button quitButton;
+    public Image buttonPanel;
 
     public int score = 0;
     public int highScore = 0;
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
 
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
+        buttonPanel.gameObject.SetActive(false);
     }
 
     public void Quit()
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString("000000");
         highScoreText.text = highScore.ToString("000000");
         remainingLiveText.text = remaingingLivesCount.ToString();
-        timeText.text = seconds.ToString("00");
+        timeText.text = seconds.ToString("000");
     }
 
     public void Die()
