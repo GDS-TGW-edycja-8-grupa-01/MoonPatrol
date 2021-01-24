@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     private void Rock_OnRockDestroyed(object sender, EventArgs e)
     {
         score += destroyedRockPoints;
-        highScore = score <= highScore ? score : highScore;
+        highScore = score >= highScore ? score : highScore;
 
         UpdateUI();
     }
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         JumpCollider jc = (JumpCollider)sender;
         Debug.Log("JUMPED OVER : " + jc.transform.parent.gameObject.name);
         score += jumpedOverRockPoints;
-        highScore = score <= highScore ? score : highScore;
+        highScore = score >= highScore ? score : highScore;
 
         UpdateUI();
     }
