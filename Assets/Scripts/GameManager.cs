@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public Text remainingLiveText;
     public Text timeText;
     public Button playButton;
+    public Button quitButton;
 
     public int score = 0;
     public int highScore = 0;
@@ -57,6 +58,11 @@ public class GameManager : MonoBehaviour
         Rock.OnRockDestroyed += Rock_OnRockDestroyed;
     }
 
+    public void EscapePressed()
+    {
+        Time.timeScale = Time.timeScale == 0.0f ? 1.0f : 0.0f;
+    }
+
     public void Play()
     {
         GameObject playerGo = Instantiate(player);
@@ -68,6 +74,12 @@ public class GameManager : MonoBehaviour
         UpdateUI();
 
         playButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     private void Rock_OnRockDestroyed(object sender, EventArgs e)
@@ -85,7 +97,7 @@ public class GameManager : MonoBehaviour
 
         UpdateUI();
     }
-        
+
     private void UpdateUI()
     {
         scoreText.text = score.ToString();
@@ -110,7 +122,7 @@ public class GameManager : MonoBehaviour
             Destroy(playerGo);
             //Destroy(playerGo.transform.Find("Explosion").gameObject, restartLevelDelay);
         }
-        
+
         StartCoroutine(RestartLastSector());
     }
     //work in progress
@@ -192,7 +204,8 @@ public class GameManager : MonoBehaviour
                 timerStarted = true;
             }
 
-            if (timerResetingSectors.Contains(sectorName)) {
+            if (timerResetingSectors.Contains(sectorName))
+            {
                 startTime = Time.time;
             }
 
@@ -213,7 +226,7 @@ public class GameManager : MonoBehaviour
 
         List<GameObject> levelsToComplete = GetLevelsToRollback(or);
         float previousLevelLength = restartXPosition;
-        
+
         foreach (GameObject level in levelsToComplete)
         {
             level.transform.position = new Vector3(previousLevelLength, y, z);

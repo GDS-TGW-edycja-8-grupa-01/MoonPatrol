@@ -47,9 +47,13 @@ public class PlayerMovement : MonoBehaviour
     private float[] backgroundScrollSpeed;
     private bool wasFlying = false;
     private GameObject[] wheels;
-    
+
+    private GameManager gameManager;
+
     void Start()
     {
+        gameManager = this.gameObject.GetGameManager();
+
         name = "Player";
         
         background = GameObject.Find("Background");
@@ -94,6 +98,11 @@ public class PlayerMovement : MonoBehaviour
         //Nie rozumiem jak to działa, ale faktycznie działa
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.EscapePressed();
+        }
+
         //Input spięty w if else if ... else, tak by odwzorować poruszanie się w oryginale
         //Jednak nie możemy się poruszać lewo-prawo w trakcie skoku, ale jeżeli przed skokiem przyśpieszaliśmy/zwalnialiśmy, to będzie to kontynuowane w locie
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")) && IsGrounded())
