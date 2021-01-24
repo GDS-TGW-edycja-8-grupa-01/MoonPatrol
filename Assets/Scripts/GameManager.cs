@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject enemyContainer;
     public GameObject background;
     private GameObject backgroundScroller;
 
@@ -237,7 +238,7 @@ public class GameManager : MonoBehaviour
         }
 
         OnRestartSector?.Invoke(this, EventArgs.Empty);
-
+        ClearEnemies();
         Respawn();
     }
 
@@ -270,6 +271,14 @@ public class GameManager : MonoBehaviour
         lastFew.Reverse();
 
         return lastFew;
+    }
+
+    private void ClearEnemies()
+    {
+        for(int i=0; i < enemyContainer.transform.childCount; i++)
+        {
+            Destroy(enemyContainer.transform.GetChild(i).gameObject);
+        }
     }
 
     private void Update()

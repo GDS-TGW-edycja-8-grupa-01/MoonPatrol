@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ExtensionMethods;
+using System.Linq;
+using System;
 
 public class EnemyWaveActivator : MonoBehaviour
 {
@@ -12,10 +15,20 @@ public class EnemyWaveActivator : MonoBehaviour
     public int enemiesToSpawn;
 
     private bool spawned = false;
+    private GameManager gameManager;
+    private int enemiesToSpawnSave;
 
     void Start()
     {
-        
+        gameManager = gameManager = this.gameObject.GetGameManager();
+        enemiesToSpawnSave = enemiesToSpawn;
+        GameManager.OnRestartSector += GameManager_OnRestartSector;
+    }
+
+    private void GameManager_OnRestartSector(object sender, EventArgs e)
+    {
+        enemiesToSpawn = enemiesToSpawnSave;
+        spawned = false;
     }
 
     // Update is called once per frame
@@ -44,7 +57,7 @@ public class EnemyWaveActivator : MonoBehaviour
         while (enemiesToSpawn > 0)
         {
             yield return new WaitForSeconds(delay);
-            GameObject go = Instantiate(enemy) as GameObject;
+            GameObject go = Instantiate(enemy, gameManager.enemyContainer.transform) as GameObject;
             enemiesToSpawn--;
         }
     }

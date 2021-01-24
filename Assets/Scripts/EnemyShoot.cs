@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ExtensionMethods;
 
 
 public class EnemyShoot : MonoBehaviour
@@ -18,12 +19,14 @@ public class EnemyShoot : MonoBehaviour
     private bool died = false;
     private bool ready = false;
     Transform gun;
+    private GameManager gameManager;
 
     void Start()
     {
         em = GetComponent<EnemyMovement>();
         gun = transform.Find("Gun").gameObject.transform;
         StartCoroutine(ShootOffset());
+        gameManager = this.gameObject.GetGameManager();
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class EnemyShoot : MonoBehaviour
         {
             missile.direction = em.GetDirection();
             ammo--;
-            EnemyMissile missileContainer = Instantiate(missile, gun.position, Quaternion.identity);
+            EnemyMissile missileContainer = Instantiate(missile, gun.position, Quaternion.identity, gameManager.enemyContainer.transform);
             missileContainer.direction = em.GetDirection();
             //Pewnie da się to zrobić mądrzej, ale...
             Physics2D.IgnoreCollision(missileContainer.GetComponent<Collider2D>(), GetComponent<Collider2D>());

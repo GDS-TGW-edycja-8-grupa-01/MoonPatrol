@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ExtensionMethods;
 
 
 public class EnemyHoleShoot : MonoBehaviour
@@ -17,12 +18,14 @@ public class EnemyHoleShoot : MonoBehaviour
     private bool died = false;
     private bool ready = false;
     Transform gun;
+    GameManager gameManager;
 
     void Start()
     {
         em = GetComponent<EnemyMovement>();
         gun = transform.Find("Gun").gameObject.transform;
         StartCoroutine(ShootOffset());
+        gameManager = this.gameObject.GetGameManager();
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class EnemyHoleShoot : MonoBehaviour
         {
             missile.direction = em.GetDirection();
             ammo--;
-            EnemyHoleMissile missileContainer = Instantiate(missile, gun.position, Quaternion.identity);
+            EnemyHoleMissile missileContainer = Instantiate(missile, gun.position, Quaternion.identity, gameManager.enemyContainer.transform);
             missileContainer.direction = em.GetDirection();
             //Pewnie da się to zrobić mądrzej, ale...
             Physics2D.IgnoreCollision(missileContainer.GetComponent<Collider2D>(), GetComponent<Collider2D>());
