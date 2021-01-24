@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
         }
 
         Vector3 respawn = GetRespawn();
-
+        Physics2D.IgnoreLayerCollision(10, 12, false);
         GameObject go = Instantiate(player, respawn, Quaternion.identity);
         go.GetComponent<PlayerHit>().WheelsSetActive(true);
         go.transform.Find("Explosion").gameObject.GetComponent<Animator>().enabled = false;

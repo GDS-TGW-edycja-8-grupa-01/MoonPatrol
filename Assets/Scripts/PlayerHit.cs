@@ -96,7 +96,7 @@ public class PlayerHit : MonoBehaviour
             gameManager.Die();
 
             hole.transform.GetChild(0).gameObject.SetActive(true);
-            Physics2D.IgnoreLayerCollision(10, 12);
+            Physics2D.IgnoreLayerCollision(10, 12, true);
 
             //GameObject ragdoll = Instantiate(playerRagdoll, transform.position, transform.rotation);
             //Destroy(ragdoll, gameManager.restartLevelDelay);
