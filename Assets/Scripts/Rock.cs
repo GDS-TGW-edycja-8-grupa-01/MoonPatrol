@@ -53,8 +53,10 @@ public class Rock : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = isActive;
         GetComponent<PolygonCollider2D>().enabled = isActive;
 
-        GameObject jc = GameObject.Find("JumpCollider");
-        jc.GetComponent<EdgeCollider2D>().enabled = isActive;
+        GameObject jc = transform.parent.transform.Find("JumpCollider").gameObject;
+        jc.SetActive(false);
+        
+        return;
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,9 +70,9 @@ public class Rock : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player Missile"))
         {
-            Destroy(collision.gameObject);
-
             Hide();
+
+            Destroy(collision.gameObject);
 
             OnRockDestroyed?.Invoke(this, EventArgs.Empty);
         }
