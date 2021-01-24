@@ -11,15 +11,22 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private bool clockwise;
+    private int boolInt;
 
-    void Start()
+    private void Awake()
     {
-       
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-
+        sr.enabled = false;
         PreparePath();
-
+    }
+    void Start()
+    {
+        distanceTravelled = UnityEngine.Random.Range(0.0f, pc.path.length);
+        transform.position = pc.path.GetPointAtDistance(distanceTravelled);
+        sr.enabled = true;
+        boolInt = clockwise ? 1 : -1;
         return;
     }
 
@@ -27,8 +34,9 @@ public class EnemyMovement : MonoBehaviour
     {
         //zbieram info o pozycji by móc wyrzucić informację o wektorze ruchu za pomocą GetDirection()
         Vector3 lastPosition = transform.position;
-        distanceTravelled += speed * Time.deltaTime;
+        distanceTravelled += speed * Time.deltaTime * boolInt;
         transform.position = pc.path.GetPointAtDistance(distanceTravelled);
+        
         direction = (transform.position - lastPosition);
     }
 
@@ -43,7 +51,8 @@ public class EnemyMovement : MonoBehaviour
 
         GameObject path = GameObject.Find("EnemyPath" + pathName);
         PathCreator selectedPathCreator = path.GetComponent<PathCreator>();
-
+        float factor = UnityEngine.Random.Range(0.0f, 1.0f);
+        clockwise = factor <= 0.5f ? true : false;
         this.pc = selectedPathCreator;
 
         return;
