@@ -100,8 +100,8 @@ public class GameManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        scoreText.text = score.ToString();
-        highScoreText.text = highScore.ToString();
+        scoreText.text = score.ToString("000000");
+        highScoreText.text = highScore.ToString("000000");
         remainingLiveText.text = remaingingLivesCount.ToString();
         timeText.text = seconds.ToString("00");
     }
