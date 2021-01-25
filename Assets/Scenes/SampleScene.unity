@@ -1604,6 +1604,11 @@ PrefabInstance:
       propertyPath: scrollSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3546512550998298364, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: m_Layer
@@ -2194,7 +2199,7 @@ GameObject:
   - component: {fileID: 1212443548}
   - component: {fileID: 1212443550}
   - component: {fileID: 1212443551}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EarthBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2259,7 +2264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212443547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.76, y: -2, z: 1}
+  m_LocalPosition: {x: -3.76, y: -2, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2278,6 +2283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 5
+  z: 1
 --- !u!50 &1212443551
 Rigidbody2D:
   serializedVersion: 4
@@ -2531,6 +2537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: scrollSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3546512550998298364, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
