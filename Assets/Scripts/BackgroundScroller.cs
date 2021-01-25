@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackgroundScroller : MonoBehaviour
 {
     [HideInInspector]
-    public float scrollSpeed = 2.5f;
+    public float scrollSpeed;
     [Range(0.0f, 1.0f)]
     public float scrollMod = 0.52f;
     private Material mat;
@@ -14,6 +14,7 @@ public class BackgroundScroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scrollSpeed = 2.5f;
         mat = GetComponent<Renderer>().material;
     }
 

@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
     {
         for (int i = 1; i < go.transform.childCount; i++)
         {
-            float newSpeed = backgroundScrollSpeed[i] + (transform.position.x - spawn.transform.position.x) / (-spawn.transform.position.x - width / 2.0f) * groundScrollAccelerationRate;
+            float newSpeed = backgroundScrollSpeed[i] + (transform.position.x - spawn.transform.position.x) / (-spawn.transform.position.x - width / 2.0f) * groundScrollAccelerationRate / 2.0f;
 
             go.transform.GetChild(i).GetComponent<BackgroundScroller>().scrollSpeed = newSpeed;
         }
