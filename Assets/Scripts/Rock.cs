@@ -11,8 +11,9 @@ public class Rock : MonoBehaviour
     private Animator a;
     private bool animatorExists = false;
     private GameObject explosion;
+    private GameObject jc;
     private float delay;
-    private bool wasShot = false;
+    
     public static event EventHandler OnRockDestroyed;
 
     void Start()
@@ -26,6 +27,8 @@ public class Rock : MonoBehaviour
         explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
         GameManager.OnRestartSector += GameManager_OnRestartSector;
+
+        jc = transform.parent.transform.Find("JumpCollider").gameObject;
     }
 
     private void GameManager_OnRestartSector(object sender, EventArgs e)
@@ -52,9 +55,9 @@ public class Rock : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().enabled = isActive;
         GetComponent<PolygonCollider2D>().enabled = isActive;
+        jc.SetActive(isActive);
 
-        
-        
+
         return;
     }
     
@@ -72,14 +75,8 @@ public class Rock : MonoBehaviour
             Hide();
 
             Destroy(collision.gameObject);
-            GameObject jc = transform.parent.transform.Find("JumpCollider").gameObject;
-            
-            if (!wasShot && jc.activeSelf)
-            {
-                jc.SetActive(false);
-                OnRockDestroyed?.Invoke(this, EventArgs.Empty);
-                wasShot = true;
-            }
+
+            OnRockDestroyed?.Invoke(this, EventArgs.Empty);
         }
     }
 }

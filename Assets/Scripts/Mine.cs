@@ -55,7 +55,7 @@ public class Mine : MonoBehaviour
         GetComponent<PolygonCollider2D>().enabled = isActive;
 
         GameObject jc = transform.parent.transform.Find("JumpCollider").gameObject;
-        jc.SetActive(false);
+        jc.SetActive(isActive);
 
         return;
     }

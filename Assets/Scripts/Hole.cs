@@ -16,7 +16,7 @@ public class Hole : MonoBehaviour
     private void GameManager_OnRestartSector(object sender, EventArgs e)
     {
         GameObject jc = transform.parent.transform.Find("JumpCollider").gameObject;
-        //jc.SetActive(false);
+        jc.SetActive(true);
         transform.GetChild(0).gameObject.SetActive(false);
         playerKilled = false;
     }
