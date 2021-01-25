@@ -1607,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: z
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3546512550998298364, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
@@ -2200,7 +2200,7 @@ GameObject:
   - component: {fileID: 1212443550}
   - component: {fileID: 1212443551}
   m_Layer: 10
-  m_Name: EarthBase
+  m_Name: Earthbase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2242,9 +2242,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -644373933
+  m_SortingLayer: 2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: cff85a124ae85da49a857fdeefcfab91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2283,7 +2283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 5
-  z: 1
 --- !u!50 &1212443551
 Rigidbody2D:
   serializedVersion: 4
@@ -2541,7 +2540,7 @@ PrefabInstance:
     - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: z
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3546512550998298364, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
