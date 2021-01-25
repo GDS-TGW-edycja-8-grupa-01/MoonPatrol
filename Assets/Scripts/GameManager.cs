@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public Image buttonPanel;
     public Image logoImage;
     public GameObject gameOverGroup;
+    public GameObject uIGroup;
     public Text gameOverScoreText;
 
     public int score = 0;
@@ -77,10 +78,12 @@ public class GameManager : MonoBehaviour
 
         UpdateUI();
 
-        playButton.gameObject.SetActive(false);
-        quitButton.gameObject.SetActive(false);
-        buttonPanel.gameObject.SetActive(false);
-        logoImage.gameObject.SetActive(false);
+        //playButton.gameObject.SetActive(false);
+        //quitButton.gameObject.SetActive(false);
+        //buttonPanel.gameObject.SetActive(false);
+        //logoImage.gameObject.SetActive(false);
+        uIGroup.gameObject.SetActive(false);
+
     }
 
     public void Quit()
