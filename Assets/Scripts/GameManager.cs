@@ -79,6 +79,8 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1.0f;
 
+        score = 0;
+
         UpdateUI();
 
         gameOverGroup.SetActive(false);
