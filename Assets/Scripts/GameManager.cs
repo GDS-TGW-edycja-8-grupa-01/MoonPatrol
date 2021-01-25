@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public Image buttonPanel;
     public Image logoImage;
     public GameObject gameOverGroup;
-    public GameObject uIGroup;
+    public GameObject mainMenuGroup;
     public Text gameOverScoreText;
 
     public int score = 0;
@@ -78,12 +78,8 @@ public class GameManager : MonoBehaviour
 
         UpdateUI();
 
-        //playButton.gameObject.SetActive(false);
-        //quitButton.gameObject.SetActive(false);
-        //buttonPanel.gameObject.SetActive(false);
-        //logoImage.gameObject.SetActive(false);
-        uIGroup.gameObject.SetActive(false);
-
+        gameOverGroup.SetActive(false);
+        mainMenuGroup.SetActive(false);
     }
 
     public void Quit()
@@ -179,10 +175,23 @@ public class GameManager : MonoBehaviour
         timerStarted = false;
 
         gameOverGroup.SetActive(true);
+        StartCoroutine(ShowUIGroup());
 
         UpdateUI();
 
         return;
+    }
+
+    IEnumerator ShowUIGroup()
+    {
+        yield return new WaitForSeconds(2);
+
+        GameObject logoImage = mainMenuGroup.transform.Find("LogoImage").gameObject;
+
+        playButton.GetComponentInChildren<Text>().text = "NEW GAME";
+
+        logoImage.SetActive(false);
+        mainMenuGroup.SetActive(true);
     }
 
     private void ChangeBackgroundScrollSpeed(float speed)
