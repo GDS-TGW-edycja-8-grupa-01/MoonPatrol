@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
     public float restartLevelDelay = 2.0f;
 
     [Range(1, 999)]
-    public int remaingingLivesCount = 1;
+    public int livesCount;
+    private int remaingingLivesCount;
 
     public bool godMode;
 
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
+        remaingingLivesCount = livesCount;
+
         GameObject playerGo = Instantiate(player);
 
         playerGo.GetComponent<PlayerHit>().godMode = godMode;

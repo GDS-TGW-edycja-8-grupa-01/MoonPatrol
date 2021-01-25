@@ -3175,7 +3175,7 @@ MonoBehaviour:
   startedSectorsCount: 0
   startedSectors: []
   restartLevelDelay: 3
-  remaingingLivesCount: 1
+  livesCount: 3
   godMode: 0
   scoreText: {fileID: 556588926}
   highScoreText: {fileID: 543313744}
