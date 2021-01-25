@@ -3193,7 +3193,7 @@ MonoBehaviour:
   seconds: 0
   timerStarted: 0
   jumpedOverRockPoints: 50
-  destroyedRockPoints: 50
+  destroyedRockPoints: 100
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
