@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Linq;
 
 public class EnemyHit : MonoBehaviour
 {
     public AudioRoundRobin deathAudioScript;
     [SerializeField]
     private GameObject explosion;
+    private GameObject groundExplosion;
 
     private Animator a;
+    private Animator b;
     private bool animatorExists = false;
-
+    private bool anotherAnimatorExists = false;
     [SerializeField]
     private GameObject engineExhaustLeft;
     [SerializeField]
@@ -19,10 +22,15 @@ public class EnemyHit : MonoBehaviour
     void Start()
     {
         explosion = transform.GetChild(0).gameObject;
-
+        groundExplosion = transform.GetChild(1).gameObject;
+        
         animatorExists = explosion.TryGetComponent<Animator>(out a);
-
-        if (animatorExists) a.enabled = false;
+        anotherAnimatorExists = groundExplosion.TryGetComponent<Animator>(out b);
+        if (animatorExists && anotherAnimatorExists)
+        {
+            a.enabled = false;
+            b.enabled = false;
+        }
 
         explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
@@ -32,23 +40,39 @@ public class EnemyHit : MonoBehaviour
         Debug.LogFormat("{0} Destroyed...", MethodBase.GetCurrentMethod());
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
+        string[] deadlyThreats = { "Player Missile", "Player", "Wheel", "Ground" };
         //Pewnie da się zrobić to lepiej, ale tak najszybciej uniemożliwiłem dwóm różnym przeciwnikom zestrzelenie się nawzajem.
-        if (animatorExists && !collision.collider.CompareTag("Enemy Missile"))
+        if (animatorExists && deadlyThreats.Contains(collider.tag))
         {
-            float delay = a.GetCurrentAnimatorClipInfo(0).Length;
 
             DestroyEngineExhausts();
+            if (collider.CompareTag("Ground"))
+            {
+                b.enabled = true;
+                float delay = b.GetCurrentAnimatorClipInfo(0).Length;
+                b.Play("Base Layer.Explosion");
+                groundExplosion.transform.SetParent(transform.parent);
+                Destroy(groundExplosion, delay);
+            }
+            else
+            {
+                a.enabled = true;
+                float delay = a.GetCurrentAnimatorClipInfo(0).Length;
+                a.Play("Base Layer.Explosion");
+                explosion.transform.SetParent(transform.parent);
+                Destroy(explosion, delay);
+            }
 
-            a.enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
-            a.Play("Base Layer.Explosion");
-            explosion.transform.SetParent(transform.parent);
+            
+            
 
             deathAudioScript.RoundRobinPlay(0.45f);
+            if (collider.CompareTag("Player Missile")) Destroy(collider.gameObject);
             Destroy(this.gameObject);
-            Destroy(collision.gameObject);
+            
         }
     }
 

@@ -14,6 +14,10 @@ public class EnemyShoot : MonoBehaviour
     //Offset niezaimplementowany
     [Range(0.1f, 10.0f)]
     public float shootOffset = 1.0f;
+    [Range(0.0f, 1.0f)]
+    public float kamikazeProbability = 0.5f;
+    [Range(0.1f, 10.0f)]
+    public float disengageOffset = 3.0f;
     private bool canShoot = true;
     private EnemyMovement em;
     private bool died = false;
@@ -43,7 +47,21 @@ public class EnemyShoot : MonoBehaviour
             canShoot = false;
             StartCoroutine(ShootDelay());
         }
+        else if(canShoot && ammo <= 0 && ready)
+        {
+            StartCoroutine(EndOfAmmo());
+            canShoot = false;
+        }
     }
+
+    private IEnumerator EndOfAmmo()
+    {
+        bool kamikaze = Random.Range(0.0f, 1.0f) <= kamikazeProbability;
+        //if (!kamikaze) disengageOffset = 0.0f;
+        yield return new WaitForSeconds(disengageOffset);
+        em.Decide(kamikaze);
+    }
+
     IEnumerator ShootOffset()
     {
         yield return new WaitForSeconds(shootOffset);

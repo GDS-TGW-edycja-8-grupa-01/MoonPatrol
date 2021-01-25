@@ -13,6 +13,8 @@ public class EnemyHoleShoot : MonoBehaviour
     public float shootDelay = 1.0f;
     [Range(0.1f, 10.0f)]
     public float shootOffset = 1.0f;
+    [Range(0.1f, 10.0f)]
+    public float disengageOffset = 3.0f;
     private bool canShoot = true;
     private EnemyMovement em;
     private bool died = false;
@@ -42,6 +44,17 @@ public class EnemyHoleShoot : MonoBehaviour
             canShoot = false;
             StartCoroutine(ShootDelay());
         }
+        else if (canShoot && ammo <= 0 && ready)
+        {
+            StartCoroutine(EndOfAmmo());
+            canShoot = false;
+        }
+    }
+
+    private IEnumerator EndOfAmmo()
+    {
+        yield return new WaitForSeconds(disengageOffset);
+        em.Decide(false);
     }
     IEnumerator ShootOffset()
     {
