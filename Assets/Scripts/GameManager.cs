@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         remaingingLivesCount = livesCount;
-
+        ChangeBackgroundScrollSpeed(2.5f);
         GameObject playerGo = Instantiate(player);
 
         playerGo.GetComponent<PlayerHit>().godMode = godMode;
@@ -185,6 +185,8 @@ public class GameManager : MonoBehaviour
     {
         remaingingLivesCount--;
         UpdateUI();
+        
+        Physics2D.IgnoreLayerCollision(10, 12, false);
 
         if (remaingingLivesCount < 1)
         {
@@ -192,9 +194,9 @@ public class GameManager : MonoBehaviour
 
             return;
         }
-
+        ChangeBackgroundScrollSpeed(2.5f);
         Vector3 respawn = GetRespawn();
-        Physics2D.IgnoreLayerCollision(10, 12, false);
+        
         GameObject go = Instantiate(player, respawn, Quaternion.identity);
         go.GetComponent<PlayerHit>().WheelsSetActive(true);
         go.transform.Find("Explosion").gameObject.GetComponent<Animator>().enabled = false;

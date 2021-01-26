@@ -296,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: scrollMod
-      value: 0.544
+      value: 0.429
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -843,7 +843,7 @@ PrefabInstance:
     - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: scrollMod
-      value: 0.296
+      value: 0.217
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -3194,6 +3194,10 @@ MonoBehaviour:
   timerStarted: 0
   jumpedOverRockPoints: 50
   destroyedRockPoints: 100
+  destroyedEnemyPoints: 100
+  smallComboPoints: 400
+  bigComboPoints: 700
+  comboTime: 3
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
