@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public Image logoImage;
     public GameObject gameOverGroup;
     public GameObject mainMenuGroup;
+    public GameObject stageSummaryGroup;
     public Text gameOverScoreText;
 
     public int score = 0;
@@ -346,6 +347,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
 
         isPresentingSectorSummary = true;
+
+        stageSummaryGroup.SetActive(true);
     }
 
     private void HideSectorSummary()
@@ -353,6 +356,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
 
         isPresentingSectorSummary = false;
+        stageSummaryGroup.SetActive(false);
     }
 
     IEnumerator RestartLastSector()
