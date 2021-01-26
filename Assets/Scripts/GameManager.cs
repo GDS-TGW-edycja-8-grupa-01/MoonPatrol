@@ -46,13 +46,14 @@ public class GameManager : MonoBehaviour
     public GameObject stageSummaryGroup;
     public Text reachedPointText;
     public Text gameOverScoreText;
+    public Text yourTimeText;
 
     public int score = 0;
     public int highScore = 0;
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
-    private string[] timerResetingSectors = { "a", "b", "c" };
+    private string[] timerResetingSectors = { "b", "c" };
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
@@ -349,9 +350,8 @@ public class GameManager : MonoBehaviour
 
         isPresentingSectorSummary = true;
 
-        string text = $"Point \"{currentSector.ToUpper()}\" reached!";
-        
-        reachedPointText.text = text;
+        reachedPointText.text = $"Point \"{currentSector.ToUpper()}\" reached!";
+        yourTimeText.text = TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
 
         stageSummaryGroup.SetActive(true);
     }

@@ -4594,6 +4594,7 @@ MonoBehaviour:
   stageSummaryGroup: {fileID: 117643492}
   reachedPointText: {fileID: 1857281609}
   gameOverScoreText: {fileID: 2130790455}
+  yourTimeText: {fileID: 1251240498}
   score: 0
   highScore: 0
   seconds: 0
@@ -4604,6 +4605,7 @@ MonoBehaviour:
   smallComboPoints: 400
   bigComboPoints: 700
   comboTime: 3
+  isPresentingSectorSummary: 0
 --- !u!1 &2074517111
 GameObject:
   m_ObjectHideFlags: 0
