@@ -53,8 +53,14 @@ public class GameManager : MonoBehaviour
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
+    public int destroyedEnemyPoints = 100;
 
     public static event EventHandler OnRestartSector;
+
+    public int smallComboPoints = 400;
+    public int bigComboPoints = 700;
+    public float comboTime = 3.0f;
+    private int comboCounter = 0;
 
     private void Start()
     {
@@ -62,6 +68,7 @@ public class GameManager : MonoBehaviour
 
         JumpCollider.OnJumpedOverObstacle += JumpCollider_OnJumpedOverObstacle;
         Rock.OnRockDestroyed += Rock_OnRockDestroyed;
+        EnemyHit.OnEnemyDestroyed += EnemyHit_OnEnemyDestroyed;
     }
 
     public void EscapePressed()
@@ -100,6 +107,15 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
+    private void EnemyHit_OnEnemyDestroyed(object sender, EventArgs e)
+    {
+        score += destroyedEnemyPoints;
+        highScore = score >= highScore ? score : highScore;
+        if (comboCounter == 0) StartCoroutine(ComboTimer());
+        comboCounter++;
+        UpdateUI();
+    }
+
     private void JumpCollider_OnJumpedOverObstacle(object sender, EventArgs e)
     {
         JumpCollider jc = (JumpCollider)sender;
@@ -108,6 +124,24 @@ public class GameManager : MonoBehaviour
         highScore = score >= highScore ? score : highScore;
 
         UpdateUI();
+    }
+    private void ComboScore()
+    {
+        if(comboCounter >= 5)
+        {
+            score += bigComboPoints;
+        }
+        else if(comboCounter >= 3)
+        {
+            score += smallComboPoints;
+        }
+        UpdateUI();
+    }
+    private IEnumerator ComboTimer()
+    {
+        yield return new WaitForSeconds(comboTime);
+        ComboScore();
+        comboCounter = 0;
     }
 
     private void UpdateUI()

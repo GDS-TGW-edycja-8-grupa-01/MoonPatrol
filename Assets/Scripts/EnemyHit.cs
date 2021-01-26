@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class EnemyHit : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class EnemyHit : MonoBehaviour
     private GameObject engineExhaustLeft;
     [SerializeField]
     private GameObject engineExhaustRight;
+
+    public static event EventHandler OnEnemyDestroyed;
 
     void Start()
     {
@@ -70,7 +73,11 @@ public class EnemyHit : MonoBehaviour
             
 
             deathAudioScript.RoundRobinPlay(0.45f);
-            if (collider.CompareTag("Player Missile")) Destroy(collider.gameObject);
+            if (collider.CompareTag("Player Missile"))
+            {
+                Destroy(collider.gameObject);
+                OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
+            }
             Destroy(this.gameObject);
             
         }
