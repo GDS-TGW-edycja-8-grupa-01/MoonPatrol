@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
-    private string[] timerResetingSectors = { "b", "c" };
+    private string[] timerResetingSectors = { "a", "b", "c" };
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
 
     ObstaclesRoller or;
 
+    private bool isPresentingSectorSummary = false;
+
     private void Start()
     {
         Time.timeScale = 0.0f;
@@ -81,6 +83,11 @@ public class GameManager : MonoBehaviour
     public void EscapePressed()
     {
         Time.timeScale = Time.timeScale == 0.0f ? 1.0f : 0.0f;
+
+        if (isPresentingSectorSummary)
+        {
+            HideSectorSummary();
+        }
     }
 
     public void Play()
@@ -324,12 +331,28 @@ public class GameManager : MonoBehaviour
             if (timerResetingSectors.Contains(sectorName))
             {
                 startTime = Time.time;
+
+                DisplaySectorSummary();
             }
 
             return;
         }
 
         return;
+    }
+
+    private void DisplaySectorSummary()
+    {
+        Time.timeScale = 0.0f;
+
+        isPresentingSectorSummary = true;
+    }
+
+    private void HideSectorSummary()
+    {
+        Time.timeScale = 1.0f;
+
+        isPresentingSectorSummary = false;
     }
 
     IEnumerator RestartLastSector()
