@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float restartLevelDelay = 2.0f;
 
+    [Range(0, 120)]
+    public float averageTime = 60;
+
     [Range(1, 999)]
     public int livesCount;
     private int remaingingLivesCount;
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
     public Text reachedPointText;
     public Text gameOverScoreText;
     public Text yourTimeText;
+    public Text averageTimeText;
 
     public int score = 0;
     public int highScore = 0;
@@ -352,6 +356,7 @@ public class GameManager : MonoBehaviour
 
         reachedPointText.text = $"Point \"{currentSector.ToUpper()}\" reached!";
         yourTimeText.text = TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
+        averageTimeText.text = TimeSpan.FromSeconds(averageTime).ToString(@"mm\:ss");
 
         stageSummaryGroup.SetActive(true);
     }

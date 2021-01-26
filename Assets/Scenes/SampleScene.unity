@@ -4595,6 +4595,7 @@ MonoBehaviour:
   reachedPointText: {fileID: 1857281609}
   gameOverScoreText: {fileID: 2130790455}
   yourTimeText: {fileID: 1251240498}
+  averageTimeText: {fileID: 494969174}
   score: 0
   highScore: 0
   seconds: 0
