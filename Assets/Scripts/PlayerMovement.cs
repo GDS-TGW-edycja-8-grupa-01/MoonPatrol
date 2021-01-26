@@ -108,6 +108,14 @@ public class PlayerMovement : MonoBehaviour
             gameManager.EscapePressed();
         }
 
+        if (gameManager.isPresentingSectorSummary)
+        {
+            if (Input.anyKeyDown)
+            {
+                gameManager.HideSectorSummary();
+            }
+        }
+
         //Input spięty w if else if ... else, tak by odwzorować poruszanie się w oryginale
         //Jednak nie możemy się poruszać lewo-prawo w trakcie skoku, ale jeżeli przed skokiem przyśpieszaliśmy/zwalnialiśmy, to będzie to kontynuowane w locie
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))

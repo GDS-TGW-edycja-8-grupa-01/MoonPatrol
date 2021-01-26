@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     ObstaclesRoller or;
 
-    private bool isPresentingSectorSummary = false;
+    public bool isPresentingSectorSummary = false;
 
     private void Start()
     {
@@ -356,7 +356,7 @@ public class GameManager : MonoBehaviour
         stageSummaryGroup.SetActive(true);
     }
 
-    private void HideSectorSummary()
+    public void HideSectorSummary()
     {
         Time.timeScale = 1.0f;
 
