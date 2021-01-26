@@ -55,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
             if (transform.position.x < -screen.x - 1.0f) Destroy(this.gameObject);
         }
     }
+    //Funkcja wywoływana przez EnemyShoot/EnemyHoleShoot w momencie skończenia ammo i wylosowania zachowania przeciwnika
     public void Decide(bool willToDie)
     { 
         kamikaze = willToDie;
@@ -80,8 +81,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void MoveToTarget()
     {
-        Vector2 vector = new Vector2(targetVector.x, targetVector.y);
-        transform.Translate(vector * speed * Time.deltaTime);
+        //Vector2 vector = new Vector2(targetVector.x, targetVector.y);
+        //transform.Translate(vector * speed * Time.deltaTime);
+        transform.position += targetVector * speed * Time.deltaTime;
     }
 
     private void MoveAlongThePath()
