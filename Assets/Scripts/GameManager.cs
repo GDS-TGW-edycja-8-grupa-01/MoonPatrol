@@ -65,6 +65,8 @@ public class GameManager : MonoBehaviour
 
     private float barValue = 0.0f;
 
+    ObstaclesRoller or;
+
     private void Start()
     {
         Time.timeScale = 0.0f;
@@ -73,7 +75,7 @@ public class GameManager : MonoBehaviour
         Rock.OnRockDestroyed += Rock_OnRockDestroyed;
         EnemyHit.OnEnemyDestroyed += EnemyHit_OnEnemyDestroyed;
 
-        
+        or = obstacles.GetComponent<ObstaclesRoller>();
     }
 
     public void EscapePressed()
@@ -84,6 +86,9 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         remaingingLivesCount = livesCount;
+
+        RollbackAllLevels();
+        
         ChangeBackgroundScrollSpeed(2.5f);
         GameObject playerGo = Instantiate(player);
 
@@ -97,6 +102,15 @@ public class GameManager : MonoBehaviour
 
         gameOverGroup.SetActive(false);
         mainMenuGroup.SetActive(false);
+    }
+
+    private void RollbackAllLevels()
+    {
+        startedSectorsCount = 0;
+        startedSectors = new string[] { };
+
+        List<GameObject> allLevels = GetLevelsToRollback(or);
+        RollbackLevels(allLevels);
     }
 
     public void Quit()
@@ -321,25 +335,28 @@ public class GameManager : MonoBehaviour
     IEnumerator RestartLastSector()
     {
         yield return new WaitForSeconds(restartLevelDelay);
+                
+        List<GameObject> levelsToComplete = GetLevelsToRollback(or);
+        RollbackLevels(levelsToComplete);
 
-        ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
+        OnRestartSector?.Invoke(this, EventArgs.Empty);
+        ClearEnemies();
+        Respawn();
+    }
+
+    private void RollbackLevels(List<GameObject> levelsToRollback)
+    {
         float y = -4.18f;
         float z = -2.0f;
         float restartXPosition = 8.0f;
-
-        List<GameObject> levelsToComplete = GetLevelsToRollback(or);
         float previousLevelLength = restartXPosition;
 
-        foreach (GameObject level in levelsToComplete)
+        foreach (GameObject level in levelsToRollback)
         {
             level.transform.position = new Vector3(previousLevelLength, y, z);
 
             previousLevelLength += or.levelLength;
         }
-
-        OnRestartSector?.Invoke(this, EventArgs.Empty);
-        ClearEnemies();
-        Respawn();
     }
 
     private List<GameObject> GetLevelsToRollback(ObstaclesRoller or)
