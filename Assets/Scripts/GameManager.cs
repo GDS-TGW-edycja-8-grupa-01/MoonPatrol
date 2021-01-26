@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public bool godMode;
 
+    public RectMask2D fillBar;
     public Text scoreText;
     public Text highScoreText;
     public Text remainingLiveText;
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
     public float comboTime = 3.0f;
     private int comboCounter = 0;
 
+    private float barValue = 0.0f;
+
     private void Start()
     {
         Time.timeScale = 0.0f;
@@ -69,6 +72,8 @@ public class GameManager : MonoBehaviour
         JumpCollider.OnJumpedOverObstacle += JumpCollider_OnJumpedOverObstacle;
         Rock.OnRockDestroyed += Rock_OnRockDestroyed;
         EnemyHit.OnEnemyDestroyed += EnemyHit_OnEnemyDestroyed;
+
+        
     }
 
     public void EscapePressed()
@@ -151,6 +156,35 @@ public class GameManager : MonoBehaviour
         highScoreText.text = highScore.ToString("000000");
         remainingLiveText.text = remaingingLivesCount.ToString();
         timeText.text = seconds.ToString("000");
+        fillBar.padding = new Vector4(0.0f, 0.0f, positionToLevelBar(), 0.0f);
+    }
+
+    private float positionToLevelBar()
+    { 
+        //I nagrodę za najbardziej naćkany kod wygrywa... *werble* ...funkcja liczenia paska postępu!
+        GameObject playerGo = GameObject.Find("Player");
+        
+        if (playerGo != null)
+        {
+            ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
+            float positionA = Mathf.Clamp(or.transform.GetChild(currentSectorIndex(or)).transform.position.x, float.NegativeInfinity, 0.0f) - or.levelLength * currentSectorIndex(or);
+            //Debug.Log("POSITION OF LEVEL : " + positionA.ToString());
+            float distanceTravelled = playerGo.transform.position.x - positionA;
+            float barWidth = fillBar.GetComponent<RectTransform>().rect.width;
+            float completionFactor = Mathf.Clamp(distanceTravelled / (or.levelLength * or.levels.Length), 0.0f, 1.0f);
+            barValue = barWidth - barWidth * completionFactor - 6.0f;
+            return barValue;
+        }
+        else
+        {
+            return barValue;
+        }
+    }
+
+    private int currentSectorIndex(ObstaclesRoller or)
+    {
+        //ObstaclesRoller or = obstacles.GetComponent<ObstaclesRoller>();
+        return Mathf.Clamp(startedSectors.Length - 1, 0, or.levels.Length);
     }
 
     public void Die()
@@ -198,6 +232,7 @@ public class GameManager : MonoBehaviour
         Vector3 respawn = GetRespawn();
         
         GameObject go = Instantiate(player, respawn, Quaternion.identity);
+        
         go.GetComponent<PlayerHit>().WheelsSetActive(true);
         go.transform.Find("Explosion").gameObject.GetComponent<Animator>().enabled = false;
     }
