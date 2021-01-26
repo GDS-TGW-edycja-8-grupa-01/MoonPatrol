@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverGroup;
     public GameObject mainMenuGroup;
     public GameObject stageSummaryGroup;
+    public Text reachedPointText;
     public Text gameOverScoreText;
 
     public int score = 0;
@@ -347,6 +348,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
 
         isPresentingSectorSummary = true;
+
+        string text = $"Point \"{currentSector.ToUpper()}\" reached!";
+        
+        reachedPointText.text = text;
 
         stageSummaryGroup.SetActive(true);
     }

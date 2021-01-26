@@ -4592,6 +4592,7 @@ MonoBehaviour:
   gameOverGroup: {fileID: 1490018126}
   mainMenuGroup: {fileID: 627499331}
   stageSummaryGroup: {fileID: 117643492}
+  reachedPointText: {fileID: 1857281609}
   gameOverScoreText: {fileID: 2130790455}
   score: 0
   highScore: 0
