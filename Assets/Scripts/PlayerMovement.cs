@@ -160,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 smoothSpeed = 0.0f;
+                //smoothSpeed = Mathf.Lerp(0.0f, lastAcceleration, smoothSpeed / accelerationRate);
+
                 //Gdy nie ma w danej klatce inputu od gracza 
                 //i gdy pojazd znajduje się na prawo od spawna - po mału zwalnia, gdy na lewo - przyśpiesza. Ściąga nas do punktu nominalnego na ekranie.
                 
@@ -197,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (wasFlying && IsGrounded())
         {
+            rb.velocity = Vector2.zero;
             playerAudioScript2.Land();
             wasFlying = false;
         }
