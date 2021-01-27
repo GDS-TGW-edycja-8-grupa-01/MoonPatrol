@@ -45,7 +45,7 @@ public class EnemyHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        string[] deadlyThreats = { "Player Missile", "Player", "Wheel", "Ground" };
+        string[] deadlyThreats = { "Player Missile", "Player", "Ragdoll", "Ground" };
         //Pewnie da się zrobić to lepiej, ale tak najszybciej uniemożliwiłem dwóm różnym przeciwnikom zestrzelenie się nawzajem.
         if (animatorExists && deadlyThreats.Contains(collider.tag))
         {
