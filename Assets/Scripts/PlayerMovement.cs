@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
     private float[] backgroundScrollSpeed;
     private bool wasFlying = false;
     private GameObject[] wheels;
+    private bool earlyJumpQueued = false;
+    private float smoothSpeed = 0.0f;
 
 
     private GameManager gameManager;
@@ -120,32 +122,35 @@ public class PlayerMovement : MonoBehaviour
         //Jednak nie możemy się poruszać lewo-prawo w trakcie skoku, ale jeżeli przed skokiem przyśpieszaliśmy/zwalnialiśmy, to będzie to kontynuowane w locie
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Jump")))
         {
-            if (IsGrounded())
+            if (IsGrounded() && !earlyJumpQueued)
             {
                 rb.constraints = RigidbodyConstraints2D.None;
+                rb.velocity = Vector2.zero;
                 rb.velocity += Vector2.up * jumpForce;
                 playerAudioScript.RoundRobinPlay(0.35f);
+                AnimateWheels();
             }
-            else if (CheckForEarlyJump())
+            else if (CheckForEarlyJump() && !earlyJumpQueued)
             {
                 StartCoroutine(EarlyJump());
+                earlyJumpQueued = true;
             }
         }
         else if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && IsGrounded())
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            rb.velocity += Vector2.right * accelerationRate;
+            rb.velocity += Vector2.right * GetSmoothSpeed(accelerationRate, true);
             
-            lastAcceleration = accelerationRate;
+            lastAcceleration = GetSmoothSpeed(accelerationRate, true);
             
         }
         else if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && IsGrounded())
         {
 
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            rb.velocity += Vector2.left * decelerationRate;
+            rb.velocity += Vector2.right * GetSmoothSpeed(decelerationRate, false);
             
-            lastAcceleration = -decelerationRate;
+            lastAcceleration = GetSmoothSpeed(decelerationRate, false);
             
         }
         else
@@ -154,11 +159,7 @@ public class PlayerMovement : MonoBehaviour
             if(IsGrounded())
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                if(wasFlying)
-                {
-                    playerAudioScript2.Land();
-                    wasFlying = false;
-                }
+                smoothSpeed = 0.0f;
                 //Gdy nie ma w danej klatce inputu od gracza 
                 //i gdy pojazd znajduje się na prawo od spawna - po mału zwalnia, gdy na lewo - przyśpiesza. Ściąga nas do punktu nominalnego na ekranie.
                 
@@ -166,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     rb.velocity += Vector2.left * inertia / 10.0f;
                     lastAcceleration = -inertia / 10.0f;
-                //Gdy zwalniamy samoistnie, musi podążać za nami prędkość świata
+                
                     
                 }
                 //To bardzo ciekawe, ale okazuje się, że porównywanie floatów to problem, nawet jeżeli mamy do tego dedykowane funkcje w Unity xD
@@ -180,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     rb.velocity += Vector2.right * inertia / 10.0f;
                     lastAcceleration = inertia / 10.0f;
-                //Gdy przyśpieszamy samoistnie, musi podążać za nami prędkość świata
+                
                     
                 }
 
@@ -194,6 +195,12 @@ public class PlayerMovement : MonoBehaviour
             wasFlying = true;
         }
 
+        if (wasFlying && IsGrounded())
+        {
+            playerAudioScript2.Land();
+            wasFlying = false;
+        }
+
         if (ShouldChangeBackroundScrollSpeed())
         {
             ChangeBackgroudScrollSpeed(background);
@@ -202,25 +209,41 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private float GetSmoothSpeed(float speed, bool forward)
+    {
+        int direction = forward ? 1 : -1;
+        smoothSpeed += speed * 5 * direction * Time.deltaTime;
+        smoothSpeed = Mathf.Clamp(smoothSpeed, -decelerationRate, accelerationRate);
+        return smoothSpeed;
+    }
+
     private IEnumerator EarlyJump()
     {
-        yield return new WaitUntil(() => IsGrounded());
+        yield return new WaitUntil(IsGrounded);
+        rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.None;
         rb.velocity += Vector2.up * jumpForce;
         playerAudioScript.RoundRobinPlay(0.35f);
+        AnimateWheels();
+        StartCoroutine(ClearJumpQueue());
+    }
 
+    private IEnumerator ClearJumpQueue()
+    {
+        yield return new WaitForSeconds(Time.deltaTime * 2);
+        earlyJumpQueued = false;
     }
 
     private bool IsGrounded()
     {
-        Vector3 start = sr.bounds.center;
+        Vector3 start = sr.bounds.center + new Vector3(0.1f, 0.0f, 0.0f);
         Vector3 direction = Vector3.down * groundCheckDistance;
         bool returnValue = false;
 
         RaycastHit2D hit = Physics2D.Raycast(start, Vector3.down, groundCheckDistance, groundLayerMask);
 
         returnValue = hit.collider != null;
-        /*
+        
         Color rayColor;
         if (returnValue)
         {
@@ -233,16 +256,17 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.DrawRay(start, direction, rayColor);
 
-        Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider); */
+        Debug.LogFormat("{0}: {1}", MethodBase.GetCurrentMethod(), hit.collider); 
 
         return returnValue;
     }
     private bool CheckForEarlyJump()
     {
-        Vector3 start = sr.bounds.center;
+        Vector3 start = sr.bounds.center + new Vector3(0.1f, 0.0f, 0.0f);
         RaycastHit2D hit = Physics2D.Raycast(start, Vector2.down);
         bool isFalling = rb.velocity.y < 0;
         bool returnValue = (hit.distance <= earlyJumpDistance) && !IsGrounded() && isFalling;
+        Debug.Log("I AM THIS HIGH : " + hit.distance.ToString() + " and early jump is : " + returnValue.ToString());
         return returnValue;
     }
 
@@ -292,10 +316,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimateWheels()
     {
+
         foreach(GameObject wheel in wheels)
         {
-            wheel.transform.localPosition += new Vector3(0, rb.velocity.y * Time.deltaTime / 10.0f, 0);
-            
+            Animator wheelAnim;
+            bool animExists = wheel.TryGetComponent<Animator>(out wheelAnim);
+
+            if (animExists)
+            {
+                wheelAnim.enabled = true;
+                wheelAnim.Play("Base Layer.Jump");
+            }
         }
     }
 }

@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7042022185851175843}
   - component: {fileID: 7042022185851175842}
+  - component: {fileID: 6051252086174791786}
   m_Layer: 0
   m_Name: MiddleWheel
   m_TagString: Wheel
@@ -111,6 +112,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6051252086174791786
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042022185851175844}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6d52ed1e20064d47be2154a1931e0b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7042022185902900341
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +303,7 @@ MonoBehaviour:
   groundScrollAccelerationRate: 2.32
   inertia: 3.36
   scrollSpeed: 5
-  earlyJumpDistance: 1.01
+  earlyJumpDistance: 1.08
   background: {fileID: 0}
   ground: {fileID: 0}
   obstacles: {fileID: 0}
@@ -550,6 +570,7 @@ GameObject:
   - component: {fileID: 7042022187109314265}
   - component: {fileID: 7042022187109314264}
   - component: {fileID: 7042022187109314247}
+  - component: {fileID: 8450859521813081785}
   m_Layer: 0
   m_Name: FrontWheel
   m_TagString: Wheel
@@ -637,6 +658,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.13
+--- !u!95 &8450859521813081785
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042022187109314266}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04a01efac7fbfe54fa251f6e9706b468, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7042022187139949693
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +688,7 @@ GameObject:
   - component: {fileID: 7042022187139949692}
   - component: {fileID: 7042022187139949691}
   - component: {fileID: 7042022187139949690}
+  - component: {fileID: 7617226116529646189}
   m_Layer: 0
   m_Name: RearWheel
   m_TagString: Wheel
@@ -735,3 +776,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17
+--- !u!95 &7617226116529646189
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042022187139949693}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43c4eba873a8f7249ac4c9e91db8ca4a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
