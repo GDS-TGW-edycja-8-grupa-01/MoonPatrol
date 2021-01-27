@@ -54,7 +54,7 @@ public class MissileMovement : MonoBehaviour
         if (animatorExists)
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
-            explosion.transform.SetParent(transform.parent);
+            explosion.transform.SetParent(transform.parent.transform.parent);
             a.enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");

@@ -225,11 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4b21629e6217f4ea590a33a10dd34e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 1.32
+  gravity: 1.14
   accuracy: 2.19
   shootAudioScript: {fileID: -763139495773467689}
   explodeAudioScript: {fileID: 1849693102528437414}
-  direction: {x: -0.99734, y: -0.07288979}
+  direction: {x: -0.9879147, y: -0.15499902}
 --- !u!95 &468473638514870740
 Animator:
   serializedVersion: 3
