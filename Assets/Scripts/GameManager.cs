@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
-    private string[] timerResetingSectors = { "a", "b", "c", "f", "k", "p", "u", "z" };
+    private string[] timerResetingSectors = { "f", "k", "p", "u", "z" };
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     public bool isPresentingSectorSummary = false;
 
-    private int hillsMaterialIndex = 0;
+    private int stageLandscapeIndex = 0;
 
     private void Start()
     {
@@ -343,7 +343,7 @@ public class GameManager : MonoBehaviour
 
                 DisplaySectorSummary();
 
-                ApplyHillsNewMaterial();
+                ChangeDistantLandscapeLayer();
 
                 return;
             }
@@ -354,13 +354,17 @@ public class GameManager : MonoBehaviour
         return;
     }
 
-    private void ApplyHillsNewMaterial()
+    private void ChangeDistantLandscapeLayer()
     {
-        hillsMaterialIndex = hillsMaterialIndex == 2 ? 0 : ++hillsMaterialIndex;
+        stageLandscapeIndex = stageLandscapeIndex == 2 ? 0 : ++stageLandscapeIndex;
 
         GameObject hills = background.transform.GetAllChildren().First<GameObject>(go => go.name == "Hills");
+        GameObject suburbs = background.transform.GetAllChildren().First<GameObject>(go => go.name == "Suburbs");
+        GameObject city = background.transform.GetAllChildren().First<GameObject>(go => go.name == "City");
 
-        hills.GetComponent<BackgroundScroller>().ApplyTexture(hillsMaterialIndex);
+        hills.SetActive(stageLandscapeIndex == 0);
+        suburbs.SetActive(stageLandscapeIndex == 1);
+        city.SetActive(stageLandscapeIndex == 2);
 
         return;
     }
