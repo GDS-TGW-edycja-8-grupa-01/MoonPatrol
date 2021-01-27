@@ -2569,6 +2569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 3039999248480812650, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: scrollSpeed
@@ -4079,6 +4084,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3039999248480812650, guid: 9ad3737232b8265438d03e84de97a510,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3447217193602433115, guid: 9ad3737232b8265438d03e84de97a510,
         type: 3}
       propertyPath: scrollSpeed
@@ -4933,7 +4943,7 @@ MonoBehaviour:
   restartLevelDelay: 3
   averageTime: 60
   livesCount: 3
-  godMode: 1
+  godMode: 0
   fillBar: {fileID: 1176133073}
   scoreText: {fileID: 556588926}
   highScoreText: {fileID: 543313744}
