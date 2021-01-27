@@ -4930,6 +4930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da3ab243a4e0f94e9e19745c3a10ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameAudio: {fileID: 24500006, guid: c51648e7287f94343b1d46fd7e56ff1b, type: 2}
+  menuAudio: {fileID: -2432244267754570849, guid: c51648e7287f94343b1d46fd7e56ff1b,
+    type: 2}
   enemyContainer: {fileID: 1159463975}
   background: {fileID: 1978294213}
   ground: {fileID: 1063856575}

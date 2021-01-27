@@ -5,9 +5,12 @@ using ExtensionMethods;
 using System.Linq;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioMixerSnapshot gameAudio;
+    public AudioMixerSnapshot menuAudio;
     public GameObject enemyContainer;
     public GameObject background;
     private GameObject backgroundScroller;
@@ -85,7 +88,7 @@ public class GameManager : MonoBehaviour
         JumpCollider.OnJumpedOverObstacle += JumpCollider_OnJumpedOverObstacle;
         Rock.OnRockDestroyed += Rock_OnRockDestroyed;
         EnemyHit.OnEnemyDestroyed += EnemyHit_OnEnemyDestroyed;
-
+        
         or = obstacles.GetComponent<ObstaclesRoller>();
     }
 
@@ -107,7 +110,7 @@ public class GameManager : MonoBehaviour
         remaingingLivesCount = livesCount;
 
         RollbackAllLevels();
-        
+        gameAudio.TransitionTo(0.2f);
         ChangeBackgroundScrollSpeed(2.5f);
         GameObject playerGo = Instantiate(player);
 
@@ -287,7 +290,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ShowUIGroup());
 
         UpdateUI();
-
+        menuAudio.TransitionTo(0.2f);
         return;
     }
 
@@ -301,6 +304,7 @@ public class GameManager : MonoBehaviour
 
         logoImage.SetActive(false);
         mainMenuGroup.SetActive(true);
+        
     }
 
     private void ChangeBackgroundScrollSpeed(float speed)
@@ -343,7 +347,7 @@ public class GameManager : MonoBehaviour
             if (timerResetingSectors.Contains(sectorName))
             {
                 startTime = Time.time;
-
+                
                 DisplaySectorSummary();
 
                 ChangeDistantLandscapeLayer();
@@ -374,8 +378,9 @@ public class GameManager : MonoBehaviour
 
     private void DisplaySectorSummary()
     {
+        menuAudio.TransitionTo(0.2f);
         Time.timeScale = 0.0f;
-
+        ClearEnemies();
         isPresentingSectorSummary = true;
 
         reachedPointText.text = $"Point \"{currentSector.ToUpper()}\" reached!";
@@ -383,6 +388,7 @@ public class GameManager : MonoBehaviour
         averageTimeText.text = TimeSpan.FromSeconds(averageTime).ToString(@"mm\:ss");
 
         stageSummaryGroup.SetActive(true);
+        
     }
 
     public void HideSectorSummary()
@@ -391,6 +397,7 @@ public class GameManager : MonoBehaviour
 
         isPresentingSectorSummary = false;
         stageSummaryGroup.SetActive(false);
+        gameAudio.TransitionTo(0.2f);
     }
 
     IEnumerator RestartLastSector()
