@@ -469,7 +469,7 @@ public class GameManager : MonoBehaviour
             startTime = Time.time;
         }
 
-        seconds = timerStarted ? (int)((Time.time - startTime) % 60f) : 0;
+        seconds = timerStarted ? (int)((Time.time - startTime)) : 0;
 
         UpdateUI();
     }
