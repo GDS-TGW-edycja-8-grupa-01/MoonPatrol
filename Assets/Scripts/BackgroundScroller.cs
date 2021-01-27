@@ -11,8 +11,6 @@ public class BackgroundScroller : MonoBehaviour
     private Material mat;
     private float offset = 0f;
 
-    public Material[] materials;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +24,6 @@ public class BackgroundScroller : MonoBehaviour
     {
         offset += (Time.deltaTime * scrollSpeed) * scrollMod / 10f;
         mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
-    }
-
-    public void ApplyTexture(int matIndex)
-    {
-        GetComponent<Renderer>().material = materials[matIndex];
 
         return;
     }
