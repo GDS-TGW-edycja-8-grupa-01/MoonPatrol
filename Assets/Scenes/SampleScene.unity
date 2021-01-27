@@ -290,6 +290,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
+      propertyPath: textures.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
       propertyPath: scrollSpeed
       value: 0.81
       objectReference: {fileID: 0}
@@ -298,6 +308,21 @@ PrefabInstance:
       propertyPath: scrollMod
       value: 0.429
       objectReference: {fileID: 0}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 432e02d75beb2eb45acc163018fd486c, type: 2}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f5f9111ff1815a4b86d8a6ac192172f, type: 2}
+    - target: {fileID: 4526986688998151709, guid: 63d526a6f20bb9a489237d19c301bd1a,
+        type: 3}
+      propertyPath: materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9aa1efcd5d88f942a5667e9a167d996, type: 2}
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -371,7 +396,7 @@ PrefabInstance:
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_Name
-      value: Craters
+      value: Hills
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -382,7 +407,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 432e02d75beb2eb45acc163018fd486c, type: 2}
+      objectReference: {fileID: 2100000, guid: 1f5f9111ff1815a4b86d8a6ac192172f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d526a6f20bb9a489237d19c301bd1a, type: 3}
 --- !u!1 &110593588
@@ -1122,7 +1147,7 @@ PrefabInstance:
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_Name
-      value: Hills
+      value: Craters
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -4582,7 +4607,7 @@ MonoBehaviour:
   restartLevelDelay: 3
   averageTime: 60
   livesCount: 3
-  godMode: 1
+  godMode: 0
   fillBar: {fileID: 1176133073}
   scoreText: {fileID: 556588926}
   highScoreText: {fileID: 543313744}

@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
-    private string[] timerResetingSectors = { "b", "c" };
+    private string[] timerResetingSectors = { "a", "f", "k", "p", "u", "z" };
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
@@ -340,6 +340,12 @@ public class GameManager : MonoBehaviour
                 startTime = Time.time;
 
                 DisplaySectorSummary();
+
+                GameObject hills = background.transform.GetAllChildren().First<GameObject>(go => go.name == "Hills");
+
+                hills.GetComponent<BackgroundScroller>().ApplyTexture(2);
+
+                return;
             }
 
             return;
