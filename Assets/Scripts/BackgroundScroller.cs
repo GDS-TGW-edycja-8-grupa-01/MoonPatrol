@@ -30,6 +30,8 @@ public class BackgroundScroller : MonoBehaviour
 
     public void ApplyTexture(int matIndex)
     {
-        mat = materials[matIndex];
+        GetComponent<Renderer>().material = materials[matIndex];
+
+        return;
     }
 }
