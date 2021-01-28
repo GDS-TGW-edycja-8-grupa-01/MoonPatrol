@@ -51,6 +51,7 @@ Transform:
   - {fileID: 2954194947455364965}
   - {fileID: 3651427002921160315}
   - {fileID: 4226706874439129956}
+  - {fileID: 1290987992190986314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1270,6 +1271,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1444167917860962809, guid: c41b8bc64cb97e6468c6fd99f77c32ed,
     type: 3}
   m_PrefabInstance: {fileID: 4392662987640073884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4426617163855888806
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3792878432541680006}
+    m_Modifications:
+    - target: {fileID: 1657519264019254533, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6995348729957296434, guid: 2a2bbb1b092169d438cf47cdee3efef9,
+        type: 3}
+    - target: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 107.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207691473106610671, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_Name
+      value: SectorMarker (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437250352815355715, guid: 03175cce9fe80ea49b78803d8c908302,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4437250352815355715, guid: 03175cce9fe80ea49b78803d8c908302, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 03175cce9fe80ea49b78803d8c908302, type: 3}
+--- !u!4 &1290987992190986314 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3207691473106610668, guid: 03175cce9fe80ea49b78803d8c908302,
+    type: 3}
+  m_PrefabInstance: {fileID: 4426617163855888806}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5448778414304172813
 PrefabInstance:
