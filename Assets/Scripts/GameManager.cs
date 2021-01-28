@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenuGroup;
     public GameObject stageSummaryGroup;
     public GameObject CreditsGroup;
+    public GameObject HUDGroup;
     public Text greatJobText;
     public Text reachedPointText;
     public Text gameOverScoreText;
@@ -135,6 +136,7 @@ public class GameManager : MonoBehaviour
 
         gameOverGroup.SetActive(false);
         mainMenuGroup.SetActive(false);
+        HUDGroup.SetActive(true);
     }
 
     private void RollbackAllLevels()
@@ -316,13 +318,12 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowMainMenu()
     {
         yield return new WaitForSeconds(2);
-
-        GameObject logoImage = mainMenuGroup.transform.Find("LogoImage").gameObject;
-
+        
         playButton.GetComponentInChildren<Text>().text = "NEW GAME";
 
-        logoImage.SetActive(false);
         mainMenuGroup.SetActive(true);
+        HUDGroup.SetActive(false);
+        gameOverGroup.SetActive(false);
     }
 
     private void ChangeBackgroundScrollSpeed(float speed)
@@ -446,12 +447,10 @@ public class GameManager : MonoBehaviour
         isPresentingSectorSummary = false;
         stageSummaryGroup.SetActive(false);
 
-        GameObject logoImage = mainMenuGroup.transform.Find("LogoImage").gameObject;
-
         playButton.GetComponentInChildren<Text>().text = "NEW GAME";
 
-        logoImage.SetActive(false);
         mainMenuGroup.SetActive(true);
+        HUDGroup.SetActive(false);
     }
 
     IEnumerator RestartLastSector()
