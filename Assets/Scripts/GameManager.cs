@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverGroup;
     public GameObject mainMenuGroup;
     public GameObject stageSummaryGroup;
+    public GameObject CreditsGroup;
     public Text greatJobText;
     public Text reachedPointText;
     public Text gameOverScoreText;
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
     ObstaclesRoller or;
 
     public bool isPresentingSectorSummary = false;
+    public bool isPresentingCredits = false;
 
     private int stageLandscapeIndex;
 
@@ -147,6 +149,13 @@ public class GameManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void ShowCredits()
+    {
+        CreditsGroup.SetActive(true);
+
+        isPresentingCredits = true;
     }
 
     private void Rock_OnRockDestroyed(object sender, EventArgs e)
@@ -527,5 +536,7 @@ public class GameManager : MonoBehaviour
         seconds = timerStarted ? (int)((Time.time - startTime)) : 0;
 
         UpdateUI();
+
+        if (Input.anyKeyDown && isPresentingCredits) CreditsGroup.SetActive(false);
     }
 }
