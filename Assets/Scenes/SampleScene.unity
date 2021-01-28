@@ -6343,8 +6343,8 @@ MonoBehaviour:
   startedSectorsCount: 0
   startedSectors: []
   restartLevelDelay: 3
-  averageTime: 60
-  livesCount: 1
+  averageTime: 80
+  livesCount: 3
   godMode: 0
   fillBar: {fileID: 1176133073}
   scoreText: {fileID: 556588926}
@@ -6366,6 +6366,7 @@ MonoBehaviour:
   gameOverScoreText: {fileID: 2130790455}
   yourTimeText: {fileID: 1251240498}
   averageTimeText: {fileID: 494969174}
+  bonusPointsText: {fileID: 1188846320}
   score: 0
   highScore: 0
   seconds: 0
@@ -6373,6 +6374,7 @@ MonoBehaviour:
   jumpedOverRockPoints: 50
   destroyedRockPoints: 100
   destroyedEnemyPoints: 100
+  bonusPointsPerSecond: 100
   smallComboPoints: 400
   bigComboPoints: 700
   comboTime: 3

@@ -61,18 +61,20 @@ public class GameManager : MonoBehaviour
     public Text gameOverScoreText;
     public Text yourTimeText;
     public Text averageTimeText;
+    public Text bonusPointsText;
 
     public int score = 0;
     public int highScore = 0;
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
-    private string[] timerResetingSectors = {"a", "b", "c", "f", "k", "p", "u", "z" };
-    private string winningSector = "c";
+    private string[] timerResetingSectors = {"f", "k", "p", "u", "z" };
+    private string winningSector = "p";
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
     public int destroyedEnemyPoints = 100;
+    public int bonusPointsPerSecond = 100;
 
     public static event EventHandler OnRestartSector;
 
@@ -402,6 +404,7 @@ public class GameManager : MonoBehaviour
         ClearEnemies();
         isPresentingSectorSummary = true;
         string reachedPointTextValue;
+        int bonusPoints;
 
         if (currentSector == winningSector)
         {
@@ -419,6 +422,12 @@ public class GameManager : MonoBehaviour
         yourTimeText.text = TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
         averageTimeText.text = TimeSpan.FromSeconds(averageTime).ToString(@"mm\:ss");
         medalImage.gameObject.SetActive(currentSector == winningSector);
+
+        bonusPoints = (int)(averageTime - seconds) * bonusPointsPerSecond;
+        bonusPointsText.text = bonusPoints > 0 ? $"{bonusPoints}" : "0";
+
+        score += bonusPoints;
+        highScore = score >= highScore ? score : highScore;
 
         stageSummaryGroup.SetActive(true);
     }
