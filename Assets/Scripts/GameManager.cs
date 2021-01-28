@@ -50,9 +50,11 @@ public class GameManager : MonoBehaviour
     public Button quitButton;
     public Image buttonPanel;
     public Image logoImage;
+    public Image medalImage;
     public GameObject gameOverGroup;
     public GameObject mainMenuGroup;
     public GameObject stageSummaryGroup;
+    public Text greatJobText;
     public Text reachedPointText;
     public Text gameOverScoreText;
     public Text yourTimeText;
@@ -63,7 +65,8 @@ public class GameManager : MonoBehaviour
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
-    private string[] timerResetingSectors = {/* "a", "b", "c", */"f", "k", "p", "u", "z" };
+    private string[] timerResetingSectors = {"a", "b", "c", "f", "k", "p", "u", "z" };
+    private string winningSector = "c";
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
@@ -83,6 +86,8 @@ public class GameManager : MonoBehaviour
     public bool isPresentingSectorSummary = false;
 
     private int stageLandscapeIndex;
+
+    GameObject playerGo;
 
     private void Start()
     {
@@ -116,7 +121,7 @@ public class GameManager : MonoBehaviour
         gameAudio.TransitionTo(audioTransitionTime);
         musicManagementScript.SwitchMusic(false);
         ChangeBackgroundScrollSpeed(2.5f);
-        GameObject playerGo = Instantiate(player);
+        playerGo = Instantiate(player);
 
         playerGo.GetComponent<PlayerHit>().godMode = godMode;
 
@@ -291,7 +296,7 @@ public class GameManager : MonoBehaviour
         timerStarted = false;
 
         gameOverGroup.SetActive(true);
-        StartCoroutine(ShowUIGroup());
+        StartCoroutine(ShowMainMenu());
 
         UpdateUI();
         menuAudio.TransitionTo(audioTransitionTime);
@@ -299,7 +304,7 @@ public class GameManager : MonoBehaviour
         return;
     }
 
-    IEnumerator ShowUIGroup()
+    IEnumerator ShowMainMenu()
     {
         yield return new WaitForSeconds(2);
 
@@ -309,7 +314,6 @@ public class GameManager : MonoBehaviour
 
         logoImage.SetActive(false);
         mainMenuGroup.SetActive(true);
-        
     }
 
     private void ChangeBackgroundScrollSpeed(float speed)
@@ -387,22 +391,58 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         ClearEnemies();
         isPresentingSectorSummary = true;
+        string reachedPointTextValue;
 
-        reachedPointText.text = $"Point \"{currentSector.ToUpper()}\" reached!";
+        if (currentSector == winningSector)
+        {
+            
+            reachedPointTextValue = "Last point reached!";
+            greatJobText.text = "YOU WON!";
+        }
+        else
+        {
+            greatJobText.text = "GREAT JOB!";
+            reachedPointTextValue = $"Point \"{currentSector.ToUpper()}\" reached!";
+        }
+
+        reachedPointText.text = reachedPointTextValue;
         yourTimeText.text = TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
         averageTimeText.text = TimeSpan.FromSeconds(averageTime).ToString(@"mm\:ss");
+        medalImage.gameObject.SetActive(currentSector == winningSector);
 
         stageSummaryGroup.SetActive(true);
-        
     }
 
     public void HideSectorSummary()
     {
-        Time.timeScale = 1.0f;
+        if (currentSector != winningSector)
+        {
+            Time.timeScale = 1.0f;
+
+            gameAudio.TransitionTo(audioTransitionTime);
+
+            isPresentingSectorSummary = false;
+            stageSummaryGroup.SetActive(false);
+
+            return;
+        }
+
+        GameOverAfterLastPoint();
+    }
+
+    private void GameOverAfterLastPoint()
+    {
+        Destroy(playerGo);
 
         isPresentingSectorSummary = false;
         stageSummaryGroup.SetActive(false);
-        gameAudio.TransitionTo(audioTransitionTime);
+
+        GameObject logoImage = mainMenuGroup.transform.Find("LogoImage").gameObject;
+
+        playButton.GetComponentInChildren<Text>().text = "NEW GAME";
+
+        logoImage.SetActive(false);
+        mainMenuGroup.SetActive(true);
     }
 
     IEnumerator RestartLastSector()

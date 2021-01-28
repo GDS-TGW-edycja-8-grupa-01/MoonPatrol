@@ -585,6 +585,7 @@ RectTransform:
   - {fileID: 800593886}
   - {fileID: 1079285614}
   - {fileID: 141071827}
+  - {fileID: 1393634846}
   m_Father: {fileID: 1181062091}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1131,7 +1132,7 @@ GameObject:
   - component: {fileID: 355988277}
   - component: {fileID: 355988276}
   m_Layer: 5
-  m_Name: GreateJob
+  m_Name: GreateJobText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2931,7 +2932,7 @@ GameObject:
   - component: {fileID: 1026065999}
   - component: {fileID: 1026065998}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3743,6 +3744,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251240496}
+  m_CullTransparentMesh: 0
+--- !u!1 &1393634845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393634846}
+  - component: {fileID: 1393634848}
+  - component: {fileID: 1393634847}
+  m_Layer: 5
+  m_Name: Medal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1393634846
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393634845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 117643493}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 355}
+  m_SizeDelta: {x: 112, y: 190}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1393634847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393634845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cc67dd0c3615ca94095fb6ed0cafb1fd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1393634848
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393634845}
   m_CullTransparentMesh: 0
 --- !u!4 &1427639508 stripped
 Transform:
@@ -4970,8 +5045,8 @@ MonoBehaviour:
   startedSectors: []
   restartLevelDelay: 3
   averageTime: 60
-  livesCount: 3
-  godMode: 0
+  livesCount: 1
+  godMode: 1
   fillBar: {fileID: 1176133073}
   scoreText: {fileID: 556588926}
   highScoreText: {fileID: 543313744}
@@ -4981,9 +5056,11 @@ MonoBehaviour:
   quitButton: {fileID: 110593590}
   buttonPanel: {fileID: 79776958}
   logoImage: {fileID: 1652313437}
+  medalImage: {fileID: 1393634847}
   gameOverGroup: {fileID: 1490018126}
   mainMenuGroup: {fileID: 627499331}
   stageSummaryGroup: {fileID: 117643492}
+  greatJobText: {fileID: 355988276}
   reachedPointText: {fileID: 1857281609}
   gameOverScoreText: {fileID: 2130790455}
   yourTimeText: {fileID: 1251240498}
