@@ -4482,6 +4482,29 @@ Transform:
   m_Father: {fileID: 1919437876}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1758141447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6656743250028009306, guid: 84319e8407dd8804cbf58d831b7bf899,
+    type: 3}
+  m_PrefabInstance: {fileID: 6656743251403941156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1758141450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758141447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddbdef474efc4440bfc1c5b7a36b6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusic: {fileID: 8300000, guid: e9d28476241218640aee260b49ea36dd, type: 3}
+  gameMusic: {fileID: 8300000, guid: 98fd26adfb196d944bdaa6ed7d0f8d86, type: 3}
+  volume: 0.635
+  output: {fileID: -2925204148929597008, guid: c51648e7287f94343b1d46fd7e56ff1b, type: 2}
+  crossfadeLength: 0
 --- !u!1 &1786931121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4930,9 +4953,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da3ab243a4e0f94e9e19745c3a10ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicManagementScript: {fileID: 1758141450}
   gameAudio: {fileID: 24500006, guid: c51648e7287f94343b1d46fd7e56ff1b, type: 2}
   menuAudio: {fileID: -2432244267754570849, guid: c51648e7287f94343b1d46fd7e56ff1b,
     type: 2}
+  audioTransitionTime: 0.308
   enemyContainer: {fileID: 1159463975}
   background: {fileID: 1978294213}
   ground: {fileID: 1063856575}
@@ -5212,6 +5237,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6656743250028009306, guid: 84319e8407dd8804cbf58d831b7bf899,
+        type: 3}
+      propertyPath: m_Name
+      value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656743250028009380, guid: 84319e8407dd8804cbf58d831b7bf899,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6656743251340826137, guid: 84319e8407dd8804cbf58d831b7bf899,
         type: 3}
       propertyPath: m_Name

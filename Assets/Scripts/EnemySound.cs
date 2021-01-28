@@ -7,7 +7,7 @@ public class EnemySound : MonoBehaviour
     public AudioRoundRobin enemySoundScript;
     private void Awake()
     {
-        enemySoundScript.RoundRobinPlay(0.15f);
+        enemySoundScript.RoundRobinPlay(0.2f);
     }
     void Start()
     {

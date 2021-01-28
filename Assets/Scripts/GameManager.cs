@@ -9,8 +9,11 @@ using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
+    public MusicScript musicManagementScript;
     public AudioMixerSnapshot gameAudio;
     public AudioMixerSnapshot menuAudio;
+    [Range(0.0f, 1.0f)]
+    public float audioTransitionTime = 0.2f;
     public GameObject enemyContainer;
     public GameObject background;
     private GameObject backgroundScroller;
@@ -110,7 +113,8 @@ public class GameManager : MonoBehaviour
         remaingingLivesCount = livesCount;
 
         RollbackAllLevels();
-        gameAudio.TransitionTo(0.2f);
+        gameAudio.TransitionTo(audioTransitionTime);
+        musicManagementScript.SwitchMusic(false);
         ChangeBackgroundScrollSpeed(2.5f);
         GameObject playerGo = Instantiate(player);
 
@@ -290,7 +294,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ShowUIGroup());
 
         UpdateUI();
-        menuAudio.TransitionTo(0.2f);
+        menuAudio.TransitionTo(audioTransitionTime);
+
         return;
     }
 
@@ -378,7 +383,7 @@ public class GameManager : MonoBehaviour
 
     private void DisplaySectorSummary()
     {
-        menuAudio.TransitionTo(0.2f);
+        menuAudio.TransitionTo(audioTransitionTime);
         Time.timeScale = 0.0f;
         ClearEnemies();
         isPresentingSectorSummary = true;
@@ -397,7 +402,7 @@ public class GameManager : MonoBehaviour
 
         isPresentingSectorSummary = false;
         stageSummaryGroup.SetActive(false);
-        gameAudio.TransitionTo(0.2f);
+        gameAudio.TransitionTo(audioTransitionTime);
     }
 
     IEnumerator RestartLastSector()
