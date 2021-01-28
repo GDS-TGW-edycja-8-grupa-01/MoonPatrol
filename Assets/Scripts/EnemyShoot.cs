@@ -22,6 +22,7 @@ public class EnemyShoot : MonoBehaviour
     private EnemyMovement em;
     private bool died = false;
     private bool ready = false;
+    private bool onThePosition;
     Transform gun;
     private GameManager gameManager;
 
@@ -36,7 +37,8 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canShoot && ammo > 0 && ready)
+        
+        if (canShoot && ammo > 0 && ready && OnThePosition())
         {
             missile.direction = em.GetDirection();
             ammo--;
@@ -74,6 +76,15 @@ public class EnemyShoot : MonoBehaviour
         yield return new WaitForSeconds(shootDelay);
 
         canShoot = !died;
+    }
+
+    private bool OnThePosition()
+    {
+        if ((transform.position.x > 0) && em.GetDirection().x > 0)
+        {
+            return false;
+        }
+        else return true;
     }
     
     private void OnCollisionEnter2D(Collision2D collision)

@@ -487,7 +487,7 @@ MonoBehaviour:
   missile: {fileID: 2108565443947810133, guid: 05a464470475e49448ba5cd5c4787b72, type: 3}
   ammo: 2
   shootDelay: 3.01
-  shootOffset: 2.19
+  shootOffset: 3.04
   kamikazeProbability: 0.204
   disengageOffset: 5.21
 --- !u!114 &3809783355067121894
