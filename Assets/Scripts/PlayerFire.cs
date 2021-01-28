@@ -31,7 +31,7 @@ public class PlayerFire : MonoBehaviour
         {
             if (topCanShoot)
             {
-                Instantiate(air2AirMissile, roofGun.transform);
+                Instantiate(air2AirMissile, roofGun.transform.position, Quaternion.identity);
                 playerAudioScript.WeaponShootUp();
                 if (topshotCounter == 0) StartCoroutine(TopShootCounterClear());
                 topshotCounter++;
