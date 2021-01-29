@@ -289,10 +289,10 @@ public class GameManager : MonoBehaviour
         ChangeBackgroundScrollSpeed(2.5f);
         Vector3 respawn = GetRespawn();
         
-        GameObject go = Instantiate(player, respawn, Quaternion.identity);
-        
-        go.GetComponent<PlayerHit>().WheelsSetActive(true);
-        go.transform.Find("Explosion").gameObject.GetComponent<Animator>().enabled = false;
+        playerGo = Instantiate(player, respawn, Quaternion.identity);
+
+        playerGo.GetComponent<PlayerHit>().WheelsSetActive(true);
+        playerGo.transform.Find("Explosion").gameObject.GetComponent<Animator>().enabled = false;
     }
 
     private Vector3 GetRespawn()
