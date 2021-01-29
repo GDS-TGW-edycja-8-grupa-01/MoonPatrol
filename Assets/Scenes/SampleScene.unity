@@ -960,7 +960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24144a2e43e254943a15d5df43092b26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55fab2029125e154294c2c2189fe4a1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6344,7 +6344,7 @@ MonoBehaviour:
   startedSectors: []
   restartLevelDelay: 3
   averageTime: 80
-  livesCount: 3
+  livesCount: 4
   godMode: 0
   fillBar: {fileID: 1176133073}
   scoreText: {fileID: 556588926}
