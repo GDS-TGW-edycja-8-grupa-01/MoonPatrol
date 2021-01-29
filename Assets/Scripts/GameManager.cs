@@ -472,6 +472,9 @@ public class GameManager : MonoBehaviour
         GameObject earthBase = GameObject.Find("Earthbase");
         earthBase.transform.position = new Vector2(-3.76f, -2);
 
+        OnRestartSector?.Invoke(this, EventArgs.Empty);
+        ClearEnemies();
+
         return;
     }
 
