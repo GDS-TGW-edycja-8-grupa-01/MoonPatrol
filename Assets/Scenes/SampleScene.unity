@@ -6345,7 +6345,7 @@ MonoBehaviour:
   restartLevelDelay: 3
   averageTime: 80
   livesCount: 4
-  godMode: 1
+  godMode: 0
   fillBar: {fileID: 1176133073}
   scoreText: {fileID: 556588926}
   highScoreText: {fileID: 543313744}

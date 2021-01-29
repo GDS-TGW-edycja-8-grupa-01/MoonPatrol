@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
     private GameObject[] wheels;
     private bool earlyJumpQueued = false;
     private float smoothSpeed = 0.0f;
+    private bool inputDelayed = false;
+    private float accumulator = 0.0f;
 
 
     private GameManager gameManager;
@@ -112,10 +114,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (gameManager.isPresentingSectorSummary)
         {
-            if (Input.anyKeyDown)
+            if (accumulator == 0.0f)
+            {
+                StartCoroutine(DelayInput());
+                inputDelayed = true;
+                accumulator++;
+            }
+            if (Input.anyKeyDown && !inputDelayed)
             {
                 gameManager.HideSectorSummary();
+                accumulator = 0.0f;
             }
+            
         }
 
         //Input spięty w if else if ... else, tak by odwzorować poruszanie się w oryginale
@@ -271,6 +281,13 @@ public class PlayerMovement : MonoBehaviour
         bool returnValue = (hit.distance <= earlyJumpDistance) && !IsGrounded() && isFalling;
         Debug.Log("I AM THIS HIGH : " + hit.distance.ToString() + " and early jump is : " + returnValue.ToString());
         return returnValue;
+    }
+
+    private IEnumerator DelayInput()
+    {
+        yield return new WaitForSecondsRealtime(2.0f);
+        inputDelayed = false;
+
     }
 
     //GetComponent i GetChild w pętli Update - fpsy spadają
