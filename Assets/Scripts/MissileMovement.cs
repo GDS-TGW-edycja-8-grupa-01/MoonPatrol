@@ -54,12 +54,12 @@ public class MissileMovement : MonoBehaviour
         if (animatorExists)
         {
             float delay = a.GetCurrentAnimatorClipInfo(0).Length;
-            explosion.transform.SetParent(transform.parent.transform.parent);
+            explosion.transform.SetParent(transform.parent);
             a.enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
             a.Play("Base Layer.Explosion");
             rb.velocity = Vector2.zero;
-            audioScript.RoundRobinPlay(0.3f);
+            audioScript.RoundRobinPlay(0.25f);
             Destroy(this.gameObject);
             Destroy(explosion, delay);
             animatorExists = false;
