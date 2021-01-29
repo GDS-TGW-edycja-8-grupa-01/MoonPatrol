@@ -68,8 +68,11 @@ public class GameManager : MonoBehaviour
     public int seconds = 0;
     public bool timerStarted = false;
     private float startTime;
-    private string[] timerResetingSectors = {"f", "k", "p", "u", "z" };
+    private string[] timerResetingSectors = { "f", "k", "p", "u", "z" };
     private string winningSector = "p";
+
+    //private string[] timerResetingSectors = { "b", "k", "p", "u", "z" };
+    //private string winningSector = "b";
 
     public int jumpedOverRockPoints = 50;
     public int destroyedRockPoints = 100;
@@ -139,6 +142,9 @@ public class GameManager : MonoBehaviour
         gameOverGroup.SetActive(false);
         mainMenuGroup.SetActive(false);
         HUDGroup.SetActive(true);
+
+        GameObject earthBase = GameObject.Find("Earthbase");
+        earthBase.transform.position = new Vector2(-3.76f, -2);
     }
 
     private void RollbackAllLevels()
@@ -321,7 +327,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         
-        playButton.GetComponentInChildren<Text>().text = "NEW GAME";
+        playButton.GetComponentInChildren<Text>().text = "New Game";
 
         mainMenuGroup.SetActive(true);
         HUDGroup.SetActive(false);
@@ -456,10 +462,15 @@ public class GameManager : MonoBehaviour
         isPresentingSectorSummary = false;
         stageSummaryGroup.SetActive(false);
 
-        playButton.GetComponentInChildren<Text>().text = "NEW GAME";
+        playButton.GetComponentInChildren<Text>().text = "New Game";
 
         mainMenuGroup.SetActive(true);
         HUDGroup.SetActive(false);
+
+        GameObject earthBase = GameObject.Find("Earthbase");
+        earthBase.transform.position = new Vector2(-3.76f, -2);
+
+        return;
     }
 
     IEnumerator RestartLastSector()
