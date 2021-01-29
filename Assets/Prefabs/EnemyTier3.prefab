@@ -393,7 +393,7 @@ MonoBehaviour:
     type: 3}
   ammo: 1
   shootDelay: 1.58
-  shootOffset: 3.6
+  shootOffset: 2.04
   disengageOffset: 5.02
 --- !u!68 &6720759045593095592
 EdgeCollider2D:
