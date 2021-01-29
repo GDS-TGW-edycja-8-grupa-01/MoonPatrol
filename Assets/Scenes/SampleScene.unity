@@ -319,7 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -292}
+  m_AnchoredPosition: {x: 0, y: -334}
   m_SizeDelta: {x: 452.55273, y: 180.84302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26481238
@@ -1560,7 +1560,7 @@ PrefabInstance:
     - target: {fileID: 7199147766777367061, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.422
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 7199147766777367066, guid: 63d526a6f20bb9a489237d19c301bd1a,
         type: 3}
@@ -2349,7 +2349,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Krzysztof Obsawski
+  m_Text: Krzysztof Obstawski
 --- !u!222 &608554017
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3919,7 +3919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1079285614
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5341,7 +5341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 226}
+  m_AnchoredPosition: {x: 0, y: 275.7}
   m_SizeDelta: {x: 834, y: 194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652313437
@@ -5654,7 +5654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -320}
+  m_AnchoredPosition: {x: 0, y: -358}
   m_SizeDelta: {x: 452.55273, y: 180.84302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836613442
@@ -6367,6 +6367,7 @@ MonoBehaviour:
   yourTimeText: {fileID: 1251240498}
   averageTimeText: {fileID: 494969174}
   bonusPointsText: {fileID: 1188846320}
+  totalScoreText: {fileID: 1079285615}
   score: 0
   highScore: 0
   seconds: 0

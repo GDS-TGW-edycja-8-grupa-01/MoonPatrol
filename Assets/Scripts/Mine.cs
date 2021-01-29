@@ -6,7 +6,7 @@ using System;
 
 public class Mine : MonoBehaviour
 {
-    public AudioRoundRobin mineAudioScript;
+    //public AudioRoundRobin mineAudioScript;
 
     private Animator a;
     private bool animatorExists = false;
@@ -23,7 +23,7 @@ public class Mine : MonoBehaviour
 
         if (animatorExists) a.enabled = false;
 
-        explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        //explosion.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
         GameManager.OnRestartSector += GameManager_OnRestartSector;
     }
@@ -41,7 +41,7 @@ public class Mine : MonoBehaviour
             delay = a.GetCurrentAnimatorClipInfo(0).Length;
 
             a.enabled = true;
-            a.Play("Base Layer.Explosion");
+            a.Play("Base Layer.GroundExplosion");
 
             //mineAudioScript.PlayFromArray(0, 0.5f, 0.3f);
 

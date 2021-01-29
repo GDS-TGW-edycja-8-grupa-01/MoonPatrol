@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     public Text yourTimeText;
     public Text averageTimeText;
     public Text bonusPointsText;
+    public Text totalScoreText;
 
     public int score = 0;
     public int highScore = 0;
@@ -432,8 +433,9 @@ public class GameManager : MonoBehaviour
         bonusPoints = (int)(averageTime - seconds) * bonusPointsPerSecond;
         bonusPointsText.text = bonusPoints > 0 ? $"{bonusPoints}" : "0";
 
-        score += bonusPoints;
+        score += bonusPoints > 0 ? bonusPoints : 0;
         highScore = score >= highScore ? score : highScore;
+        totalScoreText.text = score.ToString();
 
         stageSummaryGroup.SetActive(true);
     }
