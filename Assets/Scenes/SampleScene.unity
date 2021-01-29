@@ -319,7 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -292}
+  m_AnchoredPosition: {x: 0, y: -334}
   m_SizeDelta: {x: 452.55273, y: 180.84302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26481238
@@ -2349,7 +2349,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Krzysztof Obsawski
+  m_Text: Krzysztof Obstawski
 --- !u!222 &608554017
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3919,7 +3919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1079285614
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5341,7 +5341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 226}
+  m_AnchoredPosition: {x: 0, y: 275.7}
   m_SizeDelta: {x: 834, y: 194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652313437
@@ -5654,7 +5654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -320}
+  m_AnchoredPosition: {x: 0, y: -358}
   m_SizeDelta: {x: 452.55273, y: 180.84302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836613442
@@ -6367,6 +6367,7 @@ MonoBehaviour:
   yourTimeText: {fileID: 1251240498}
   averageTimeText: {fileID: 494969174}
   bonusPointsText: {fileID: 1188846320}
+  totalScoreText: {fileID: 1079285615}
   score: 0
   highScore: 0
   seconds: 0
@@ -6489,7 +6490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 1763107183315215154, guid: d2453976fb0fa1d4e87da63f88287742, type: 3}
-  - {fileID: 1763107183315215154, guid: 0e31c41baccab5f47bbd72104a62e916, type: 3}
+  - {fileID: 1763107183315215154, guid: 82ad63811c677df44bdcbade8782dea5, type: 3}
   - {fileID: 1763107183315215154, guid: 8ad5cafa73a310e40b7a34aa28bfc949, type: 3}
   - {fileID: 1763107183315215154, guid: fb204037971f6b14490bd09d883add01, type: 3}
   - {fileID: 1763107183315215154, guid: 7ece4c76cef464d4eaa9d51c6f076b7c, type: 3}
